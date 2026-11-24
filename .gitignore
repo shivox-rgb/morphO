@@ -12,8 +12,6 @@ __pycache__/
 /img/*
 !/img/readme/
 /img/readme/*
-!/img/readme/logo.png
-!/img/readme/logo_light.png
 !/img/readme/*.webp
 /books/
 /content/

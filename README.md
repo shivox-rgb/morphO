@@ -1,64 +1,67 @@
+<h1 align="center">morphO</h1>
+
 <p align="center">
-  <a href="https://papermorph.diamonddoge.org/">
-    <img src="img/readme/bookshelf.webp" alt="The morphO bookshelf: lessons, picture books, documentaries and interactive pages on a birch shelf" width="420">
-  </a>
+  <strong>An agent skill that turns a textbook, a story or an idea into a narrated, animated web book,<br>in one of 19 ready-made styles, from frosted glass to pixel art, crayon and anime.</strong>
 </p>
 
 <p align="center">
-  <strong>An agent skill that turns textbooks into narrated, interactive web lessons,<br>stories into paper-puppet films, and books into documentaries, upright shorts and pages you explore.</strong>
+  <img src="img/readme/styles.webp" alt="A grid of the 19 morphO styles, each with an original character: Glass, Glass Night, Enchanted, Paper Collage, Kawaii Sticker, Watercolor Storybook, Flat Cartoon, Pixel Art, Crayon Sketch, Vintage Cartoon, Soft Pastel, Mascot Pop, TV Toon, Geo Flat, Glossy Sticker, Chibi Anime, Anime Pop, Anime Cel and Soft Anime" width="100%">
 </p>
 
 <p align="center">
-  <a href="https://papermorph.diamonddoge.org/">See the example books (upstream) →</a>
+  <a href=".claude/skills/morpho/SKILL.md">Read the Skill</a>
   ·
-  <a href=".claude/skills/morpho/SKILL.md">Read the Skill →</a>
+  <a href=".claude/skills/morpho/assets/styles/samples/">Browse the style samples</a>
+  ·
+  <a href="#get-started">Get started</a>
 </p>
 
-> **morphO is a fork of [Papermorph](https://github.com/DozenTwelve/Papermorph)** by DozenTwelve, used under the MIT License. It is not affiliated with or endorsed by the Papermorph authors. The example books and the roadmap below are theirs.
+You talk to your coding agent; morphO does the rest. It plans the book with you, writes and voices the narration, animates every moment to the spoken words, checks its own frames, and hands you a folder of static web pages: no server, no database, no account. Host it anywhere, or export a chapter as an MP4.
 
-Everything is a static web page: no server, no database, no account. A book is a folder you can host anywhere.
+## What it makes
 
-## On the shelf
+| From | You get |
+|---|---|
+| A textbook PDF | **Lessons**: formulas, diagrams and scenes that change step by step as the voice explains, with quick checks and practice that are graded |
+| A story, a joke or a fairy tale | **Picture books**: animated characters in front of drawn or painted sets, with voices, subtitles, sound and music; for young children, a listen-and-find game |
+| A book or an argument | **Documentaries** built from public-domain pictures, and **upright shorts** for a phone feed |
+| Maps and numbers | **Scroll stories** whose picture changes as you read, and **maps you explore** year by year |
 
-### Lessons, from a textbook PDF
+## Pick a look
 
-Formulas, diagrams and scenes change step by step as the narration explains, with quick checks and chapter practice that grade the maths, not the string.
-[Elementary Algebra](https://papermorph.diamonddoge.org/elementary-algebra/) (68 chapters) · [Linear Algebra](https://papermorph.diamonddoge.org/linear-algebra/) (40, planes you can drag in 3D) · [Elementary Mathematics](https://papermorph.diamonddoge.org/math-notebook/) (23) · [Elementary Physics](https://papermorph.diamonddoge.org/science/) (9)
+Every book starts with a short conversation, and one of its first questions is the look. morphO offers two or three styles that fit your readers and your subject (a toddler's picture book and a history course for teenagers get different suggestions), shows you the samples, and applies the one you pick. A style is two things that belong together:
+
+- **the player's look**: colours, cards, buttons, the progress bar and captions;
+- **a character style** the cast is drawn in: soft gloss, neon line, paper cut-out, watercolour wash, crayon, pixel art, rubber hose, chibi, cel-shaded anime and more.
+
+The same lesson in four styles:
 
 <p align="center">
-  <a href="https://papermorph.diamonddoge.org/linear-algebra/ch12/"><img src="img/readme/linear-algebra.webp" alt="Linear Algebra: three equations become three planes in 3D, drawn in one by one" width="49%"></a>
-  <a href="https://papermorph.diamonddoge.org/science/ch12/"><img src="img/readme/physics.webp" alt="Elementary Physics: one fixed pulley changes the direction of the pull; two pulleys halve the force" width="49%"></a>
+  <img src="img/readme/lesson-styles.webp" alt="The same quiz in four styles: Glass (lavender, frosted), Kawaii Sticker (pastel, thick outlines), Vintage Cartoon (sepia, ink) and Anime Cel (blue sky, charcoal card)" width="100%">
 </p>
 
-### Picture books, from a story, a joke or a fairy tale
+| Style | Mood | Good for |
+|---|---|---|
+| Glass · Glass Night | frosted cards in lavender light, or deep indigo with neon | maths, science, tech |
+| Enchanted | a forest at golden hour, fireflies, gold | fairy tales, adventure, nature |
+| Paper Collage | scrapbook paper, gingham, polka dots | young children, crafts |
+| Kawaii Sticker | pastel, chibi, thick outlines | young readers, early maths |
+| Watercolor Storybook | soft washes on cream paper | picture books, history as a story |
+| Flat Cartoon | bright flat colour, navy outlines | school-age explainers |
+| Pixel Art | a sunny retro game | coding, games, puzzles |
+| Crayon Sketch | a child's drawing on white paper | young children, art |
+| Vintage Cartoon | a sepia rubber-hose reel | history, fables, jokes |
+| Soft Pastel | muted sage and terracotta | early years, wellbeing |
+| Mascot Pop | thick-ink mascots, flat colour | food, kids' science, brands |
+| TV Toon | a wonky modern TV cartoon | comedy, character stories |
+| Geo Flat | geometric flat people | social studies, training |
+| Glossy Sticker | shiny die-cut stickers | space, food, shorts |
+| Chibi Anime | big heads on a sunny beach | adventure, travel |
+| Anime Pop | vivid hair, glossy eyes, doodles | teen readers, languages |
+| Anime Cel | TV-anime cel shading | history, biography, drama |
+| Soft Anime | fine line, soft shading | literature, slice of life |
 
-Paper puppets in front of sets drawn in code or painted by an image model, with acted voices, subtitles, sound effects, music and camera work. For children who can't read yet, the film stops for a game: a character asks for one thing at a time, the child touches it in the picture, and nothing is ever called wrong. A scanned picture book can bring its own art: the figures, sets and hand lettering are cut from the pages and moved as puppets.
-[The Little Horse Crosses the River](https://papermorph.diamonddoge.org/little-horse/) (小马过河) · [Little Red Riding Hood](https://papermorph.diamonddoge.org/little-red-riding-hood/) · [Millions of Cats](https://papermorph.diamonddoge.org/millions-of-cats/) (Wanda Gág, 1928, cut from the book's own pages) · [Joke Collection](https://papermorph.diamonddoge.org/joke-collection/) (7 episodes)
-
-<p align="center">
-  <a href="https://papermorph.diamonddoge.org/little-horse/ch01/"><img src="img/readme/little-horse.webp" alt="The Little Horse Crosses the River: by the river the foal asks for the bird; a tap on the ox says 'ox', a tap on the bird finds it" width="49%"></a>
-  <a href="https://papermorph.diamonddoge.org/little-red-riding-hood/ch01/"><img src="img/readme/red-riding-hood.webp" alt="Little Red Riding Hood: the wolf in Grandma's cap and glasses, closer with every question, then the lunge" width="49%"></a>
-</p>
-
-### Documentaries and upright shorts, from a book or an idea
-
-Public-domain engravings, paintings, maps and charts, moved in step with the voice, with music. A documentary can be recut as a series of upright shorts for a phone feed.
-[Madness and Civilization](https://papermorph.diamonddoge.org/madness/) (10 minutes, and 4 shorts) · [The Pandemic](https://papermorph.diamonddoge.org/pandemic/) (7 minutes, 6 shorts and a scroll story)
-
-<p align="center">
-  <a href="https://papermorph.diamonddoge.org/pandemic/ch01/"><img src="img/readme/pandemic.webp" alt="The Pandemic: a world map and charts of cases and deaths as the Delta wave rises" width="73%"></a>
-  <a href="https://papermorph.diamonddoge.org/pandemic-shorts/ch01/"><img src="img/readme/pandemic-short.webp" alt="The Pandemic as a short: Wuhan closes at 10:00 while a clock and a counter run" width="23%"></a>
-</p>
-
-### Pages you play
-
-A film can stop and hand the reader the next move, a map can be walked a year at a time, and a story can unfold as the reader scrolls. The Skill makes all three: explorable maps and scroll stories have their own starting kits.
-[Shooting an Elephant](https://papermorph.diamonddoge.org/shooting-an-elephant/) (Orwell's essay; you hold the rifle) · [Explorable maps](https://papermorph.diamonddoge.org/maps/): [Time of the Magicians](https://papermorph.diamonddoge.org/time-of-the-magicians/) (Europe 1919–1929, four philosophers on the map) and [The Map Redrawn](https://papermorph.diamonddoge.org/meiji/) (Japan 1868–1878) · [The Pandemic as a scroll story](https://papermorph.diamonddoge.org/pandemic-scroll/)
-
-<p align="center">
-  <a href="https://papermorph.diamonddoge.org/shooting-an-elephant/"><img src="img/readme/elephant.webp" alt="Shooting an Elephant: where to aim, then the view through the rifle sight, click to fire" width="49%"></a>
-  <a href="https://papermorph.diamonddoge.org/time-of-the-magicians/"><img src="img/readme/magicians.webp" alt="Time of the Magicians: a map of Europe in 1919, the four philosophers walking their routes" width="49%"></a>
-</p>
+Prefer something else? The last option is always a palette made from your own book, and a new style is one CSS file, a catalogue entry and a sample scene ([how](.claude/skills/morpho/references/core/style.md#style-presets)).
 
 ## Get started
 
@@ -68,49 +71,41 @@ Install the Skill in your project, for Claude Code or OpenCode:
 npx skills add shivox-rgb/morphO --skill morpho --agent claude-code   # or --agent opencode
 ```
 
-Or copy `.claude/skills/morpho/` from a clone of this repository into your project's `.claude/skills/` (or `~/.claude/skills/` to have it everywhere). The player engine still comes from Papermorph's releases unless you point `engine.py` at this repository: `engine.py site --from shivox-rgb/morphO@main`.
+Then type `/morpho`. It finds the PDF in your project (or asks for your story), tells you what kind of book it is, suggests a chapter to try first, and offers a recommended option at every step, so you can click through without typing. Your choices are saved in `style.json`, and every later chapter is made to match.
 
-Then type `/morpho`. It finds the PDF in your project (or asks for your story), tells you what kind of book it is, suggests a chapter to try first and how much animation it needs, and offers a recommended option at every step. Your choices are saved in `style.json`, so every later chapter is made to the same style.
+You need [uv](https://docs.astral.sh/uv/), ffmpeg and Playwright's browsers (`uv run --with playwright playwright install chromium firefox`). Narration is free (Edge TTS online, or Kokoro on your own machine). A few extras are optional and paid, each with its own API key: acted voices from ElevenLabs, and pictures painted by an image model through OpenRouter or OpenAI.
 
-In OpenCode, a clone of this repository already has the command (`.opencode/commands/morpho.md`) and the Skill; with a global install, copy that file to `~/.config/opencode/commands/`.
+To use the player engine from this repository rather than the default release: `python3 .claude/skills/morpho/scripts/engine.py site --from shivox-rgb/morphO@main`.
 
-You need [uv](https://docs.astral.sh/uv/), ffmpeg, and Playwright's browsers (`uv run --with playwright playwright install chromium firefox`). Narration uses Edge TTS (online) or Kokoro (local), free. A few steps are paid, optional and need an API key: acted ElevenLabs voices for picture books and documentaries, clips made from a still ([OpenRouter](https://openrouter.ai/)), and painted sets for picture books (OpenRouter or OpenAI). The newest picture books cost under $0.45 each in voices.
+## Styles from the command line
+
+```bash
+python3 .claude/skills/morpho/scripts/style.py list --tier picture          # styles that suit a picture book
+python3 .claude/skills/morpho/scripts/style.py show glass-night             # mood, character look, sample
+python3 .claude/skills/morpho/scripts/style.py apply site/my-book kawaii    # restyle a book; run again to switch
+python3 .claude/skills/morpho/scripts/style.py remove site/my-book          # back to the book's own look
+```
 
 ## How it works
 
-A book is planned before it is drawn: chapters or scenes, then a script, then a storyboard. The narration is voiced and every word gets a time, and the picture is animated to those times. The model then watches its own output (contact sheets, overlap and blank-frame checks, end-to-end tests, a director's review against approved books) and fixes what it sees. Large chapters are made by a team of subagents, each step on the model you choose ([core/team.md](.claude/skills/morpho/references/core/team.md)). The books on the shelf were made with Opus 5.5, GPT-6.1-Sol and Sonnet 5.5; an illustrated physics chapter costs about $10–18 of model usage.
+A book is planned before it is drawn: chapters or scenes, then a script, then a storyboard. The narration is voiced and every word gets a time, so the picture moves exactly when the words are said. The agent then watches its own output (contact sheets, overlap and blank-frame checks, end-to-end tests, a director's review) and fixes what it sees. Large chapters are made by a team of subagents, each step on the model you choose.
 
-Every book plays in the same player: pause anywhere, step back and forth, speed, captions, keyboard shortcuts, and progress saved per book, with the interface in English, Russian, Chinese, Japanese or Arabic (right to left). The player lives in [`engine/`](engine) and every book keeps its own copy, so a book never breaks when the engine changes; `scripts/engine.py site` updates them from the latest release (`--from you/your-fork@main` from your own).
+Every book plays in the same player: pause anywhere, step back and forth, change speed, turn on captions, use keyboard shortcuts, and pick up where you left off, with the interface in English, Russian, Chinese, Japanese or Arabic. Each book keeps its own copy of the player, so a book never breaks when the player changes. Any chapter renders to a 1080p MP4 with subtitles, and a course can be packaged for an LMS as SCORM.
 
-Any chapter or episode also renders to a 1080p MP4 with an `.srt`, frame by frame from the lesson clock (`scripts/export.py`), and a book can be packaged for an LMS as SCORM (`scripts/scorm.py`, [courses.md](.claude/skills/morpho/references/lessons/courses.md)).
-
-## Roadmap
-
-The first roadmap is done: maths books, science books, picture books, a model of your choice for every step, documentaries, and upright shorts. So are picture books for children who can't read yet: layered paper sets, four-legged puppets and listen-and-find games, in *The Little Horse* and the second *Little Red Riding Hood*; and a picture book cut from a scanned book's own pages, *Millions of Cats*. A rifle, explorable maps and a scroll story came along the way, and the Skill now makes the maps and scroll stories too. Next:
-
-- **More from a PDF of pictures.** *Millions of Cats* cut its figures into puppets; next, tap to hear names over the painting and layers that drift in parallax. For your own books or a publisher's; our own examples use public-domain books or pictures we draw.
-- **Lessons with their own examples.** The textbook sets what is taught, in what order and how hard; the Skill writes new worked examples and exercises, with answers computed in code, so nothing is copied from the book.
-- **One source, every shape.** A single Wikipedia article made into a documentary, shorts, an interactive page and a scroll story, side by side.
-- **Elementary Physics, remade** with what the newer books can do.
-
-## FAQ
-
-**How is this different from Claude Motion?** [Claude Motion](https://claude.com/resources/articles/dashboards-and-motion) makes animated explainers. morphO makes whole books: many chapters in one consistent style, quizzes that are graded, progress that is saved, and a static site you own and can host anywhere.
-
-**Can I make a book from any PDF?** Yes, for your own use. The finished book contains new explanations and drawings, not the PDF's pages, but publishing a book based on someone else's textbook is your call to check.
-
-## Contributing
-
-Fixes to the Skill and the player are welcome. Please don't open pull requests that add a copyrighted book, its PDF, or lessons made from one. Agents and people changing the repository: start with [AGENTS.md](AGENTS.md).
-
-To try the examples locally:
+## Try it locally
 
 ```bash
 git clone --depth 1 https://github.com/shivox-rgb/morphO.git
 cd morphO
-python3 .claude/skills/morpho/scripts/serve.py 8765 site   # then open http://localhost:8765/
+python3 .claude/skills/morpho/scripts/serve.py 8765 site   # example books, at http://localhost:8765/
 ```
+
+Open `.claude/skills/morpho/assets/styles/samples/index.html` in a browser to see every style with its sample scene.
+
+## Contributing
+
+Fixes and new styles are welcome. Please don't add a copyrighted book, its PDF, or lessons made from one. Agents and people changing the repository: start with [AGENTS.md](AGENTS.md), and run its checks before you push.
 
 ## License
 
-[MIT](LICENSE), copyright the Papermorph authors; morphO is a fork of [Papermorph](https://github.com/DozenTwelve/Papermorph). The bundled MathJax (`engine/vendor/mathjax`) is under the Apache License 2.0. The MIT licence covers the code. Pictures, recordings and data under `site/` keep their own licences, listed beside them (for example `site/pandemic/img/SOURCES.md`); toned copies of CC BY-SA pictures stay CC BY-SA.
+[MIT](LICENSE). morphO began as a fork of an MIT-licensed project whose authors' copyright notice is kept in [LICENSE](LICENSE); the example books under `site/` and the player engine come from that original work. The bundled MathJax (`engine/vendor/mathjax`) is under the Apache License 2.0. Pictures, recordings and data under `site/` keep their own licences, listed beside them; a few are non-commercial (CC BY-NC-SA), so they can be shared but not sold.
