@@ -31,7 +31,7 @@ a { color: inherit; }
 .banner a { position: relative; display: block; width: 100%; transition: transform .15s; }
 .banner a:hover { transform: translateY(-2px); }
 .banner svg { display: block; width: 100%; height: auto; }
-/* The banner links to /work/; a cream paper tag, cut from the same paper as the banner's white letters, hangs
+/* The banner links to the morphO repository on GitHub; a cream paper tag, cut from the same paper as the banner's white letters, hangs
    under its lower-right corner on a punched hole and swings a little on hover. */
 .work-sign { position: absolute; right: 3%; top: calc(100% - .2cqw); padding: .55em .9em .5em 1.5em; background: #f3efe3 radial-gradient(circle at .7em 50%, #1c1f1d .22em, #0000 .25em); color: #1c1f1d; font: 600 clamp(11px, 1.6cqw, 16px)/1 Oswald, var(--ui); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; clip-path: polygon(.6em 0, 100% 0, 100% 100%, .6em 100%, 0 50%); transform: rotate(-3deg); transform-origin: 85% -40%; filter: drop-shadow(2px 4px 3px #0005); transition: transform .3s cubic-bezier(.3, 1.6, .5, 1); }
 .banner a:hover .work-sign, .banner a:focus-visible .work-sign { transform: rotate(2deg); }

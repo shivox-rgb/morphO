@@ -62,7 +62,13 @@ A film can stop and hand the reader the next move, a map can be walked a year at
 
 ## Get started
 
-Install the Skill in your project, for Claude Code or OpenCode, by copying `.claude/skills/morpho/` from this repository into your project's `.claude/skills/` (or `~/.claude/skills/` to have it everywhere).
+Install the Skill in your project, for Claude Code or OpenCode:
+
+```bash
+npx skills add shivox-rgb/morphO --skill morpho --agent claude-code   # or --agent opencode
+```
+
+Or copy `.claude/skills/morpho/` from a clone of this repository into your project's `.claude/skills/` (or `~/.claude/skills/` to have it everywhere). The player engine still comes from Papermorph's releases unless you point `engine.py` at this repository: `engine.py site --from shivox-rgb/morphO@main`.
 
 Then type `/morpho`. It finds the PDF in your project (or asks for your story), tells you what kind of book it is, suggests a chapter to try first and how much animation it needs, and offers a recommended option at every step. Your choices are saved in `style.json`, so every later chapter is made to the same style.
 
@@ -100,6 +106,7 @@ Fixes to the Skill and the player are welcome. Please don't open pull requests t
 To try the examples locally:
 
 ```bash
+git clone --depth 1 https://github.com/shivox-rgb/morphO.git
 cd morphO
 python3 .claude/skills/morpho/scripts/serve.py 8765 site   # then open http://localhost:8765/
 ```
