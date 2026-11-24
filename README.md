@@ -32,7 +32,7 @@ You talk to your coding agent; morphO does the rest. It plans the book with you,
 Every book starts with a short conversation, and one of its first questions is the look. morphO offers two or three styles that fit your readers and your subject (a toddler's picture book and a history course for teenagers get different suggestions), shows you the samples, and applies the one you pick. A style is two things that belong together:
 
 - **the player's look**: colours, cards, buttons, the progress bar and captions;
-- **a character style** the cast is drawn in: soft gloss, neon line, paper cut-out, watercolour wash, crayon, pixel art, rubber hose, chibi, cel-shaded anime, survival-short stick figures and more.
+- **a character style** the cast is drawn in: soft gloss, neon line, paper cut-out, watercolour wash, crayon, pixel art, rubber hose, chibi, cel-shaded anime, lanky survival-story figures and more.
 
 The same lesson in four styles:
 
@@ -60,7 +60,7 @@ The same lesson in four styles:
 | Anime Pop | vivid hair, glossy eyes, doodles | teen readers, languages |
 | Anime Cel | TV-anime cel shading | history, biography, drama |
 | Soft Anime | fine line, soft shading | literature, slice of life |
-| Survival Short | an upright survival story: stick figures, an overcast farm, big outlined captions | survival stories, safety, shorts |
+| Survival Short | a survival story: lanky outlined people, warm light, big outlined captions | survival stories, safety, shorts |
 
 Prefer something else? The last option is always a palette made from your own book, and a new style is one CSS file, a catalogue entry and a sample scene ([how](.claude/skills/morpho/references/core/style.md#style-presets)).
 

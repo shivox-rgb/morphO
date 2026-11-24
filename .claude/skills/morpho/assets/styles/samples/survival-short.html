@@ -4,175 +4,253 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Survival Short: character sample</title>
-<!-- A character sample for the Survival Short style (../survival.css): an upright short in two shots that loop. First an
-     aerial title card over a farm in morning haze ("THE BLACKOUT / DAY 1" with a ticking clock pill), then a side shot
-     of an original farmer (thin stick limbs, a dot face, a cap) running for the shed with his dog, under a big white
-     caption. Flat muted colour, soft shadows, a faint film haze. Open it directly in a browser. -->
+<!-- A character sample for the Survival Short style (../survival.css), in two shots that cross-fade: a farmyard (a red
+     barn, a green tractor, smoke on the horizon) where an original farmer stops with his dog, then his kitchen, where he
+     fills a water jug while a countdown runs. The farmer is drawn as the style draws people: tall and lanky, about seven
+     heads high, a small round head under a cap with one dot eye, a rust jacket to the hips over a green collar, black
+     gloves, light jeans and brown boots, all with a thin dark outline and a soft light halo; the dog is a black and white
+     collie. Warm side light, sun shafts, a faint haze, big white outlined captions. Open it directly in a browser. -->
 <style>
   html, body { margin: 0; height: 100%; background: #1c2018; color: #e8e4d2; font: 14px/1.4 "Bahnschrift", "Segoe UI", sans-serif; display: grid; place-items: center; }
-  main { height: min(96vh, 170vw); aspect-ratio: 9 / 16; }
-  svg { display: block; width: 100%; height: 100%; border-radius: 12px; box-shadow: 0 0 0 3px #11140e, 0 30px 70px rgba(0, 0, 0, .5); }
-  p { margin: 10px 2px 0; color: #9a9a86; font-size: 12px; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 0 0 3px #11140e, 0 30px 70px rgba(0, 0, 0, .5); }
+  p { margin: 12px 4px 0; color: #9a9a86; }
   .a { transform-box: fill-box; }
-  .shotA { animation: shotA 12s infinite; } .shotB { animation: shotB 12s infinite; }
+  .shotA { animation: shotA 14s infinite; } .shotB { animation: shotB 14s infinite; }
   @keyframes shotA { 0%, 46% { opacity: 1; } 50%, 96% { opacity: 0; } 100% { opacity: 1; } }
   @keyframes shotB { 0%, 46% { opacity: 0; } 50%, 96% { opacity: 1; } 100% { opacity: 0; } }
-  .push { animation: push 12s linear infinite; transform-origin: 50% 60%; }
-  @keyframes push { 0% { transform: scale(1); } 48% { transform: scale(1.08); } 100% { transform: scale(1.08); } }
-  .smoke { animation: smoke 3s ease-in-out infinite alternate; transform-origin: 50% 100%; }
-  @keyframes smoke { to { transform: translate(8px, -10px) scale(1.1); opacity: .6; } }
-  .legA { animation: legA .42s linear infinite alternate; transform-origin: 50% 0%; }
-  .legB { animation: legA .42s linear infinite alternate-reverse; transform-origin: 50% 0%; }
-  @keyframes legA { from { transform: rotate(38deg); } to { transform: rotate(-34deg); } }
-  .armA { animation: legA .42s linear infinite alternate-reverse; transform-origin: 50% 0%; }
-  .armB { animation: legA .42s linear infinite alternate; transform-origin: 50% 0%; }
-  .run { animation: run .21s ease-in-out infinite alternate; }
-  @keyframes run { to { transform: translateY(-12px); } }
-  .dogleg { animation: dogleg .3s linear infinite alternate; transform-origin: 50% 0%; }
-  .dogleg.b { animation-direction: alternate-reverse; }
-  @keyframes dogleg { from { transform: rotate(30deg); } to { transform: rotate(-30deg); } }
-  .cap { animation: cap 12s infinite; }
-  @keyframes cap { 0%, 56% { opacity: 0; transform: translateY(10px); } 60%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
-  .clouds { animation: clouds 30s linear infinite alternate; }
-  @keyframes clouds { to { transform: translateX(-60px); } }
-  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .shotB { opacity: 0; } }
+  .pushA { animation: pushA 14s linear infinite; transform-origin: 55% 60%; }
+  @keyframes pushA { 0% { transform: scale(1); } 50% { transform: scale(1.06); } 100% { transform: scale(1.06); } }
+  .pushB { animation: pushB 14s linear infinite; transform-origin: 40% 55%; }
+  @keyframes pushB { 0%, 48% { transform: scale(1.06); } 100% { transform: scale(1); } }
+  .capA { animation: capA 14s infinite; } .capB { animation: capB 14s infinite; }
+  @keyframes capA { 0%, 6% { opacity: 0; transform: translateY(8px); } 10%, 44% { opacity: 1; transform: none; } 48%, 100% { opacity: 0; } }
+  @keyframes capB { 0%, 56% { opacity: 0; transform: translateY(8px); } 60%, 94% { opacity: 1; transform: none; } 98%, 100% { opacity: 0; } }
+  .sway { animation: sway 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes sway { 50% { transform: rotate(-1.2deg) translateY(-3px); } }
+  .look { animation: look 7s ease-in-out infinite; transform-origin: 50% 90%; }
+  @keyframes look { 0%, 30%, 100% { transform: rotate(0); } 40%, 70% { transform: rotate(-7deg); } }
+  .blink { animation: blink 4s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+  .tail { animation: tail .5s ease-in-out infinite alternate; transform-origin: 0% 50%; }
+  @keyframes tail { from { transform: rotate(-14deg); } to { transform: rotate(16deg); } }
+  .wag { animation: wag .45s ease-in-out infinite alternate; transform-origin: 100% 0%; }
+  @keyframes wag { from { transform: rotate(-10deg); } to { transform: rotate(14deg); } }
+  .ear { animation: ear 5s infinite; transform-origin: 50% 100%; }
+  @keyframes ear { 0%, 80%, 100% { transform: rotate(0); } 84% { transform: rotate(-14deg); } }
+  .smoke { animation: smoke 6s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+  @keyframes smoke { to { transform: translate(-30px, -18px) scale(1.08); } }
+  .stream { animation: stream .25s linear infinite; }
+  @keyframes stream { to { stroke-dashoffset: -24; } }
+  .fill { animation: fill 7s linear infinite; transform-origin: 50% 100%; }
+  @keyframes fill { from { transform: scaleY(.25); } to { transform: scaleY(.9); } }
+  .hand { animation: hand 60s linear infinite; transform-origin: 0 0; }
+  .shaft { animation: shaft 6s ease-in-out infinite alternate; }
+  @keyframes shaft { to { opacity: .55; } }
+  @keyframes hand { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .shotB { opacity: 0; } .capA { opacity: 1; } }
 </style>
 </head>
 <body>
 <main>
-<svg viewBox="0 0 900 1600" role="img" aria-label="An upright short in two shots: an aerial title card over a hazy farm reading THE BLACKOUT, DAY 1, 6:42 AM; then a farmer in a cap and brown jacket runs with his black-and-white dog towards a wooden shed under the caption ONE SMALL MISTAKE">
+<svg viewBox="0 0 1600 900" role="img" aria-label="Two shots of a flat survival story: a tall farmer in a cap, rust jacket, black gloves and jeans stands by a green tractor and a red barn with his black and white collie while smoke rises behind the trees, under the caption HIS FIRST INSTINCT; then he fills a blue water jug at the kitchen sink beside a countdown pill, under the caption TO PREPARE">
 <defs>
-  <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9ccc0"/><stop offset=".3" stop-color="#b9bfae" stop-opacity=".85"/><stop offset=".55" stop-color="#b9bfae" stop-opacity="0"/></linearGradient>
-  <linearGradient id="skyB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fb6bd"/><stop offset="1" stop-color="#d6d7c6"/></linearGradient>
-  <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a7f6c"/><stop offset="1" stop-color="#a49883"/></linearGradient>
-  <radialGradient id="vig" cx="50%" cy="50%" r="75%"><stop offset=".6" stop-color="#1c2018" stop-opacity="0"/><stop offset="1" stop-color="#1c2018" stop-opacity=".45"/></radialGradient>
-  <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
-  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="5"/><feColorMatrix values="0 0 0 0 .3  0 0 0 0 .3  0 0 0 0 .25  0 0 0 .25 -.08"/></filter>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fb0c4"/><stop offset="1" stop-color="#e2dcc6"/></linearGradient>
+  <linearGradient id="dirt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9a87c"/><stop offset="1" stop-color="#a98a62"/></linearGradient>
+  <linearGradient id="wall" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9c8a8"/><stop offset="1" stop-color="#ead9b8"/></linearGradient>
+  <linearGradient id="light" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6dc" stop-opacity=".55"/><stop offset="1" stop-color="#fff6dc" stop-opacity="0"/></linearGradient>
+  <linearGradient id="jacket" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6e3a20"/><stop offset=".55" stop-color="#8e4c2a"/><stop offset="1" stop-color="#a45c34"/></linearGradient>
+  <linearGradient id="jeans" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5a84b4"/><stop offset="1" stop-color="#7ea6d0"/></linearGradient>
+  <radialGradient id="vig" cx="50%" cy="50%" r="72%"><stop offset=".6" stop-color="#1c2018" stop-opacity="0"/><stop offset="1" stop-color="#1c2018" stop-opacity=".4"/></radialGradient>
+  <!-- the soft light halo the style puts round its people and animals -->
+  <filter id="halo" x="-20%" y="-10%" width="140%" height="120%">
+    <feMorphology in="SourceAlpha" operator="dilate" radius="3" result="d"/><feGaussianBlur in="d" stdDeviation="5" result="b"/>
+    <feFlood flood-color="#fff3d6" flood-opacity=".75"/><feComposite in2="b" operator="in" result="g"/>
+    <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="blur"><feGaussianBlur stdDeviation="9"/></filter>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="5"/><feColorMatrix values="0 0 0 0 .3  0 0 0 0 .28  0 0 0 0 .22  0 0 0 .22 -.07"/></filter>
 </defs>
 
-<!-- SHOT A: aerial title card -->
-<g class="shotA">
- <g class="push">
-  <rect width="900" height="1600" fill="#7f9461"/>
-  <path d="M0 380 Q200 340 450 360 Q700 330 900 370 L900 460 L0 460Z" fill="#8e9e74"/>
-  <g fill="#6e7e58" opacity=".8"><ellipse cx="80" cy="420" rx="40" ry="26"/><ellipse cx="160" cy="410" rx="30" ry="22"/><ellipse cx="760" cy="410" rx="44" ry="26"/><ellipse cx="850" cy="420" rx="34" ry="22"/></g>
-  <!-- fields and dirt paths -->
-  <path d="M0 700 L380 520 L900 560 L900 760 L420 760 L0 980Z" fill="#879b67"/>
-  <path d="M250 1600 L330 960 L360 780 L410 780 L420 960 L420 1600Z" fill="#c9a777"/>
-  <path d="M360 790 Q500 720 640 640 L670 650 Q540 740 410 800Z" fill="#c9a777"/>
-  <path d="M410 800 Q520 820 600 790 L604 806 Q520 840 410 818Z" fill="#c9a777"/>
-  <ellipse cx="300" cy="880" rx="160" ry="60" fill="#b99a6c" opacity=".55"/>
-  <!-- crop rows -->
-  <g>
-   <g fill="#8a5f3e"><rect x="540" y="960" width="360" height="40" rx="6"/><rect x="530" y="1040" width="370" height="42" rx="6"/><rect x="520" y="1124" width="380" height="44" rx="6"/><rect x="510" y="1212" width="390" height="46" rx="6"/><rect x="500" y="1304" width="400" height="48" rx="6"/><rect x="490" y="1400" width="410" height="50" rx="6"/></g>
-   <g fill="#7fb04e"><g id="row"><circle cx="560" cy="980" r="12"/><circle cx="600" cy="980" r="12"/><circle cx="640" cy="980" r="12"/><circle cx="680" cy="980" r="12"/><circle cx="720" cy="980" r="12"/><circle cx="760" cy="980" r="12"/><circle cx="800" cy="980" r="12"/><circle cx="840" cy="980" r="12"/><circle cx="880" cy="980" r="12"/></g>
-     <use href="#row" y="81"/><use href="#row" y="166" x="-10"/><use href="#row" y="255" x="-20"/><use href="#row" y="348" x="-30"/><use href="#row" y="445" x="-40"/></g>
+<!-- SHOT A: the farmyard -->
+<g class="shotA"><g class="pushA">
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <g fill="#f4efe0" stroke="#bdb8a6" stroke-width="2"><path d="M80 140 q20 -50 90 -40 q34 -46 104 -16 q60 -6 66 40 q40 6 30 36 h-300 q-30 -8 10 -20Z"/><path d="M560 90 q16 -34 66 -28 q24 -30 76 -10 q44 0 46 30 q26 6 16 26 h-214 q-20 -6 10 -18Z"/></g>
+  <!-- smoke on the horizon -->
+  <g class="a smoke" filter="url(#blur)" fill="#6f6e66" opacity=".75"><circle cx="1460" cy="330" r="90"/><circle cx="1400" cy="250" r="110"/><circle cx="1500" cy="180" r="100"/><circle cx="1380" cy="120" r="90"/></g>
+  <!-- far trees and a white house -->
+  <g fill="#7f9466" stroke="#4a5a3a" stroke-width="2"><circle cx="900" cy="470" r="60"/><circle cx="980" cy="480" r="50"/><circle cx="1180" cy="480" r="56"/></g>
+  <rect x="1010" y="420" width="150" height="110" fill="#d8dce0" stroke="#5a5e62" stroke-width="2"/><path d="M1030 440 V530 M1050 440 V530 M1070 440 V530 M1090 440 V530 M1110 440 V530 M1130 440 V530" stroke="#b8bcc0" stroke-width="2"/>
+  <!-- red barn with a gambrel roof -->
+  <g stroke="#3a1a14" stroke-width="3" stroke-linejoin="round">
+   <path d="M0 250 L120 150 L330 150 L470 250 L470 560 L0 560Z" fill="#b8352c"/>
+   <path d="M-20 262 L120 140 L330 140 L490 262 L470 270 L326 160 L124 160 L0 270Z" fill="#5a5e66"/>
+   <path d="M40 300 H440" stroke="#f2ece0" stroke-width="10"/>
+   <rect x="60" y="190" width="90" height="80" fill="#b8352c" stroke="#f2ece0" stroke-width="8"/><path d="M60 190 L150 270 M150 190 L60 270" stroke="#f2ece0" stroke-width="7"/>
+   <rect x="0" y="340" width="150" height="220" fill="#1e1a18"/><rect x="0" y="340" width="150" height="220" fill="none" stroke="#f2ece0" stroke-width="10"/>
+   <rect x="300" y="340" width="150" height="220" fill="#b8352c" stroke="#f2ece0" stroke-width="10"/><path d="M300 340 L450 560 M450 340 L300 560" stroke="#f2ece0" stroke-width="8"/>
   </g>
-  <!-- trees with shadows -->
-  <g><ellipse cx="200" cy="640" rx="60" ry="22" fill="#4f5e3a" opacity=".5"/><rect x="186" y="560" width="14" height="70" fill="#5a4a36"/><circle cx="192" cy="540" r="58" fill="#4f6a3a"/><circle cx="176" cy="524" r="26" fill="#5e7a46"/></g>
-  <g><ellipse cx="640" cy="1000" rx="80" ry="26" fill="#4f5e3a" opacity=".5"/><rect x="622" y="890" width="18" height="96" fill="#5a4a36"/><circle cx="630" cy="860" r="80" fill="#4f6a3a"/><circle cx="604" cy="836" r="36" fill="#5e7a46"/></g>
-  <g><rect x="740" y="520" width="10" height="44" fill="#5a4a36"/><circle cx="745" cy="506" r="36" fill="#4f6a3a"/></g>
-  <!-- farmhouse with chimney smoke -->
-  <g>
-   <ellipse cx="260" cy="760" rx="150" ry="26" fill="#4f5e3a" opacity=".45"/>
-   <rect x="150" y="640" width="210" height="120" fill="#ece8dc"/><path d="M130 646 L180 580 L330 580 L380 646Z" fill="#3d4049"/>
-   <rect x="300" y="550" width="18" height="44" fill="#7a3a2a"/>
-   <g class="a smoke"><circle cx="310" cy="530" r="14" fill="#e6e4dc" opacity=".8"/><circle cx="322" cy="506" r="18" fill="#e6e4dc" opacity=".6"/><circle cx="336" cy="478" r="22" fill="#e6e4dc" opacity=".4"/></g>
-   <g fill="#5d7488"><rect x="168" y="662" width="22" height="28"/><rect x="204" y="662" width="22" height="28"/><rect x="284" y="662" width="22" height="28"/><rect x="320" y="662" width="22" height="28"/></g>
-   <rect x="232" y="700" width="46" height="60" fill="#3d4049"/><rect x="246" y="716" width="18" height="44" fill="#8a4a2a"/>
-   <path d="M150 700 H360" stroke="#d6d2c4" stroke-width="3"/>
+  <!-- big tree -->
+  <g stroke="#3a4a2a" stroke-width="2.5"><rect x="1140" y="300" width="40" height="260" fill="#5a4632" stroke="#2e2418"/>
+   <g fill="#6f8a4a"><circle cx="1100" cy="250" r="90"/><circle cx="1230" cy="200" r="100"/><circle cx="1160" cy="120" r="90"/><circle cx="1260" cy="330" r="70"/><circle cx="1060" cy="350" r="66"/></g>
+   <g fill="#86a05a" stroke="none"><circle cx="1210" cy="170" r="40"/><circle cx="1090" cy="230" r="34"/><circle cx="1150" cy="90" r="30"/></g></g>
+  <!-- ground -->
+  <rect y="540" width="1600" height="360" fill="url(#dirt)"/>
+  <path d="M0 560 Q400 540 800 556 Q1200 572 1600 552" stroke="#b9996e" stroke-width="10" fill="none" opacity=".6"/>
+  <!-- the tractor -->
+  <g stroke="#1e221a" stroke-width="3" stroke-linejoin="round">
+   <ellipse cx="560" cy="760" rx="420" ry="26" fill="#3a2e1e" opacity=".3" stroke="none"/>
+   <rect x="760" y="300" width="22" height="160" fill="#1e1e1a"/><rect x="752" y="292" width="38" height="20" rx="4" fill="#2a2a24"/>
+   <path d="M330 470 L360 400 L920 410 L1010 470 L1010 600 L330 600Z" fill="#4f7a3a"/>
+   <path d="M360 400 L920 410 L1010 470 L340 466Z" fill="#5f8c46"/>
+   <path d="M380 520 Q420 300 700 320 Q760 330 760 400 L720 520Z" fill="#46703a"/>
+   <path d="M480 330 L520 230 L560 230" fill="none" stroke-width="12"/><path d="M480 330 L520 230" stroke="#2a2a24" stroke-width="8"/>
+   <ellipse cx="560" cy="240" rx="70" ry="16" fill="none" stroke-width="10"/><ellipse cx="560" cy="240" rx="70" ry="16" fill="none" stroke="#2a2a24" stroke-width="6"/>
+   <path d="M430 290 L440 230 L470 230 L470 300Z" fill="#2a2a24"/>
+   <!-- rear wheel -->
+   <circle cx="560" cy="640" r="160" fill="#22221e"/>
+   <g stroke="#3a3a34" stroke-width="18"><path d="M560 480 V520 M560 760 V800 M400 640 H440 M680 640 H720 M447 527 L475 555 M645 725 L673 753 M673 527 L645 555 M475 725 L447 753"/></g>
+   <circle cx="560" cy="640" r="96" fill="#d9c58a"/><circle cx="560" cy="640" r="40" fill="#b8a46a"/>
+   <g fill="#8a7a4a" stroke="none"><circle cx="560" cy="580" r="7"/><circle cx="620" cy="640" r="7"/><circle cx="560" cy="700" r="7"/><circle cx="500" cy="640" r="7"/></g>
+   <!-- front wheel -->
+   <circle cx="1070" cy="690" r="90" fill="#22221e"/><circle cx="1070" cy="690" r="50" fill="#d9c58a"/><circle cx="1070" cy="690" r="20" fill="#b8a46a"/>
+   <path d="M940 600 L1010 600 L1060 640" fill="none" stroke-width="8"/>
   </g>
-  <!-- red barn, silo, shed, tractor, water tank -->
-  <g><ellipse cx="620" cy="640" rx="110" ry="20" fill="#4f5e3a" opacity=".45"/>
-   <rect x="540" y="560" width="160" height="80" fill="#a8322a"/><path d="M528 566 Q620 490 712 566Z" fill="#7a2420"/>
-   <rect x="596" y="590" width="48" height="50" fill="#f2ece0"/><path d="M596 590 L644 640 M644 590 L596 640" stroke="#a8322a" stroke-width="5"/>
-   <rect x="720" y="520" width="34" height="120" rx="16" fill="#c4c4bc"/><ellipse cx="737" cy="520" rx="17" ry="8" fill="#9a9a92"/></g>
-  <g><rect x="560" y="700" width="80" height="54" fill="#8a8274"/><path d="M552 704 L600 680 L648 704Z" fill="#4d4a44"/><rect x="590" y="720" width="20" height="34" fill="#4d4a44"/></g>
-  <g fill="#3d4049"><rect x="760" y="640" width="30" height="16" rx="3"/><circle cx="764" cy="660" r="7"/><circle cx="788" cy="658" r="10"/></g>
-  <g><rect x="94" y="560" width="30" height="26" fill="#6a8aa0"/><path d="M96 586 v30 M122 586 v30" stroke="#5a5a52" stroke-width="3"/></g>
- </g>
- <rect width="900" height="900" fill="url(#haze)"/>
- <!-- the title card -->
- <g font-family="Impact, Haettenschweiler, 'Bahnschrift Condensed', sans-serif" text-anchor="middle">
-  <rect x="356" y="130" width="380" height="72" fill="#c8372d"/>
-  <text x="250" y="190" font-size="66" fill="#eeeade" stroke="#2a2a22" stroke-width="2" letter-spacing="2">THE</text>
-  <text x="546" y="190" font-size="66" fill="#ffffff" letter-spacing="2">BLACKOUT</text>
-  <text x="450" y="330" font-size="150" fill="#ffffff" stroke="#2a2a22" stroke-width="6" paint-order="stroke" letter-spacing="4">DAY 1</text>
-  <rect x="345" y="358" width="210" height="58" rx="29" fill="#2a2a22" stroke="#e8b830" stroke-width="4"/>
-  <text id="clock" x="450" y="400" font-family="Bahnschrift, 'Segoe UI', sans-serif" font-weight="700" font-size="38" fill="#e8b830">6:42 AM</text>
- </g>
+  <!-- the dog: a black and white collie, standing in profile -->
+  <g filter="url(#halo)" stroke="#121210" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+   <ellipse cx="300" cy="830" rx="140" ry="13" fill="#3a2e1e" opacity=".3" stroke="none"/>
+   <g class="a wag"><path d="M186 712 Q138 730 134 792" fill="none" stroke-width="20"/><path d="M186 712 Q138 730 134 792" fill="none" stroke="#141412" stroke-width="15"/>
+     <path d="M130 778 q-2 18 6 24 q8 -10 6 -24Z" fill="#f2efe4"/></g>
+   <path d="M210 750 L198 826 M234 752 L240 826" fill="none" stroke-width="15"/><path d="M210 750 L198 826 M234 752 L240 826" fill="none" stroke="#141412" stroke-width="10"/>
+   <path d="M360 750 L364 826 M382 750 L394 826" fill="none" stroke-width="15"/><path d="M360 750 L364 826 M382 750 L394 826" fill="none" stroke="#141412" stroke-width="10"/>
+   <path d="M192 826 h16 M234 826 h16 M358 826 h16 M388 826 h16" stroke="#f2efe4" stroke-width="9"/>
+   <path d="M180 722 Q188 682 260 684 L356 684 Q392 690 398 720 Q396 760 352 764 L222 766 Q184 762 180 722Z" fill="#141412"/>
+   <path d="M352 690 Q394 694 402 732 Q396 762 364 764 Q376 724 352 690Z" fill="#f2efe4"/>
+   <path d="M354 704 Q348 652 382 628 Q408 612 436 620 L482 640 Q490 650 480 658 L440 664 Q422 694 388 704Z" fill="#141412"/>
+   <path d="M410 622 Q428 614 442 624 L480 646 Q472 656 452 654 L428 642 Q414 634 410 622Z" fill="#f2efe4"/>
+   <path d="M376 690 Q392 706 412 690 Q396 680 376 690Z" fill="#f2efe4" stroke="none"/>
+   <g class="a ear"><path d="M384 634 L376 586 L402 622Z" fill="#141412"/></g><path d="M400 624 L406 580 L422 620Z" fill="#141412"/>
+   <g class="a blink"><circle cx="418" cy="636" r="5.5" fill="#fff" stroke="none"/><circle cx="419" cy="636" r="3.2" fill="#121210" stroke="none"/></g>
+   <ellipse cx="484" cy="648" rx="7" ry="5.5" fill="#121210"/>
+   <path d="M452 660 q14 4 24 -2" fill="none" stroke-width="2"/>
+  </g>
+  <!-- the farmer, standing by the tractor -->
+  <g filter="url(#halo)"><g class="a sway" stroke="#1e1a16" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+   <ellipse cx="840" cy="840" rx="100" ry="12" fill="#3a2e1e" opacity=".3" stroke="none"/>
+   <!-- legs -->
+   <path d="M820 596 L806 700 L792 812" fill="none" stroke-width="30"/><path d="M820 596 L806 700 L792 812" fill="none" stroke="url(#jeans)" stroke-width="24"/>
+   <path d="M862 596 L880 704 L894 812" fill="none" stroke-width="30"/><path d="M862 596 L880 704 L894 812" fill="none" stroke="url(#jeans)" stroke-width="24"/>
+   <path d="M770 806 Q770 790 800 792 L812 792 L816 830 L764 832 Q760 816 770 806Z" fill="#7a5532"/>
+   <path d="M878 806 L904 802 Q934 806 936 830 L882 832Z" fill="#7a5532"/>
+   <!-- far arm, a black glove -->
+   <path d="M816 360 Q790 430 780 480 Q800 500 830 500" fill="none" stroke-width="26"/><path d="M816 360 Q790 430 780 480 Q800 500 830 500" fill="none" stroke="#6e3a20" stroke-width="20"/>
+   <ellipse cx="842" cy="500" rx="16" ry="12" fill="#161614"/>
+   <!-- jacket to the hips over a green collar -->
+   <path d="M806 342 Q842 326 876 344 L898 610 L800 612 Z" fill="url(#jacket)"/>
+   <path d="M832 340 L846 340 L850 420 L836 420Z" fill="#3e5530"/>
+   <path d="M820 470 H884" stroke="#5a2e18" stroke-width="2"/>
+   <!-- near arm, glove at the chest -->
+   <path d="M872 360 Q900 430 896 470 Q876 486 846 470" fill="none" stroke-width="26"/><path d="M872 360 Q900 430 896 470 Q876 486 846 470" fill="none" stroke="#a45c34" stroke-width="20"/>
+   <ellipse cx="836" cy="470" rx="17" ry="13" fill="#161614"/>
+   <!-- neck and head: a small round head, a cap, one dot eye -->
+   <rect x="834" y="300" width="14" height="44" fill="#ecd2b2"/>
+   <g class="a look">
+    <circle cx="842" cy="270" r="34" fill="#f2dcc0"/>
+    <path d="M808 264 Q808 230 842 228 Q876 230 878 262 Z" fill="#5c6a3a"/>
+    <path d="M864 256 L904 262 Q902 270 876 268Z" fill="#4a5630"/>
+    <path d="M852 280 h10" stroke-width="2.5"/>
+    <g class="a blink"><circle cx="858" cy="272" r="3.4" fill="#1e1a16" stroke="none"/></g>
+    <path d="M854 292 h10" stroke-width="2.5"/>
+   </g>
+  </g></g>
+  <path class="shaft" d="M900 0 L1100 0 L700 900 L420 900Z" fill="url(#light)" opacity=".35"/>
+</g>
+<g class="capA"><text x="800" y="770" text-anchor="middle" font-family="Impact, Haettenschweiler, 'Bahnschrift Condensed', sans-serif" font-size="78" fill="#ffffff" stroke="#16160f" stroke-width="10" paint-order="stroke" letter-spacing="1">HIS FIRST INSTINCT</text></g>
 </g>
 
-<!-- SHOT B: the run to the shed -->
-<g class="shotB">
-  <rect width="900" height="1600" fill="url(#skyB)"/>
-  <g class="clouds" fill="#f2efe2"><path d="M60 230 q20 -50 80 -40 q30 -40 90 -14 q50 0 50 40 q30 10 10 30 h-260 q-20 -10 30 -16Z"/><path d="M560 160 q14 -36 60 -30 q24 -30 70 -10 q40 0 40 30 q24 8 6 24 h-200 q-16 -8 24 -14Z"/>
-    <path d="M620 330 q10 -24 40 -20 q16 -20 46 -6 q26 0 26 20 h-130 q-8 -6 18 -14Z" opacity=".8"/></g>
-  <!-- tree line and fence -->
-  <g fill="#3f5a3a"><path d="M0 760 L0 700 Q20 660 40 690 L60 640 L80 690 Q100 650 120 700 L140 650 L160 700 Q180 670 200 700 L220 660 L240 710 L260 680 L280 720 L300 760Z"/>
-    <path d="M300 760 L310 720 Q330 690 350 720 L370 680 L390 730 L420 700 L440 760Z" opacity=".85"/></g>
-  <rect y="740" width="900" height="30" fill="#8aa06e"/>
-  <g stroke="#6a5a44" stroke-width="6"><path d="M0 742 H470 M0 762 H470"/><path d="M20 730 v44 M90 730 v44 M160 730 v44 M230 730 v44 M300 730 v44 M370 730 v44 M440 730 v44" stroke-width="7"/></g>
-  <!-- dirt yard and grass -->
-  <rect y="770" width="900" height="260" fill="#c7a77a"/>
-  <ellipse cx="300" cy="900" rx="240" ry="50" fill="#b99a6c" opacity=".6"/>
-  <rect y="1020" width="900" height="580" fill="#6f8e4f"/>
-  <path d="M0 1030 Q200 1010 450 1030 Q700 1050 900 1024 V1060 H0Z" fill="#7f9c5c"/>
-  <g filter="url(#soft)" fill="#4f6e3a"><path d="M120 1240 l14 -90 l14 90Z M150 1240 l10 -70 l14 70Z"/><path d="M300 1340 l18 -110 l18 110Z M340 1340 l12 -80 l16 80Z"/><path d="M640 1300 l16 -100 l16 100Z"/></g>
-  <!-- the shed -->
-  <g>
-   <ellipse cx="690" cy="1010" rx="250" ry="26" fill="#3a4a2a" opacity=".35"/>
-   <path d="M470 380 L900 330 L900 1000 L470 1000Z" fill="url(#wood)"/>
-   <g stroke="#6e6454" stroke-width="5"><path d="M540 372 V1000 M610 364 V1000 M680 356 V1000 M750 348 V1000 M820 340 V1000"/></g>
-   <path d="M450 384 L900 320 L900 350 L462 410Z" fill="#3a3c38"/>
-   <rect x="640" y="520" width="150" height="110" fill="#5f7a8c" stroke="#3a3c38" stroke-width="12"/>
-   <path d="M470 1000 L470 380" stroke="#5e5446" stroke-width="10"/>
+<!-- SHOT B: the kitchen -->
+<g class="shotB"><g class="pushB">
+  <rect width="1600" height="900" fill="url(#wall)"/>
+  <!-- window with the yard outside -->
+  <g stroke="#a8946e" stroke-width="10">
+   <rect x="760" y="80" width="560" height="420" fill="#d6e0dc"/>
+   <rect x="770" y="320" width="540" height="170" fill="#9fb07a" stroke="none"/>
+   <g fill="#7a9058" stroke="none"><circle cx="830" cy="320" r="40"/><circle cx="900" cy="314" r="34"/><circle cx="1180" cy="318" r="44"/><circle cx="1260" cy="314" r="30"/></g>
+   <path d="M770 360 H1310 M770 390 H1310" stroke="#8a7a5a" stroke-width="5"/><path d="M820 350 V400 M920 350 V400 M1020 350 V400 M1120 350 V400 M1220 350 V400" stroke="#8a7a5a" stroke-width="6"/>
+   <path d="M1040 80 V500 M760 290 H1320" stroke-width="12"/>
   </g>
-  <!-- the dog -->
-  <ellipse cx="190" cy="1000" rx="90" ry="12" fill="#3a2a1a" opacity=".25"/>
-  <g class="a run">
-   <g stroke="#1e1e1a" stroke-width="12" stroke-linecap="round"><g class="a dogleg"><path d="M150 930 L140 990"/></g><g class="a dogleg b"><path d="M168 930 L180 990"/></g>
-     <g class="a dogleg b"><path d="M230 926 L222 990"/></g><g class="a dogleg"><path d="M246 926 L258 990"/></g></g>
-   <path d="M130 940 Q130 890 190 890 Q250 886 262 920 Q262 950 200 952 Q140 954 130 940Z" fill="#1e1e1a"/>
-   <path d="M220 900 Q250 890 262 920 Q250 944 224 940Z" fill="#f2efe4"/>
-   <path d="M130 910 Q96 880 90 860 Q112 880 136 896Z" fill="#1e1e1a"/>
-   <path d="M244 880 Q260 840 296 846 Q314 856 306 876 Q296 896 266 904Z" fill="#1e1e1a"/>
-   <path d="M284 860 Q300 862 306 876 Q292 888 276 884Z" fill="#f2efe4"/><circle cx="276" cy="862" r="4" fill="#fff"/><circle cx="276" cy="862" r="2" fill="#111"/>
-   <path d="M262 852 L254 830 L272 846Z" fill="#1e1e1a"/>
-   <path d="M302 880 q8 10 2 18" stroke="#c84a4a" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- cabinets, shelf of jars, wall clock -->
+  <g stroke="#6e5a3c" stroke-width="3">
+   <rect x="40" y="40" width="400" height="230" fill="#b89a6c"/><path d="M173 40 V270 M306 40 V270" stroke-width="3"/>
+   <g fill="#3a2e1e" stroke="none"><circle cx="150" cy="230" r="6"/><circle cx="196" cy="230" r="6"/><circle cx="283" cy="230" r="6"/><circle cx="329" cy="230" r="6"/></g>
+   <rect x="20" y="380" width="460" height="14" fill="#9a7e54"/>
+   <g stroke="#4a3e2c" stroke-width="2.5"><rect x="40" y="310" width="50" height="70" rx="8" fill="#c08a5a"/><rect x="110" y="300" width="56" height="80" rx="8" fill="#7f9a6a"/><rect x="186" y="314" width="50" height="66" rx="8" fill="#c86a4a"/><rect x="256" y="304" width="56" height="76" rx="8" fill="#ecdcc0"/><rect x="332" y="316" width="50" height="64" rx="8" fill="#7a9ab8"/></g>
+   <g fill="#5a4a34" stroke="none"><rect x="40" y="304" width="50" height="12" rx="3"/><rect x="110" y="294" width="56" height="12" rx="3"/><rect x="186" y="308" width="50" height="12" rx="3"/><rect x="256" y="298" width="56" height="12" rx="3"/><rect x="332" y="310" width="50" height="12" rx="3"/></g>
   </g>
-  <!-- the farmer: thin stick limbs, a dot face -->
-  <ellipse cx="360" cy="996" rx="70" ry="10" fill="#3a2a1a" opacity=".3"/>
-  <g class="a run" stroke-linecap="round" stroke-linejoin="round">
-   <!-- far arm and leg -->
-   <g class="a armB"><path d="M352 690 L330 770 L370 812" stroke="#5a3a22" stroke-width="16" fill="none"/><circle cx="372" cy="816" r="9" fill="#e8c4a0"/></g>
-   <g class="a legB"><path d="M352 800 L330 890 L344 966" stroke="#3d6a9a" stroke-width="16" fill="none"/><path d="M332 966 l44 0 q8 14 -4 18 l-46 0Z" fill="#8a6a40"/></g>
-   <!-- body: jacket over a green shirt -->
-   <path d="M330 670 Q360 656 388 674 L380 810 L326 810Z" fill="#8a4a2a"/>
-   <path d="M352 672 L366 672 L362 806 L352 806Z" fill="#4f6a3a"/>
-   <!-- near leg and arm -->
-   <g class="a legA"><path d="M356 800 L384 888 L374 966" stroke="#4a7aaa" stroke-width="16" fill="none"/><path d="M362 966 l46 0 q8 14 -4 18 l-48 0Z" fill="#9a7a48"/></g>
-   <g class="a armA"><path d="M372 690 L400 760 L440 744" stroke="#9a5a32" stroke-width="16" fill="none"/><circle cx="444" cy="742" r="9" fill="#e8c4a0"/></g>
-   <!-- head and cap -->
-   <rect x="350" y="636" width="14" height="30" fill="#e8c4a0"/>
-   <circle cx="358" cy="614" r="34" fill="#f0d2b0"/>
-   <path d="M322 610 Q322 572 358 570 Q394 572 394 606 Z" fill="#4f6a3a"/><path d="M380 604 L418 610 Q414 618 392 616Z" fill="#3e5530"/>
-   <circle cx="372" cy="620" r="3.5" fill="#1e1e1a"/><path d="M366 638 h12" stroke="#1e1e1a" stroke-width="3"/>
-   <path d="M378 610 h8" stroke="#1e1e1a" stroke-width="3"/>
+  <g transform="translate(600 130)"><circle r="62" fill="#f6f2e8" stroke="#2a2620" stroke-width="7"/>
+   <g stroke="#2a2620" stroke-width="3"><path d="M0 -52 v10 M0 52 v-10 M-52 0 h10 M52 0 h-10"/></g>
+   <path class="hand" d="M0 0 L0 -44" stroke="#2a2620" stroke-width="4" stroke-linecap="round"/><path d="M0 0 L26 14" stroke="#2a2620" stroke-width="6" stroke-linecap="round"/><circle r="5" fill="#2a2620"/></g>
+  <!-- counter, cupboards, sink -->
+  <rect x="0" y="560" width="1600" height="40" fill="#e6dcc6" stroke="#8a7a5a" stroke-width="3"/>
+  <rect x="0" y="600" width="1600" height="300" fill="#b89a6c"/>
+  <g stroke="#7a6444" stroke-width="4" fill="none"><rect x="40" y="630" width="300" height="250"/><rect x="380" y="630" width="300" height="250"/><rect x="720" y="630" width="300" height="250"/><rect x="1060" y="630" width="300" height="250"/><rect x="1400" y="630" width="200" height="250"/></g>
+  <rect x="640" y="540" width="380" height="40" rx="8" fill="#8a8e90" stroke="#3a3e40" stroke-width="3"/>
+  <path d="M760 540 V440 Q760 400 800 400 L860 400 Q890 400 890 430 V450" fill="none" stroke="#3a3e40" stroke-width="20" stroke-linecap="round"/>
+  <path d="M760 540 V440 Q760 400 800 400 L860 400 Q890 400 890 430 V450" fill="none" stroke="#c4c8ca" stroke-width="13" stroke-linecap="round"/>
+  <path class="stream" d="M890 456 V520" stroke="#a8d4f0" stroke-width="8" stroke-dasharray="14 10" stroke-linecap="round"/>
+  <!-- the jug filling -->
+  <g stroke="#2a3a4a" stroke-width="3">
+   <rect x="830" y="480" width="130" height="110" rx="12" fill="#cfe4f2" opacity=".9"/>
+   <rect class="a fill" x="834" y="484" width="122" height="102" rx="10" fill="#6fa8d6" stroke="none"/>
+   <path d="M960 500 q34 0 34 30 q0 30 -34 30" fill="none" stroke-width="12"/><path d="M960 500 q34 0 34 30 q0 30 -34 30" fill="none" stroke="#2a3a4a" stroke-width="6"/>
   </g>
-  <!-- the caption -->
-  <g class="cap"><text x="450" y="1180" text-anchor="middle" font-family="Impact, Haettenschweiler, 'Bahnschrift Condensed', sans-serif" font-size="74" fill="#ffffff" stroke="#16160f" stroke-width="10" paint-order="stroke" letter-spacing="1">ONE SMALL MISTAKE</text></g>
+  <!-- a water can on the left and a rack of bottles on the right -->
+  <g stroke="#2a3a4a" stroke-width="3"><rect x="70" y="440" width="150" height="122" rx="14" fill="#6f9ac0"/><rect x="150" y="420" width="40" height="24" rx="6" fill="#2a3a4a"/><rect x="86" y="462" width="40" height="80" rx="10" fill="#9ac0e0" stroke="none"/></g>
+  <g stroke="#2a3a4a" stroke-width="2.5">
+   <g fill="#9ac4e6"><rect x="1360" y="360" width="34" height="96" rx="12"/><rect x="1404" y="360" width="34" height="96" rx="12"/><rect x="1448" y="360" width="34" height="96" rx="12"/><rect x="1492" y="360" width="34" height="96" rx="12"/>
+     <rect x="1360" y="462" width="34" height="96" rx="12"/><rect x="1404" y="462" width="34" height="96" rx="12"/><rect x="1448" y="462" width="34" height="96" rx="12"/><rect x="1492" y="462" width="34" height="96" rx="12"/></g>
+   <g fill="#2a5a8a"><rect x="1370" y="346" width="14" height="16" rx="3"/><rect x="1414" y="346" width="14" height="16" rx="3"/><rect x="1458" y="346" width="14" height="16" rx="3"/><rect x="1502" y="346" width="14" height="16" rx="3"/></g>
+   <path d="M1350 456 H1540 M1350 558 H1540" stroke="#8a8e90" stroke-width="6"/></g>
+  <!-- the farmer at the sink, leaning in -->
+  <g filter="url(#halo)"><g stroke="#1e1a16" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+   <ellipse cx="560" cy="880" rx="110" ry="12" fill="#3a2e1e" opacity=".3" stroke="none"/>
+   <path d="M540 640 L530 760 L520 860" fill="none" stroke-width="30"/><path d="M540 640 L530 760 L520 860" fill="none" stroke="url(#jeans)" stroke-width="24"/>
+   <path d="M582 640 L604 760 L612 860" fill="none" stroke-width="30"/><path d="M582 640 L604 760 L612 860" fill="none" stroke="url(#jeans)" stroke-width="24"/>
+   <path d="M500 856 L534 852 L538 884 L488 886 Q484 866 500 856Z" fill="#7a5532"/><path d="M598 856 L628 852 Q656 858 656 884 L600 886Z" fill="#7a5532"/>
+   <path d="M546 392 Q590 380 620 404 L626 650 L524 652 Z" fill="url(#jacket)"/>
+   <path d="M576 394 L590 396 L592 470 L578 470Z" fill="#3e5530"/>
+   <path d="M560 410 Q640 450 700 470 Q760 490 830 500" fill="none" stroke-width="26"/><path d="M560 410 Q640 450 700 470 Q760 490 830 500" fill="none" stroke="#6e3a20" stroke-width="20"/>
+   <ellipse cx="836" cy="500" rx="17" ry="13" fill="#161614"/>
+   <path d="M606 420 Q700 470 760 520 Q800 540 830 552" fill="none" stroke-width="26"/><path d="M606 420 Q700 470 760 520 Q800 540 830 552" fill="none" stroke="#a45c34" stroke-width="20"/>
+   <ellipse cx="840" cy="552" rx="17" ry="13" fill="#161614"/>
+   <rect x="582" y="352" width="14" height="44" fill="#ecd2b2" transform="rotate(14 589 374)"/>
+   <g transform="rotate(16 600 320)">
+    <circle cx="600" cy="320" r="34" fill="#f2dcc0"/>
+    <path d="M566 314 Q566 280 600 278 Q634 280 636 312 Z" fill="#5c6a3a"/><path d="M622 306 L662 312 Q660 320 634 318Z" fill="#4a5630"/>
+    <path d="M608 330 h10" stroke-width="2.5"/>
+    <g class="a blink"><circle cx="616" cy="322" r="3.4" fill="#1e1a16" stroke="none"/></g>
+    <path d="M610 342 h10" stroke-width="2.5"/>
+   </g>
+  </g></g>
+  <path class="shaft" d="M820 0 L1040 0 L1300 900 L960 900Z" fill="url(#light)" opacity=".4"/>
+  <rect x="1380" y="720" width="260" height="200" rx="20" fill="#7a9ab8" opacity=".5" filter="url(#blur)"/>
+</g>
+<!-- countdown pill -->
+<g transform="translate(60 380)"><rect width="250" height="70" rx="35" fill="#2a2a22" stroke="#e8b830" stroke-width="5"/>
+  <circle cx="40" cy="35" r="17" fill="none" stroke="#e8b830" stroke-width="4"/><path d="M40 24 V35 L48 40" stroke="#e8b830" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <text id="timer" x="72" y="48" font-family="Bahnschrift, 'Segoe UI', sans-serif" font-weight="700" font-size="38" fill="#ffffff">27:30</text>
+  <text x="182" y="46" font-family="Bahnschrift, 'Segoe UI', sans-serif" font-weight="700" font-size="20" fill="#e8b830">LEFT</text></g>
+<g class="capB"><text x="800" y="790" text-anchor="middle" font-family="Impact, Haettenschweiler, 'Bahnschrift Condensed', sans-serif" font-size="78" fill="#ffffff" stroke="#16160f" stroke-width="10" paint-order="stroke" letter-spacing="1">TO PREPARE</text></g>
 </g>
 
-<rect width="900" height="1600" fill="url(#vig)"/>
-<rect width="900" height="1600" filter="url(#grain)" opacity=".5" style="mix-blend-mode: multiply"/>
+<rect width="1600" height="900" fill="url(#vig)"/>
+<rect width="1600" height="900" filter="url(#grain)" opacity=".5" style="mix-blend-mode: multiply"/>
 </svg>
-<p>morphO · Survival Short · character sample: an original upright short, a title card and a run for the shed.</p>
+<p>morphO · Survival Short · character sample: an original farmer and his collie, a farmyard and a kitchen, under big outlined captions.</p>
 </main>
 <script>
-  // The clock pill ticks a minute every second while the title card shows, as a short's clock races.
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { const el = document.getElementById('clock'); let m = 42;
-    setInterval(() => { m = m >= 59 ? 42 : m + 1; el.textContent = `6:${String(m).padStart(2, '0')} AM`; }, 1000); }
+  // The countdown pill ticks down a second at a time, as a short's countdown runs.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { const el = document.getElementById('timer'); let s = 27 * 60 + 30;
+    setInterval(() => { s = s > 26 * 60 ? s - 1 : 27 * 60 + 30; el.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; }, 1000); }
 </script>
 </body>
 </html>

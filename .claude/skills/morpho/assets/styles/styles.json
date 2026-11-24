@@ -97,9 +97,9 @@
       "characters": "fine line with soft gradient shading, large detailed eyes, hair in soft strands",
       "sample": "samples/soft-anime.html" },
     { "id": "survival", "name": "Survival Short", "mode": "light",
-      "mood": "an upright survival story: overcast sky, dusty greens and browns, a red label, a yellow clock pill, big white outlined captions",
+      "mood": "a survival story: overcast sky, dusty greens and browns, a red label, a yellow clock pill, big white outlined captions",
       "tiers": ["shorts", "documentary", "picture"], "suits": "survival and what-would-you-do stories, history in episodes, safety and preparedness",
-      "characters": "thin stick limbs on a flat jacket and jeans, a round head with a dot eye and a line mouth, a cap; flat muted colour with soft ground shadows; aerial maps of the setting for title cards",
+      "characters": "tall and lanky, about seven heads high: a small round head under a cap with one dot eye and a line mouth, a rust jacket to the hips over a green collar, black gloves, light jeans and chunky brown boots; a thin dark outline and a soft light halo; animals drawn the same way (a black and white collie)",
       "sample": "samples/survival-short.html" }
   ]
 }
