@@ -1,11 +1,11 @@
 <h1 align="center">morphO</h1>
 
 <p align="center">
-  <strong>An agent skill that turns a textbook, a story or an idea into a narrated, animated web book,<br>in one of 19 ready-made styles, from frosted glass to pixel art, crayon and anime.</strong>
+  <strong>An agent skill that turns a textbook, a story or an idea into a narrated, animated web book,<br>in one of 20 ready-made styles, from frosted glass to pixel art, crayon and anime.</strong>
 </p>
 
 <p align="center">
-  <img src="img/readme/styles.webp" alt="A grid of the 19 morphO styles, each with an original character: Glass, Glass Night, Enchanted, Paper Collage, Kawaii Sticker, Watercolor Storybook, Flat Cartoon, Pixel Art, Crayon Sketch, Vintage Cartoon, Soft Pastel, Mascot Pop, TV Toon, Geo Flat, Glossy Sticker, Chibi Anime, Anime Pop, Anime Cel and Soft Anime" width="100%">
+  <img src="img/readme/styles.webp" alt="A grid of the 20 morphO styles, each with an original character: Glass, Glass Night, Enchanted, Paper Collage, Kawaii Sticker, Watercolor Storybook, Flat Cartoon, Pixel Art, Crayon Sketch, Vintage Cartoon, Soft Pastel, Mascot Pop, TV Toon, Geo Flat, Glossy Sticker, Chibi Anime, Anime Pop, Anime Cel, Soft Anime and Survival Short" width="100%">
 </p>
 
 <p align="center">
@@ -32,7 +32,7 @@ You talk to your coding agent; morphO does the rest. It plans the book with you,
 Every book starts with a short conversation, and one of its first questions is the look. morphO offers two or three styles that fit your readers and your subject (a toddler's picture book and a history course for teenagers get different suggestions), shows you the samples, and applies the one you pick. A style is two things that belong together:
 
 - **the player's look**: colours, cards, buttons, the progress bar and captions;
-- **a character style** the cast is drawn in: soft gloss, neon line, paper cut-out, watercolour wash, crayon, pixel art, rubber hose, chibi, cel-shaded anime and more.
+- **a character style** the cast is drawn in: soft gloss, neon line, paper cut-out, watercolour wash, crayon, pixel art, rubber hose, chibi, cel-shaded anime, survival-short stick figures and more.
 
 The same lesson in four styles:
 
@@ -60,6 +60,7 @@ The same lesson in four styles:
 | Anime Pop | vivid hair, glossy eyes, doodles | teen readers, languages |
 | Anime Cel | TV-anime cel shading | history, biography, drama |
 | Soft Anime | fine line, soft shading | literature, slice of life |
+| Survival Short | an upright survival story: stick figures, an overcast farm, big outlined captions | survival stories, safety, shorts |
 
 Prefer something else? The last option is always a palette made from your own book, and a new style is one CSS file, a catalogue entry and a sample scene ([how](.claude/skills/morpho/references/core/style.md#style-presets)).
 

@@ -1,0 +1,61 @@
+/* morphO style: Survival Short (light, muted). The look of an upright survival story: an overcast sky over dusty
+   greens and browns, flat shapes with soft shadows, a warning-red label and a yellow time pill on title cards, and big
+   white condensed captions with a dark outline that can be read with the sound off. Tense and wry: suits survival
+   and "what would you do" stories, history in short episodes, safety and preparedness, and upright shorts.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is the engine's,
+   redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --caption and --pill
+   names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they come
+   before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #2c3326; --board: #d9d6c4; --panel: #f1eee2; --edge: #3b3a33;
+  --chalk: #24261f; --dim: #5d6052; --faint: #b9b7a3;
+  --task: #c8372d; --quiz: #e8b830; --good: #6f8f3e; --bad: #c8372d;
+  --on-fill: #ffffff; --vignette: rgba(40, 44, 30, .22); color-scheme: light;
+  --rule: #e2dfd0; --track: #c4c1ad; --track-ask: #ddd0a0;
+  --bar-edge: #3b3a33; --hover: #ebe8da; --veil: #2c3326;
+  --ui: "Bahnschrift", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --caption-font: "Impact", "Haettenschweiler", "Bahnschrift Condensed", "Arial Narrow", sans-serif;
+
+  --caption: 0 0 0 transparent;                /* captions: white letters, a dark edge, no box */
+  --pill: #2a2a22;                             /* the dark pill a clock or a day sits in */
+}
+
+:root #frame { border-radius: 12px; box-shadow: 0 0 0 3px #1c2018, 0 30px 70px rgba(0, 0, 0, .45); }
+:root #stage { background:
+  radial-gradient(ellipse 150px 30px at 66% 7%, rgba(247, 244, 232, .9) 97%, transparent), radial-gradient(ellipse 84px 32px at 70% 4%, rgba(247, 244, 232, .9) 97%, transparent),
+  radial-gradient(ellipse 120px 26px at 90% 15%, rgba(247, 244, 232, .8) 97%, transparent),
+  linear-gradient(180deg, #b9c6c4 0%, #d9d6c4 60%, #a9b48a 60.5%, #8fa070 100%); }
+
+:root .cover { background: color-mix(in srgb, var(--page) 15%, transparent); }
+:root .cover-k { display: inline-block; padding: 6px 16px; background: var(--task); color: #fff; letter-spacing: .12em; }
+:root .cover-t { font: 400 96px/1 var(--caption-font); color: #fff; letter-spacing: .02em; text-transform: uppercase;
+  -webkit-text-stroke: 4px #1c1c16; paint-order: stroke fill; text-shadow: 0 6px 14px rgba(0, 0, 0, .35); }
+:root .cover .go { border-radius: 999px; background: var(--pill); color: var(--quiz); font-weight: 700; }
+:root .paused-mark div { background: var(--pill); color: var(--quiz); }
+
+:root .card { border-radius: 10px; background: var(--panel); border: 0; border-inline-start: 8px solid var(--task); box-shadow: 0 10px 26px rgba(30, 32, 22, .25); }
+:root .kicker { display: inline-block; padding: 2px 10px; background: var(--task); color: #fff; text-transform: uppercase; letter-spacing: .1em; font-size: 17px; }
+:root .opt { border: 2px solid var(--faint); background: #fff; color: var(--chalk); }
+:root .opt:hover:not(:disabled) { border-color: var(--chalk); }
+:root .opt[aria-pressed="true"] { background: var(--pill); border-color: var(--pill); color: var(--quiz); }
+:root .btn { background: var(--pill); color: #fff; }
+:root .btn.go { background: var(--task); color: #fff; }
+:root .btn.quiet { background: transparent; color: var(--chalk); border: 2px solid var(--faint); }
+:root .btn:disabled { background: var(--faint); color: var(--dim); }
+
+:root #bar { background: #2c3326; border-top: 0; }
+:root .icon { background: #3b4232; border: 1px solid #4d5540; color: #e8e4d2; }
+:root .icon svg { fill: #e8e4d2; }
+:root .icon.txt, :root .icon.cc { color: #e8e4d2; }
+:root .icon.cc[aria-pressed="true"] { background: var(--quiz); border-color: var(--quiz); color: var(--pill); }
+:root .step { color: #b9b7a3; }
+:root .seg { background: #4d5540; }
+:root .seg i { background: var(--quiz); }
+:root .seg.ask i { background: var(--task); }
+
+:root .help-box { border-radius: 10px; background: var(--panel); border: 0; }
+/* captions as in a short: big white condensed capitals with a dark edge, no box behind them */
+:root .caption { background: transparent; color: #fff; font: 400 40px/1.15 var(--caption-font); letter-spacing: .02em; text-transform: uppercase;
+  -webkit-text-stroke: 3px #16160f; paint-order: stroke fill; text-shadow: 0 3px 10px rgba(0, 0, 0, .5); box-shadow: var(--caption); }

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Survival Short: character sample</title>
+<!-- A character sample for the Survival Short style (../survival.css): an upright short in two shots that loop. First an
+     aerial title card over a farm in morning haze ("THE BLACKOUT / DAY 1" with a ticking clock pill), then a side shot
+     of an original farmer (thin stick limbs, a dot face, a cap) running for the shed with his dog, under a big white
+     caption. Flat muted colour, soft shadows, a faint film haze. Open it directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #1c2018; color: #e8e4d2; font: 14px/1.4 "Bahnschrift", "Segoe UI", sans-serif; display: grid; place-items: center; }
+  main { height: min(96vh, 170vw); aspect-ratio: 9 / 16; }
+  svg { display: block; width: 100%; height: 100%; border-radius: 12px; box-shadow: 0 0 0 3px #11140e, 0 30px 70px rgba(0, 0, 0, .5); }
+  p { margin: 10px 2px 0; color: #9a9a86; font-size: 12px; }
+  .a { transform-box: fill-box; }
+  .shotA { animation: shotA 12s infinite; } .shotB { animation: shotB 12s infinite; }
+  @keyframes shotA { 0%, 46% { opacity: 1; } 50%, 96% { opacity: 0; } 100% { opacity: 1; } }
+  @keyframes shotB { 0%, 46% { opacity: 0; } 50%, 96% { opacity: 1; } 100% { opacity: 0; } }
+  .push { animation: push 12s linear infinite; transform-origin: 50% 60%; }
+  @keyframes push { 0% { transform: scale(1); } 48% { transform: scale(1.08); } 100% { transform: scale(1.08); } }
+  .smoke { animation: smoke 3s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+  @keyframes smoke { to { transform: translate(8px, -10px) scale(1.1); opacity: .6; } }
+  .legA { animation: legA .42s linear infinite alternate; transform-origin: 50% 0%; }
+  .legB { animation: legA .42s linear infinite alternate-reverse; transform-origin: 50% 0%; }
+  @keyframes legA { from { transform: rotate(38deg); } to { transform: rotate(-34deg); } }
+  .armA { animation: legA .42s linear infinite alternate-reverse; transform-origin: 50% 0%; }
+  .armB { animation: legA .42s linear infinite alternate; transform-origin: 50% 0%; }
+  .run { animation: run .21s ease-in-out infinite alternate; }
+  @keyframes run { to { transform: translateY(-12px); } }
+  .dogleg { animation: dogleg .3s linear infinite alternate; transform-origin: 50% 0%; }
+  .dogleg.b { animation-direction: alternate-reverse; }
+  @keyframes dogleg { from { transform: rotate(30deg); } to { transform: rotate(-30deg); } }
+  .cap { animation: cap 12s infinite; }
+  @keyframes cap { 0%, 56% { opacity: 0; transform: translateY(10px); } 60%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+  .clouds { animation: clouds 30s linear infinite alternate; }
+  @keyframes clouds { to { transform: translateX(-60px); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .shotB { opacity: 0; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 900 1600" role="img" aria-label="An upright short in two shots: an aerial title card over a hazy farm reading THE BLACKOUT, DAY 1, 6:42 AM; then a farmer in a cap and brown jacket runs with his black-and-white dog towards a wooden shed under the caption ONE SMALL MISTAKE">
+<defs>
+  <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9ccc0"/><stop offset=".3" stop-color="#b9bfae" stop-opacity=".85"/><stop offset=".55" stop-color="#b9bfae" stop-opacity="0"/></linearGradient>
+  <linearGradient id="skyB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fb6bd"/><stop offset="1" stop-color="#d6d7c6"/></linearGradient>
+  <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a7f6c"/><stop offset="1" stop-color="#a49883"/></linearGradient>
+  <radialGradient id="vig" cx="50%" cy="50%" r="75%"><stop offset=".6" stop-color="#1c2018" stop-opacity="0"/><stop offset="1" stop-color="#1c2018" stop-opacity=".45"/></radialGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="5"/><feColorMatrix values="0 0 0 0 .3  0 0 0 0 .3  0 0 0 0 .25  0 0 0 .25 -.08"/></filter>
+</defs>
+
+<!-- SHOT A: aerial title card -->
+<g class="shotA">
+ <g class="push">
+  <rect width="900" height="1600" fill="#7f9461"/>
+  <path d="M0 380 Q200 340 450 360 Q700 330 900 370 L900 460 L0 460Z" fill="#8e9e74"/>
+  <g fill="#6e7e58" opacity=".8"><ellipse cx="80" cy="420" rx="40" ry="26"/><ellipse cx="160" cy="410" rx="30" ry="22"/><ellipse cx="760" cy="410" rx="44" ry="26"/><ellipse cx="850" cy="420" rx="34" ry="22"/></g>
+  <!-- fields and dirt paths -->
+  <path d="M0 700 L380 520 L900 560 L900 760 L420 760 L0 980Z" fill="#879b67"/>
+  <path d="M250 1600 L330 960 L360 780 L410 780 L420 960 L420 1600Z" fill="#c9a777"/>
+  <path d="M360 790 Q500 720 640 640 L670 650 Q540 740 410 800Z" fill="#c9a777"/>
+  <path d="M410 800 Q520 820 600 790 L604 806 Q520 840 410 818Z" fill="#c9a777"/>
+  <ellipse cx="300" cy="880" rx="160" ry="60" fill="#b99a6c" opacity=".55"/>
+  <!-- crop rows -->
+  <g>
+   <g fill="#8a5f3e"><rect x="540" y="960" width="360" height="40" rx="6"/><rect x="530" y="1040" width="370" height="42" rx="6"/><rect x="520" y="1124" width="380" height="44" rx="6"/><rect x="510" y="1212" width="390" height="46" rx="6"/><rect x="500" y="1304" width="400" height="48" rx="6"/><rect x="490" y="1400" width="410" height="50" rx="6"/></g>
+   <g fill="#7fb04e"><g id="row"><circle cx="560" cy="980" r="12"/><circle cx="600" cy="980" r="12"/><circle cx="640" cy="980" r="12"/><circle cx="680" cy="980" r="12"/><circle cx="720" cy="980" r="12"/><circle cx="760" cy="980" r="12"/><circle cx="800" cy="980" r="12"/><circle cx="840" cy="980" r="12"/><circle cx="880" cy="980" r="12"/></g>
+     <use href="#row" y="81"/><use href="#row" y="166" x="-10"/><use href="#row" y="255" x="-20"/><use href="#row" y="348" x="-30"/><use href="#row" y="445" x="-40"/></g>
+  </g>
+  <!-- trees with shadows -->
+  <g><ellipse cx="200" cy="640" rx="60" ry="22" fill="#4f5e3a" opacity=".5"/><rect x="186" y="560" width="14" height="70" fill="#5a4a36"/><circle cx="192" cy="540" r="58" fill="#4f6a3a"/><circle cx="176" cy="524" r="26" fill="#5e7a46"/></g>
+  <g><ellipse cx="640" cy="1000" rx="80" ry="26" fill="#4f5e3a" opacity=".5"/><rect x="622" y="890" width="18" height="96" fill="#5a4a36"/><circle cx="630" cy="860" r="80" fill="#4f6a3a"/><circle cx="604" cy="836" r="36" fill="#5e7a46"/></g>
+  <g><rect x="740" y="520" width="10" height="44" fill="#5a4a36"/><circle cx="745" cy="506" r="36" fill="#4f6a3a"/></g>
+  <!-- farmhouse with chimney smoke -->
+  <g>
+   <ellipse cx="260" cy="760" rx="150" ry="26" fill="#4f5e3a" opacity=".45"/>
+   <rect x="150" y="640" width="210" height="120" fill="#ece8dc"/><path d="M130 646 L180 580 L330 580 L380 646Z" fill="#3d4049"/>
+   <rect x="300" y="550" width="18" height="44" fill="#7a3a2a"/>
+   <g class="a smoke"><circle cx="310" cy="530" r="14" fill="#e6e4dc" opacity=".8"/><circle cx="322" cy="506" r="18" fill="#e6e4dc" opacity=".6"/><circle cx="336" cy="478" r="22" fill="#e6e4dc" opacity=".4"/></g>
+   <g fill="#5d7488"><rect x="168" y="662" width="22" height="28"/><rect x="204" y="662" width="22" height="28"/><rect x="284" y="662" width="22" height="28"/><rect x="320" y="662" width="22" height="28"/></g>
+   <rect x="232" y="700" width="46" height="60" fill="#3d4049"/><rect x="246" y="716" width="18" height="44" fill="#8a4a2a"/>
+   <path d="M150 700 H360" stroke="#d6d2c4" stroke-width="3"/>
+  </g>
+  <!-- red barn, silo, shed, tractor, water tank -->
+  <g><ellipse cx="620" cy="640" rx="110" ry="20" fill="#4f5e3a" opacity=".45"/>
+   <rect x="540" y="560" width="160" height="80" fill="#a8322a"/><path d="M528 566 Q620 490 712 566Z" fill="#7a2420"/>
+   <rect x="596" y="590" width="48" height="50" fill="#f2ece0"/><path d="M596 590 L644 640 M644 590 L596 640" stroke="#a8322a" stroke-width="5"/>
+   <rect x="720" y="520" width="34" height="120" rx="16" fill="#c4c4bc"/><ellipse cx="737" cy="520" rx="17" ry="8" fill="#9a9a92"/></g>
+  <g><rect x="560" y="700" width="80" height="54" fill="#8a8274"/><path d="M552 704 L600 680 L648 704Z" fill="#4d4a44"/><rect x="590" y="720" width="20" height="34" fill="#4d4a44"/></g>
+  <g fill="#3d4049"><rect x="760" y="640" width="30" height="16" rx="3"/><circle cx="764" cy="660" r="7"/><circle cx="788" cy="658" r="10"/></g>
+  <g><rect x="94" y="560" width="30" height="26" fill="#6a8aa0"/><path d="M96 586 v30 M122 586 v30" stroke="#5a5a52" stroke-width="3"/></g>
+ </g>
+ <rect width="900" height="900" fill="url(#haze)"/>
+ <!-- the title card -->
+ <g font-family="Impact, Haettenschweiler, 'Bahnschrift Condensed', sans-serif" text-anchor="middle">
+  <rect x="356" y="130" width="380" height="72" fill="#c8372d"/>
+  <text x="250" y="190" font-size="66" fill="#eeeade" stroke="#2a2a22" stroke-width="2" letter-spacing="2">THE</text>
+  <text x="546" y="190" font-size="66" fill="#ffffff" letter-spacing="2">BLACKOUT</text>
+  <text x="450" y="330" font-size="150" fill="#ffffff" stroke="#2a2a22" stroke-width="6" paint-order="stroke" letter-spacing="4">DAY 1</text>
+  <rect x="345" y="358" width="210" height="58" rx="29" fill="#2a2a22" stroke="#e8b830" stroke-width="4"/>
+  <text id="clock" x="450" y="400" font-family="Bahnschrift, 'Segoe UI', sans-serif" font-weight="700" font-size="38" fill="#e8b830">6:42 AM</text>
+ </g>
+</g>
+
+<!-- SHOT B: the run to the shed -->
+<g class="shotB">
+  <rect width="900" height="1600" fill="url(#skyB)"/>
+  <g class="clouds" fill="#f2efe2"><path d="M60 230 q20 -50 80 -40 q30 -40 90 -14 q50 0 50 40 q30 10 10 30 h-260 q-20 -10 30 -16Z"/><path d="M560 160 q14 -36 60 -30 q24 -30 70 -10 q40 0 40 30 q24 8 6 24 h-200 q-16 -8 24 -14Z"/>
+    <path d="M620 330 q10 -24 40 -20 q16 -20 46 -6 q26 0 26 20 h-130 q-8 -6 18 -14Z" opacity=".8"/></g>
+  <!-- tree line and fence -->
+  <g fill="#3f5a3a"><path d="M0 760 L0 700 Q20 660 40 690 L60 640 L80 690 Q100 650 120 700 L140 650 L160 700 Q180 670 200 700 L220 660 L240 710 L260 680 L280 720 L300 760Z"/>
+    <path d="M300 760 L310 720 Q330 690 350 720 L370 680 L390 730 L420 700 L440 760Z" opacity=".85"/></g>
+  <rect y="740" width="900" height="30" fill="#8aa06e"/>
+  <g stroke="#6a5a44" stroke-width="6"><path d="M0 742 H470 M0 762 H470"/><path d="M20 730 v44 M90 730 v44 M160 730 v44 M230 730 v44 M300 730 v44 M370 730 v44 M440 730 v44" stroke-width="7"/></g>
+  <!-- dirt yard and grass -->
+  <rect y="770" width="900" height="260" fill="#c7a77a"/>
+  <ellipse cx="300" cy="900" rx="240" ry="50" fill="#b99a6c" opacity=".6"/>
+  <rect y="1020" width="900" height="580" fill="#6f8e4f"/>
+  <path d="M0 1030 Q200 1010 450 1030 Q700 1050 900 1024 V1060 H0Z" fill="#7f9c5c"/>
+  <g filter="url(#soft)" fill="#4f6e3a"><path d="M120 1240 l14 -90 l14 90Z M150 1240 l10 -70 l14 70Z"/><path d="M300 1340 l18 -110 l18 110Z M340 1340 l12 -80 l16 80Z"/><path d="M640 1300 l16 -100 l16 100Z"/></g>
+  <!-- the shed -->
+  <g>
+   <ellipse cx="690" cy="1010" rx="250" ry="26" fill="#3a4a2a" opacity=".35"/>
+   <path d="M470 380 L900 330 L900 1000 L470 1000Z" fill="url(#wood)"/>
+   <g stroke="#6e6454" stroke-width="5"><path d="M540 372 V1000 M610 364 V1000 M680 356 V1000 M750 348 V1000 M820 340 V1000"/></g>
+   <path d="M450 384 L900 320 L900 350 L462 410Z" fill="#3a3c38"/>
+   <rect x="640" y="520" width="150" height="110" fill="#5f7a8c" stroke="#3a3c38" stroke-width="12"/>
+   <path d="M470 1000 L470 380" stroke="#5e5446" stroke-width="10"/>
+  </g>
+  <!-- the dog -->
+  <ellipse cx="190" cy="1000" rx="90" ry="12" fill="#3a2a1a" opacity=".25"/>
+  <g class="a run">
+   <g stroke="#1e1e1a" stroke-width="12" stroke-linecap="round"><g class="a dogleg"><path d="M150 930 L140 990"/></g><g class="a dogleg b"><path d="M168 930 L180 990"/></g>
+     <g class="a dogleg b"><path d="M230 926 L222 990"/></g><g class="a dogleg"><path d="M246 926 L258 990"/></g></g>
+   <path d="M130 940 Q130 890 190 890 Q250 886 262 920 Q262 950 200 952 Q140 954 130 940Z" fill="#1e1e1a"/>
+   <path d="M220 900 Q250 890 262 920 Q250 944 224 940Z" fill="#f2efe4"/>
+   <path d="M130 910 Q96 880 90 860 Q112 880 136 896Z" fill="#1e1e1a"/>
+   <path d="M244 880 Q260 840 296 846 Q314 856 306 876 Q296 896 266 904Z" fill="#1e1e1a"/>
+   <path d="M284 860 Q300 862 306 876 Q292 888 276 884Z" fill="#f2efe4"/><circle cx="276" cy="862" r="4" fill="#fff"/><circle cx="276" cy="862" r="2" fill="#111"/>
+   <path d="M262 852 L254 830 L272 846Z" fill="#1e1e1a"/>
+   <path d="M302 880 q8 10 2 18" stroke="#c84a4a" stroke-width="6" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- the farmer: thin stick limbs, a dot face -->
+  <ellipse cx="360" cy="996" rx="70" ry="10" fill="#3a2a1a" opacity=".3"/>
+  <g class="a run" stroke-linecap="round" stroke-linejoin="round">
+   <!-- far arm and leg -->
+   <g class="a armB"><path d="M352 690 L330 770 L370 812" stroke="#5a3a22" stroke-width="16" fill="none"/><circle cx="372" cy="816" r="9" fill="#e8c4a0"/></g>
+   <g class="a legB"><path d="M352 800 L330 890 L344 966" stroke="#3d6a9a" stroke-width="16" fill="none"/><path d="M332 966 l44 0 q8 14 -4 18 l-46 0Z" fill="#8a6a40"/></g>
+   <!-- body: jacket over a green shirt -->
+   <path d="M330 670 Q360 656 388 674 L380 810 L326 810Z" fill="#8a4a2a"/>
+   <path d="M352 672 L366 672 L362 806 L352 806Z" fill="#4f6a3a"/>
+   <!-- near leg and arm -->
+   <g class="a legA"><path d="M356 800 L384 888 L374 966" stroke="#4a7aaa" stroke-width="16" fill="none"/><path d="M362 966 l46 0 q8 14 -4 18 l-48 0Z" fill="#9a7a48"/></g>
+   <g class="a armA"><path d="M372 690 L400 760 L440 744" stroke="#9a5a32" stroke-width="16" fill="none"/><circle cx="444" cy="742" r="9" fill="#e8c4a0"/></g>
+   <!-- head and cap -->
+   <rect x="350" y="636" width="14" height="30" fill="#e8c4a0"/>
+   <circle cx="358" cy="614" r="34" fill="#f0d2b0"/>
+   <path d="M322 610 Q322 572 358 570 Q394 572 394 606 Z" fill="#4f6a3a"/><path d="M380 604 L418 610 Q414 618 392 616Z" fill="#3e5530"/>
+   <circle cx="372" cy="620" r="3.5" fill="#1e1e1a"/><path d="M366 638 h12" stroke="#1e1e1a" stroke-width="3"/>
+   <path d="M378 610 h8" stroke="#1e1e1a" stroke-width="3"/>
+  </g>
+  <!-- the caption -->
+  <g class="cap"><text x="450" y="1180" text-anchor="middle" font-family="Impact, Haettenschweiler, 'Bahnschrift Condensed', sans-serif" font-size="74" fill="#ffffff" stroke="#16160f" stroke-width="10" paint-order="stroke" letter-spacing="1">ONE SMALL MISTAKE</text></g>
+</g>
+
+<rect width="900" height="1600" fill="url(#vig)"/>
+<rect width="900" height="1600" filter="url(#grain)" opacity=".5" style="mix-blend-mode: multiply"/>
+</svg>
+<p>morphO · Survival Short · character sample: an original upright short, a title card and a run for the shed.</p>
+</main>
+<script>
+  // The clock pill ticks a minute every second while the title card shows, as a short's clock races.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { const el = document.getElementById('clock'); let m = 42;
+    setInterval(() => { m = m >= 59 ? 42 : m + 1; el.textContent = `6:${String(m).padStart(2, '0')} AM`; }, 1000); }
+</script>
+</body>
+</html>
