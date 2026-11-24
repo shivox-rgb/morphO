@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vintage Cartoon: character sample</title>
+<!-- A character sample for the Vintage Cartoon style (../vintage.css): an original boy in the rubber-hose manner of
+     early cartoons (bendy limbs, white gloves, pie-cut eyes, big shiny shoes) bouncing along a path to a stone
+     schoolhouse, with smiling clouds and flowers that bob on the same beat. Sepia, thick ink, film grain, a flicker and
+     a gate weave, like an old reel. Open it directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #2a2118; color: #f2e4c2; font: 15px/1.4 Rockwell, Georgia, serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  .reel { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 0 0 5px #1a130d, 0 30px 80px rgba(0, 0, 0, .6); }
+  svg { display: block; width: 100%; height: auto; animation: weave .5s steps(3) infinite; }
+  @keyframes weave { 0% { transform: translate(0, 0); } 33% { transform: translate(1px, -1px); } 66% { transform: translate(-1px, 1px); } }
+  .flick { position: absolute; inset: 0; pointer-events: none; background: #fff6dc; mix-blend-mode: overlay; animation: flick .24s steps(2) infinite; }
+  @keyframes flick { 0% { opacity: .02; } 50% { opacity: .08; } }
+  p { margin: 12px 4px 0; color: #cdb98e; }
+  .a { transform-box: fill-box; }
+  .beat { animation: beat .6s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+  @keyframes beat { from { transform: translateY(0) scaleY(1); } to { transform: translateY(-12px) scaleY(1.03); } }
+  .sway { animation: sway .6s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+  .sway.r { animation-direction: alternate-reverse; }
+  @keyframes sway { from { transform: rotate(-6deg); } to { transform: rotate(6deg); } }
+  .wave { animation: wave .3s ease-in-out infinite alternate; transform-origin: 4% 96%; }
+  @keyframes wave { from { transform: rotate(-12deg); } to { transform: rotate(10deg); } }
+  .stepA { animation: stepA .6s ease-in-out infinite alternate; transform-origin: 50% 0%; }
+  .stepB { animation: stepA .6s ease-in-out infinite alternate-reverse; transform-origin: 50% 0%; }
+  @keyframes stepA { from { transform: rotate(14deg); } to { transform: rotate(-14deg); } }
+  .smoke { animation: smoke 3s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+  @keyframes smoke { to { transform: skewX(8deg) translateY(-6px); } }
+  .ring { animation: ring .3s ease-in-out infinite alternate; transform-origin: 50% 0%; }
+  @keyframes ring { from { transform: rotate(-14deg); } to { transform: rotate(14deg); } }
+  .blink { animation: blink 3.4s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.12); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<div class="reel">
+<svg viewBox="0 0 1600 900" role="img" aria-label="An old sepia cartoon: a boy with white gloves, pie-cut eyes and big shiny shoes bounces along a path waving, past a stone schoolhouse with a ringing bell and a curl of smoke, a school sign, and clouds and flowers with smiling faces">
+<defs>
+  <radialGradient id="vig" cx="50%" cy="48%" r="70%"><stop offset=".55" stop-color="#3c230a" stop-opacity="0"/><stop offset="1" stop-color="#3c230a" stop-opacity=".7"/></radialGradient>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9dcbc"/><stop offset="1" stop-color="#f3e7c8"/></linearGradient>
+  <filter id="grain"><feTurbulence id="gn" type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="1"/><feColorMatrix values="0 0 0 0 .2  0 0 0 0 .14  0 0 0 0 .08  0 0 0 .7 -.25"/></filter>
+  <filter id="ink"><feTurbulence baseFrequency=".04" numOctaves="2" seed="6" result="w"/><feDisplacementMap in="SourceGraphic" in2="w" scale="3"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<g filter="url(#ink)" stroke="#2a1f17" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+  <!-- smiling clouds, bobbing on the beat -->
+  <g class="a sway"><path d="M980 190 q0 -50 60 -50 q30 -50 90 -30 q50 -20 80 20 q60 0 60 50 q0 30 -40 30 l-210 0 q-40 0 -40 -20Z" fill="#f8f0dc"/>
+    <path d="M1092 166 q10 -8 20 0 M1132 166 q10 -8 20 0" fill="none" stroke-width="4"/><path d="M1100 186 q20 18 44 0" fill="none" stroke-width="4"/><circle cx="1090" cy="190" r="6" fill="#e0a08a" stroke="none"/><circle cx="1158" cy="190" r="6" fill="#e0a08a" stroke="none"/></g>
+  <g class="a sway r"><path d="M1340 160 q0 -44 54 -44 q28 -44 82 -26 q46 -16 72 18 q54 0 54 44 q0 26 -36 26 l-190 0 q-36 0 -36 -18Z" fill="#f8f0dc"/>
+    <path d="M1446 140 q8 -8 18 0 M1484 140 q8 -8 18 0" fill="none" stroke-width="4"/><path d="M1452 158 q18 16 40 0" fill="none" stroke-width="4"/></g>
+  <g class="a sway"><path d="M1170 300 q0 -36 44 -36 q22 -36 66 -22 q38 -12 58 14 q44 0 44 36 q0 22 -30 22 l-152 0 q-30 0 -30 -14Z" fill="#f8f0dc"/>
+    <path d="M1250 284 q6 -6 14 0 M1280 284 q6 -6 14 0" fill="none" stroke-width="3.5"/><path d="M1254 298 q14 12 30 0" fill="none" stroke-width="3.5"/></g>
+  <!-- hills, bushes, trees -->
+  <path d="M0 640 Q300 590 600 620 Q900 650 1200 600 Q1420 580 1600 610 L1600 900 L0 900Z" fill="#c9b27a"/>
+  <path d="M0 700 Q400 660 760 700 Q1100 730 1600 690 L1600 900 L0 900Z" fill="#b89c5e"/>
+  <path d="M60 600 q-20 -60 40 -70 q30 -40 80 -10 q60 -10 60 50 q20 30 -20 40 l-140 0Z" fill="#9a8a4a"/>
+  <path d="M1180 620 q-10 -50 40 -56 q30 -30 70 -6 q50 0 50 44 l-160 18Z" fill="#a8925a"/>
+  <path d="M1460 610 q-10 -50 40 -56 q30 -30 70 -6 q50 0 40 50Z" fill="#a8925a"/>
+  <path d="M150 640 L160 460 L190 460 L196 640Z" fill="#8a5a3a"/>
+  <path d="M90 470 q-30 -90 50 -120 q20 -70 90 -50 q70 0 70 70 q40 60 -20 100 q-90 40 -190 0Z" fill="#a8975a"/>
+  <path d="M250 640 L256 520 L280 520 L284 640Z" fill="#8a5a3a"/><path d="M210 530 q-20 -70 40 -90 q60 -20 80 40 q30 50 -20 70 q-60 20 -100 -20Z" fill="#b8a46a"/>
+  <path d="M1360 620 L1366 500 L1396 500 L1400 620Z" fill="#8a5a3a"/>
+  <path d="M1290 520 q-30 -90 60 -110 q70 -30 110 30 q50 40 10 90 q-80 40 -180 -10Z" fill="#d48a4a"/>
+  <!-- the schoolhouse -->
+  <path d="M360 640 L380 420 L700 420 L720 640Z" fill="#e8dcc0"/>
+  <path d="M320 440 L540 220 L760 440 L700 450 L540 290 L380 450Z" fill="#a8553a"/>
+  <path d="M380 420 L540 290 L700 420Z" fill="#e8dcc0"/>
+  <path d="M470 290 L470 180 L610 180 L610 290Z" fill="#e8dcc0"/>
+  <path d="M450 190 L540 120 L630 190Z" fill="#a8553a"/>
+  <path d="M500 270 L500 220 Q540 192 580 220 L580 270Z" fill="#3a2a1c"/>
+  <g class="a ring"><path d="M520 254 q0 -30 20 -32 q20 2 20 32Z" fill="#d4a23c"/><circle cx="540" cy="258" r="6" fill="#a8762a"/></g>
+  <path d="M600 210 q14 -8 20 4 M606 230 q14 -6 18 6" fill="none" stroke-width="4"/>
+  <path d="M640 360 L640 280 L690 280 L690 380Z" fill="#a8553a"/>
+  <g class="a smoke"><path d="M664 270 q-30 -30 0 -60 q30 -30 0 -60 q-24 -24 10 -50" fill="none" stroke="#e8dcc0" stroke-width="22"/><path d="M664 270 q-30 -30 0 -60 q30 -30 0 -60 q-24 -24 10 -50" fill="none" stroke-width="4"/></g>
+  <path d="M500 640 L500 520 Q540 470 580 520 L580 640Z" fill="#3a2a1c"/>
+  <path d="M580 640 L580 520 L630 500 L630 650Z" fill="#8a5a3a"/>
+  <path d="M410 500 h60 v80 h-60Z M610 380 h0" fill="#c9d2c8"/><path d="M440 500 v80 M410 540 h60" fill="none" stroke-width="4"/>
+  <path d="M520 360 q0 -40 20 -42 q20 2 20 42Z" fill="#c9d2c8"/>
+  <path d="M400 460 h30 M660 470 h30 M420 600 h40 M640 590 h40" fill="none" stroke="#b8a888" stroke-width="5"/>
+  <path d="M480 640 h120 l10 16 h-140Z" fill="#c9bca2"/>
+  <!-- school sign and pennant pole -->
+  <path d="M1080 760 L1110 520 L1130 520 L1104 760Z" fill="#8a5a3a"/>
+  <g transform="rotate(10 1130 540)"><path d="M1000 500 h260 l-10 80 h-250Z" fill="#efe2c4"/>
+  <text x="1130" y="556" text-anchor="middle" font-family="Rockwell Extra Bold, Cooper Black, Georgia" font-size="46" fill="#2a1f17" stroke="none">SCHOOL</text></g>
+  <path d="M1420 780 L1460 320" stroke-width="10"/><circle cx="1462" cy="314" r="12" fill="#d4a23c"/>
+  <g class="a sway"><path d="M1458 336 L1600 380 L1452 420Z" fill="#c8553d"/></g>
+  <!-- path -->
+  <path d="M500 660 Q540 700 680 720 Q900 750 980 790 Q1060 840 960 900 L620 900 Q760 840 700 800 Q600 760 520 720 Q470 690 480 660Z" fill="#e2cc98"/>
+  <!-- smiling flowers on the beat -->
+  <g class="a sway"><path d="M150 900 L156 800" stroke-width="5"/><circle cx="156" cy="790" r="44" fill="#c8553d"/><circle cx="156" cy="790" r="22" fill="#efd9a0"/><path d="M146 788 h2 M164 788 h2 M146 798 q10 8 20 0" fill="none" stroke-width="3.5"/></g>
+  <g class="a sway r"><path d="M300 900 L300 830" stroke-width="5"/><circle cx="300" cy="820" r="36" fill="#f3ead2"/><circle cx="300" cy="820" r="18" fill="#e0b450"/><path d="M292 818 h2 M306 818 h2 M292 826 q8 6 16 0" fill="none" stroke-width="3.5"/></g>
+  <g class="a sway"><path d="M420 900 L420 846" stroke-width="5"/><circle cx="420" cy="836" r="30" fill="#d48a6a"/><circle cx="420" cy="836" r="14" fill="#e0b450"/></g>
+  <g class="a sway r"><path d="M1270 900 L1270 800" stroke-width="5"/><circle cx="1270" cy="790" r="34" fill="#c8553d"/><circle cx="1270" cy="790" r="16" fill="#e0b450"/><path d="M1262 788 h2 M1276 788 h2 M1262 796 q8 6 16 0" fill="none" stroke-width="3.5"/></g>
+  <g class="a sway"><path d="M1420 900 L1420 820" stroke-width="5"/><circle cx="1420" cy="810" r="34" fill="#8fa8b8"/><circle cx="1420" cy="810" r="16" fill="#e0b450"/></g>
+  <g class="a sway r"><path d="M1540 900 L1540 830" stroke-width="5"/><circle cx="1540" cy="820" r="30" fill="#f3ead2"/><circle cx="1540" cy="820" r="14" fill="#e0b450"/></g>
+
+  <!-- the boy, rubber hose -->
+  <g class="a beat">
+   <!-- legs: bendy tubes with big shiny shoes -->
+   <g class="a stepB"><path d="M810 650 Q790 720 770 790" fill="none" stroke-width="26"/><path d="M810 650 Q790 720 770 790" fill="none" stroke="#f3e2c4" stroke-width="14"/>
+     <path d="M700 800 Q700 760 760 770 Q820 780 830 810 Q820 840 750 836 Q696 832 700 800Z" fill="#241a12"/><path d="M730 786 q20 -10 40 -4" fill="none" stroke="#fff" stroke-width="5"/></g>
+   <g class="a stepA"><path d="M880 650 Q900 720 930 780" fill="none" stroke-width="26"/><path d="M880 650 Q900 720 930 780" fill="none" stroke="#f3e2c4" stroke-width="14"/>
+     <path d="M880 790 Q884 754 950 764 Q1020 776 1024 810 Q1016 842 940 836 Q876 830 880 790Z" fill="#241a12"/><path d="M920 778 q22 -10 44 -4" fill="none" stroke="#fff" stroke-width="5"/></g>
+   <!-- shorts and shirt -->
+   <path d="M780 580 L920 580 L930 670 L860 670 L850 640 L840 670 L770 670Z" fill="#4a4a4a"/>
+   <path d="M790 470 Q850 450 910 470 L920 590 L780 590Z" fill="#d9ccb0"/>
+   <path d="M840 470 L850 520 L860 470Z" fill="#6a7a8a"/><path d="M850 500 L834 560 L850 580 L866 560Z" fill="#6a7a8a"/>
+   <!-- backpack -->
+   <path d="M740 480 Q720 470 720 520 Q716 600 760 620 L800 610 L800 480Z" fill="#8a6a44"/>
+   <!-- near arm: a tube to a white glove on the strap -->
+   <path d="M796 490 Q760 540 800 580" fill="none" stroke-width="22"/><path d="M796 490 Q760 540 800 580" fill="none" stroke="#f3e2c4" stroke-width="10"/>
+   <path d="M790 560 q-20 0 -20 26 q6 30 36 28 q30 -6 28 -30 q-6 -26 -44 -24Z" fill="#fbf6ea"/><path d="M798 574 h22 M796 590 h24" fill="none" stroke-width="3"/>
+   <!-- waving arm -->
+   <g class="a wave"><path d="M904 490 Q970 470 990 390" fill="none" stroke-width="22"/><path d="M904 490 Q970 470 990 390" fill="none" stroke="#f3e2c4" stroke-width="10"/>
+     <path d="M980 410 Q960 380 976 350 Q980 330 994 334 L1000 362 L1004 316 Q1016 304 1024 318 L1022 360 L1036 324 Q1050 316 1054 332 L1042 370 L1060 346 Q1076 344 1074 360 L1050 400 Q1030 432 980 410Z" fill="#fbf6ea"/>
+     <path d="M1000 410 q-6 16 6 26 q30 6 40 -14" fill="#fbf6ea"/>
+     <path d="M1080 330 q14 10 10 30 M1094 380 q14 2 22 14" fill="none" stroke-width="4"/></g>
+   <!-- head -->
+   <ellipse cx="790" cy="370" rx="22" ry="28" fill="#f3e2c4"/>
+   <ellipse cx="854" cy="360" rx="80" ry="88" fill="#f3e2c4"/>
+   <path d="M780 330 Q770 260 840 256 Q860 230 890 246 Q870 252 878 262 Q930 270 934 330 Q920 300 890 296 Q860 306 830 300 Q800 306 780 330Z" fill="#6b4a30"/>
+   <path d="M880 250 q20 -24 44 -20 q-14 10 -16 24" fill="#6b4a30"/>
+   <g class="a blink"><path d="M820 340 q-12 0 -12 28 q0 30 14 30 q14 0 14 -30 q0 -28 -16 -28Z" fill="#241a12"/><path d="M816 352 l10 10 l-10 6Z" fill="#f3e2c4" stroke="none"/>
+     <path d="M872 336 q-12 0 -12 28 q0 30 14 30 q14 0 14 -30 q0 -28 -16 -28Z" fill="#241a12"/><path d="M868 348 l10 10 l-10 6Z" fill="#f3e2c4" stroke="none"/></g>
+   <circle cx="854" cy="400" r="12" fill="#d48a7a"/>
+   <circle cx="800" cy="414" r="14" fill="#e0907a" stroke="none" opacity=".75"/><circle cx="912" cy="410" r="14" fill="#e0907a" stroke="none" opacity=".75"/>
+   <path d="M806 420 Q858 486 914 416 Q860 438 806 420Z" fill="#5a1a14"/><path d="M836 446 q22 -12 44 0 q-20 20 -44 0Z" fill="#e0707a" stroke="none"/>
+  </g>
+</g>
+<rect width="1600" height="900" filter="url(#grain)" opacity=".55" style="mix-blend-mode: multiply"/>
+<rect width="1600" height="900" fill="url(#vig)"/>
+<g stroke="#2a1f17" stroke-width="2" opacity=".35"><path id="scratch" d="M420 0 V900"/></g>
+</svg>
+<div class="flick"></div>
+</div>
+<p>morphO · Vintage Cartoon · character sample: an original rubber-hose boy on the way to school, in sepia ink on an old reel.</p>
+</main>
+<script>
+  // The reel: re-seed the grain and move the scratch a little every frame, as old film never holds still.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { const gn = document.getElementById('gn'), sc = document.getElementById('scratch'); let k = 0;
+    setInterval(() => { k++; gn.setAttribute('seed', k % 9); const x = (k % 37 < 18) ? 300 + (k * 53) % 1000 : -10; sc.setAttribute('d', `M${x} 0 V900`); }, 90); }
+</script>
+</body>
+</html>

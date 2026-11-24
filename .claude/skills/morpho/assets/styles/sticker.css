@@ -1,0 +1,56 @@
+/* morphO style: Glossy Sticker (light). A die-cut vinyl sticker: soft lavender grey, a butter-yellow paint splash,
+   white cards with a navy outline, a white sticker rim and a glossy shine, hot pink and cyan accents, rounded type.
+   Juicy and fun: suits young readers, space and science for kids, food, games and upright shorts.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --rim and
+   --shine names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they
+   come before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #dcdcf2; --board: #e9e9f8; --panel: #ffffff; --edge: #1a2440;
+  --chalk: #1a2440; --dim: #5a6080; --faint: #c8c8e2;
+  --task: #ff4f8b; --quiz: #22b0d6; --good: #33c086; --bad: #ff4f6a;
+  --on-fill: #ffffff; --vignette: rgba(26, 36, 64, .05); color-scheme: light;
+  --rule: #ececf8; --track: #d4d4ec; --track-ask: #c6eaf4;
+  --bar-edge: #1a2440; --hover: #f4f4fc; --veil: #dcdcf2;
+  --ui: "Arial Rounded MT Bold", "Nunito", "Segoe UI", sans-serif;
+
+  --rim: 0 0 0 3px var(--chalk), 0 0 0 10px #ffffff, 0 14px 28px rgba(26, 36, 64, .18);   /* outline, white sticker rim, lift */
+  --shine: linear-gradient(160deg, rgba(255, 255, 255, .9) 0 14%, rgba(255, 255, 255, 0) 30%);
+}
+
+:root #frame { border-radius: 30px; box-shadow: 0 0 0 1px #c8c8e2, 0 30px 70px rgba(26, 36, 64, .2); }
+:root #stage { background:
+  radial-gradient(ellipse 34% 40% at 50% 52%, #fbe3a8 98%, transparent 100%),
+  radial-gradient(ellipse 18% 22% at 36% 34%, #fbe3a8 98%, transparent 100%),
+  radial-gradient(ellipse 16% 20% at 66% 70%, #fbe3a8 98%, transparent 100%),
+  var(--grain, none), var(--board); }
+
+:root .cover { background: color-mix(in srgb, var(--page) 10%, transparent); }
+:root .cover-k { color: var(--task); letter-spacing: .14em; }
+:root .cover-t { font: 800 80px/1.05 var(--ui); color: var(--quiz); -webkit-text-stroke: 4px var(--chalk); paint-order: stroke fill;
+  text-shadow: 0 0 0 #fff, 0 6px 0 var(--chalk); }
+:root .cover .go { background: var(--task) var(--shine); color: #fff; box-shadow: var(--rim); }
+:root .paused-mark div { background: #fff; color: var(--chalk); box-shadow: var(--rim); }
+
+:root .card { border-radius: 30px; background: var(--shine), var(--panel); border: 0; border-inline-start: 0; box-shadow: var(--rim); }
+:root .kicker { color: var(--task); }
+:root .opt { border: 3px solid var(--chalk); background: #fff; color: var(--chalk); }
+:root .opt:hover:not(:disabled):not([aria-pressed="true"]) { background: #fff2f7; }
+:root .opt[aria-pressed="true"] { background: var(--shine), var(--quiz); color: #fff; }
+:root .btn { background: var(--chalk); color: #fff; border: 3px solid var(--chalk); }
+:root .btn.go { background: var(--shine), var(--task); color: #fff; }
+:root .btn.quiet { background: #fff; color: var(--chalk); }
+:root .btn:disabled { background: var(--faint); color: var(--dim); }
+
+:root #bar { background: #fff; border-top: 3px solid var(--chalk); }
+:root .icon { background: #fff; border: 2.5px solid var(--chalk); }
+:root .icon svg { fill: var(--chalk); }
+:root .icon.txt, :root .icon.cc { color: var(--chalk); }
+:root .seg { height: 10px; border-radius: 6px; }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: var(--quiz); }
+
+:root .help-box { border-radius: 30px; background: var(--shine), #fff; border: 0; box-shadow: var(--rim); }
+:root .caption { background: #fff; color: var(--chalk); border-radius: 22px; box-shadow: var(--rim); }

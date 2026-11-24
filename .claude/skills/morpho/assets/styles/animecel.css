@@ -1,0 +1,52 @@
+/* morphO style: Anime Cel (dark). TV anime: a deep sky blue with flat painted clouds, charcoal cards with a fine light
+   line and a hard cel shadow, warm skin-orange and gold accents, a bold condensed title in white with a black edge.
+   Serious and dramatic: suits history and biography, older readers, stories with conflict and documentaries.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --cel
+   names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they come
+   before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #18263a; --board: #3f86b8; --panel: #23262e; --edge: #4a5466;
+  --chalk: #f7f3ea; --dim: #c4ccd8; --faint: #6f8aa6;
+  --task: #ff9a4d; --quiz: #ffd34d; --good: #6fe3a0; --bad: #ff6b6b;
+  --on-fill: #1a1d24; --vignette: rgba(10, 20, 40, .25); color-scheme: dark;
+  --rule: #343944; --track: #2f5f86; --track-ask: #5a6a3a;
+  --bar-edge: #3a4250; --hover: #2c3038; --veil: #10161f;
+  --ui: "Bahnschrift", "Arial Narrow", "Segoe UI", sans-serif;
+
+  --cel: 8px 8px 0 rgba(10, 14, 22, .55);      /* a hard two-tone shadow */
+}
+
+:root #frame { border-radius: 10px; box-shadow: 0 0 0 3px #10161f, 0 30px 70px rgba(0, 0, 0, .5); }
+:root #stage { background:
+  radial-gradient(ellipse 160px 40px at 16% 16%, rgba(190, 215, 230, .55) 97%, transparent), radial-gradient(ellipse 90px 46px at 20% 11%, rgba(190, 215, 230, .55) 97%, transparent),
+  radial-gradient(ellipse 140px 34px at 80% 26%, rgba(190, 215, 230, .45) 97%, transparent), radial-gradient(ellipse 70px 36px at 84% 21%, rgba(190, 215, 230, .45) 97%, transparent),
+  linear-gradient(180deg, #2f78ad, #4a96c4 60%, #78b4d2); }
+
+:root .cover { background: color-mix(in srgb, var(--page) 20%, transparent); }
+:root .cover-k { color: var(--quiz); letter-spacing: .3em; }
+:root .cover-t { font: 700 86px/1 var(--ui); color: #fff; letter-spacing: .02em; text-transform: uppercase;
+  -webkit-text-stroke: 3px #10161f; paint-order: stroke fill; text-shadow: 6px 6px 0 rgba(10, 14, 22, .6); }
+:root .cover .go { border-radius: 6px; background: var(--task); color: var(--on-fill); box-shadow: var(--cel); }
+:root .paused-mark div { border-radius: 6px; background: var(--panel); color: var(--chalk); box-shadow: var(--cel); }
+
+:root .card { border-radius: 8px; background: color-mix(in srgb, var(--panel) 96%, transparent); border: 1.5px solid #6b7486; border-inline-start: 6px solid var(--task); box-shadow: var(--cel); }
+:root .kicker { color: var(--quiz); text-transform: uppercase; letter-spacing: .14em; }
+:root .opt { border-radius: 6px; border: 1.5px solid var(--edge); background: #2c3038; color: var(--chalk); }
+:root .opt:hover:not(:disabled) { border-color: var(--quiz); }
+:root .opt[aria-pressed="true"] { background: var(--task); border-color: var(--task); color: var(--on-fill); }
+:root .btn { border-radius: 6px; background: var(--chalk); color: var(--on-fill); }
+:root .btn.go { background: var(--task); color: var(--on-fill); }
+:root .btn.quiet { background: transparent; color: var(--dim); border: 1.5px solid var(--edge); }
+:root .btn:disabled { background: var(--edge); color: var(--dim); }
+
+:root #bar { background: #10161f; border-top: 0; }
+:root .icon { border-radius: 6px; background: #23262e; border: 1px solid #3a4250; }
+:root .seg { border-radius: 0; height: 8px; }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: var(--quiz); }
+
+:root .help-box { border-radius: 8px; background: var(--panel); border: 1.5px solid #6b7486; box-shadow: var(--cel); }
+:root .caption { border-radius: 4px; background: rgba(16, 22, 31, .88); color: #fff; font-weight: 600; letter-spacing: .02em; }

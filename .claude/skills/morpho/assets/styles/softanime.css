@@ -1,0 +1,48 @@
+/* morphO style: Soft Anime (light). A soft-shaded anime illustration: a peach-to-cream wash, white cards with a fine
+   ink line and a gentle glow, coral and eye-blue accents, an elegant italic serif title. Warm and quiet: suits
+   literature and poetry, slice-of-life stories, language learning and older readers.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --soft
+   names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they come
+   before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #f2d8c8; --board: #f8eadf; --panel: #fffaf6; --edge: #e4c8b6;
+  --chalk: #3a2a2a; --dim: #85696a; --faint: #e8cfc0;
+  --task: #e2584a; --quiz: #4f7fc4; --good: #6fa860; --bad: #d9534f;
+  --on-fill: #ffffff; --vignette: rgba(160, 90, 60, .08); color-scheme: light;
+  --rule: #f2e2d6; --track: #eed6c6; --track-ask: #d6e0f2;
+  --bar-edge: #eed6c6; --hover: #fbf1ea; --veil: #f2d8c8;
+  --ui: "Avenir Next", "Segoe UI", "Hiragino Sans", "Helvetica Neue", sans-serif;
+  --story: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+
+  --soft-glow: 0 2px 6px rgba(160, 90, 60, .08), 0 16px 40px rgba(226, 88, 74, .12);
+}
+
+:root #frame { border-radius: 20px; box-shadow: 0 0 0 1px var(--edge), 0 30px 70px rgba(160, 90, 60, .18); }
+:root #stage { background: linear-gradient(110deg, #f5c4ab 0%, #f7dccb 45%, #f8eee4 100%); }
+
+:root .cover { background: transparent; }
+:root .cover-k { color: var(--task); letter-spacing: .24em; }
+:root .cover-t { font: italic 500 80px/1.08 var(--story); color: var(--chalk); }
+:root .cover .go { background: var(--task); color: #fff; box-shadow: var(--soft-glow); }
+:root .paused-mark div { background: var(--panel); color: var(--chalk); box-shadow: var(--soft-glow); }
+
+:root .card { border-radius: 20px; background: var(--panel); border: 1.5px solid var(--chalk); border-inline-start: 1.5px solid var(--chalk); box-shadow: var(--soft-glow); }
+:root .kicker { color: var(--task); font-family: var(--story); font-style: italic; font-size: 22px; }
+:root .opt { border: 1.5px solid var(--faint); background: #fff; color: var(--chalk); }
+:root .opt:hover:not(:disabled) { border-color: var(--task); }
+:root .opt[aria-pressed="true"] { background: var(--quiz); border-color: var(--quiz); color: #fff; }
+:root .btn { background: var(--chalk); color: #fff; }
+:root .btn.go { background: var(--task); color: #fff; }
+:root .btn.quiet { background: transparent; color: var(--dim); border: 1.5px solid var(--faint); }
+:root .btn:disabled { background: var(--faint); color: var(--dim); }
+
+:root #bar { background: #fbf2ea; border-top: 1px solid var(--bar-edge); }
+:root .icon { background: #fff; border: 1px solid var(--edge); }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: var(--quiz); }
+
+:root .help-box { border-radius: 20px; background: var(--panel); border: 1.5px solid var(--chalk); box-shadow: var(--soft-glow); }
+:root .caption { background: var(--panel); color: var(--chalk); border-radius: 14px; box-shadow: var(--soft-glow); font-family: var(--story); }

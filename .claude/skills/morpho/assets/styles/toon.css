@@ -1,0 +1,56 @@
+/* morphO style: TV Toon (light). A modern TV cartoon's title card: rings of warm orange round a pale centre, a glassy
+   bubble, cards with a thick purple-black edge and a hard offset, bubbly title letters in yellow with a dark outline,
+   teal and orange accents. Loud and silly: suits comedy, character-led stories, kids' shows and shorts.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --ink and
+   --offset names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they
+   come before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #d9703f; --board: #f7e1c8; --panel: #fffaf2; --edge: #2a1840;
+  --chalk: #2a1840; --dim: #6a4a5a; --faint: #e8b994;
+  --task: #f2a12e; --quiz: #2fc4d0; --good: #5bc46a; --bad: #e84a5f;
+  --on-fill: #ffffff; --vignette: rgba(140, 50, 10, .10); color-scheme: light;
+  --rule: #f2dcc4; --track: #ecc6a2; --track-ask: #bfe8ea;
+  --bar-edge: #2a1840; --hover: #fdf1e2; --veil: #d9703f;
+  --ui: "Segoe UI Black", "Arial Rounded MT Bold", "Avenir Next", "Segoe UI", sans-serif;
+
+  --ink: 4px solid var(--chalk);
+  --offset: 7px 8px 0 var(--chalk);
+}
+
+:root #frame { border-radius: 26px; box-shadow: 0 0 0 5px #2a1840, 0 30px 70px rgba(120, 40, 10, .3); }
+:root #stage { background:
+  radial-gradient(circle at 50% 50%, #fbeedd 0 22%, #f4d6b6 22% 34%, #ecbd92 34% 46%, #e6a274 46% 58%, #df8a5a 58% 72%, #d9703f 72%),
+  var(--board); }
+
+:root .cover { background: transparent; }
+:root .cover-k { color: var(--chalk); letter-spacing: .14em; }
+:root .cover-t { font: 900 88px/1 var(--ui); color: var(--task); -webkit-text-stroke: 6px var(--chalk); paint-order: stroke fill;
+  text-shadow: 7px 8px 0 var(--chalk); transform: rotate(-3deg); }
+:root .cover .go { background: var(--quiz); color: #fff; border: var(--ink); box-shadow: var(--offset); }
+:root .paused-mark div { background: #fff; color: var(--chalk); border: var(--ink); box-shadow: 4px 5px 0 var(--chalk); }
+
+:root .card { border-radius: 26px; background: var(--panel); border: var(--ink); border-inline-start: var(--ink); box-shadow: var(--offset); }
+:root .kicker { color: #d9703f; text-transform: uppercase; letter-spacing: .08em; }
+:root .opt { border: 3px solid var(--chalk); background: #fff; color: var(--chalk); box-shadow: 3px 4px 0 var(--chalk); }
+:root .opt:hover:not(:disabled):not([aria-pressed="true"]) { background: #fff3e0; }
+:root .opt[aria-pressed="true"] { background: var(--quiz); color: #fff; box-shadow: 1px 1px 0 var(--chalk); transform: translate(2px, 3px); }
+:root .btn { background: var(--chalk); color: #fff; border: 3px solid var(--chalk); box-shadow: 3px 4px 0 #000; }
+:root .btn.go { background: var(--task); color: var(--chalk); }
+:root .btn.quiet { background: #fff; color: var(--chalk); }
+:root .btn:disabled { background: var(--faint); color: var(--dim); }
+
+:root #bar { background: var(--chalk); border-top: 0; }
+:root .icon { background: #3e2a5a; border: 2px solid #5a4478; color: #f7e1c8; }
+:root .icon svg { fill: #f7e1c8; }
+:root .icon.txt, :root .icon.cc { color: #f7e1c8; }
+:root .icon.cc[aria-pressed="true"] { background: var(--task); color: var(--chalk); }
+:root .step { color: #e8b994; }
+:root .seg { background: #4a3466; height: 10px; border-radius: 6px; }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: var(--quiz); }
+
+:root .help-box { border-radius: 26px; background: var(--panel); border: var(--ink); box-shadow: var(--offset); }
+:root .caption { background: #fff; color: var(--chalk); border: 3px solid var(--chalk); border-radius: 18px; box-shadow: 4px 5px 0 var(--chalk); }

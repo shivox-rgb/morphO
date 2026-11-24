@@ -1,6 +1,6 @@
 # The conversation and style.json
 
-Left to guess what the user wants, an agent's guesses diverge from run to run. So every book starts with a short conversation that ends in `books/<book>/style.json`, the anchor every chapter is made against. It fixes *what* the book looks and sounds like; *how* each moment is animated stays free. Each tier's intake says what to ask ([lessons](../lessons/intake.md), [picture books](../picture-books/stories.md#intake-for-a-story), [films](../films/films.md#intake)); this file covers how to ask, the models step, the paid steps and the file itself.
+Left to guess what the user wants, an agent's guesses diverge from run to run. So every book starts with a short conversation that ends in `books/<book>/style.json`, the anchor every chapter is made against. It fixes *what* the book looks and sounds like; *how* each moment is animated stays free. Each tier's intake says what to ask ([lessons](../lessons/intake.md), [picture books](../picture-books/stories.md#intake-for-a-story), [films](../films/films.md#intake)); this file covers how to ask, the models step, the paid steps, the style presets and the file itself.
 
 ## Asking
 
@@ -62,6 +62,17 @@ Three scripts spend the user's money: `paint.py` (a picture from an image model)
 - **One balance for pictures and voice.** OpenRouter refuses an image request while the balance is under $1.00 (`paint.py` says so and prints what is left), but voice goes on spending below it and can run the balance into debt (one book went from $0.04 to −$0.21 before ElevenLabs stopped with a 402). So keep the balance above a dollar plus the next voice batch, and when several workers share it, make the pictures before the voices ([core/team.md](team.md#workers-in-parallel)).
 - `paint.py` never writes over an existing picture (it may be an approved, paid one) unless `--force` is given, and a cached `eleven.py` clip costs nothing on a rerun.
 
+## Style presets
+
+Most users find it easier to point at a look than to describe one, so the look question starts from a shelf of finished styles. Each preset in `assets/styles/` is two things that belong together: a block for the book's `lib/book.css` (the player's palette, cards, buttons, bar and captions) and a character look to draw the cast in (soft gloss, neon line, paper cut-out, crayon, pixel art, chibi …), both shown in a sample scene. `assets/styles/samples/index.html` is the gallery of all of them, and `assets/styles/styles.json` says what each suits.
+
+- **Offer** two or three presets that fit this book, recommended first, plus "a palette made from the book itself" as the last option ([Asking](#asking)). `style.py list --tier picture` (or `lesson`, `documentary`, `shorts`) narrows the shelf to what suits the tier; choose from it by the book's readers and subject, not by the tier alone (a history book for teenagers may want Anime Cel, a picture book for toddlers Soft Pastel or Kawaii). Name each option with its mood line from `style.py show <id>`, and give the user the gallery's path to open, or each sample's, so they choose on pictures. Glass and Glass Night are a light and a dark twin; offer the other when the user likes one but not its brightness.
+- **Apply** the choice with `style.py apply site/<book> <id> --style-json books/<book>/style.json`. It puts the preset at the top of the book's `lib/book.css`, after any `@import` lines, between two marker comments, and records it as the `preset` block of `style.json` (with its character line). Applying another preset replaces it; `style.py remove site/<book>` takes it out. Whatever `lib/book.css` sets below the block still wins, and the tool names each palette setting it leaves to the book.
+- **See it** on real frames before going on: a cover, a beat with a question card and the captions on (`shot.py`, `?beat=N&t=S`), since a palette that looks right on the cover can make a quiz card hard to read. The engine's six drawing hues stay in JS ([core/engine.md](engine.md)), so check that a light preset leaves the chapter's own colours readable.
+- **Draw the cast** in the preset's character look, from its `characters` line and its sample scene; open the sample and copy its techniques (its filters, gradients and outlines) rather than describing them again. The sample is a still scene with idle motion, not a puppet: the cast is still built on the tier's kit ([puppets.md](../picture-books/puppets.md), [scenes.md](../lessons/scenes.md)), and the look is a finish on it.
+- **A film** keeps its ground and inks in its own `lib/book.css` below the preset, chosen on its pictures; the preset then restyles the player's shapes, and `style.py apply` names the colours the film keeps.
+- **A new preset** is a CSS file in the same form (the engine's palette under `:root`, then rules that each start with `:root`), an entry in `styles.json`, a sample scene in `samples/`, and a card in the gallery.
+
 ## style.json
 
 Start from the tier's template: [lessons](../../assets/templates/style.json), or the kit's own `style.json` for a picture book, a documentary or a short. Blocks are grouped by ability, not by tier; a tier is just which blocks are present:
@@ -71,6 +82,7 @@ Start from the tier's template: [lessons](../../assets/templates/style.json), or
 | `schema`, `tier`, `book` | schema version; `1`, `2`, `"custom"`, `"picture"`, `"documentary"` or `"shorts"`; title, slug, language, readers, pilot chapter | all |
 | `words` | the user's own words about the look, verbatim, with later feedback that changed the bar | all |
 | `look` | palette, what each colour means, text and maths fonts, notation and rounding | all |
+| `preset` | the style preset chosen: its id, name, file, character look and sample ([Style presets](#style-presets); `style.py apply --style-json` writes it) | when one was chosen |
 | `voice` | TTS engine (`edge`; `kokoro` when Edge is unavailable or local audio is wanted; `eleven`, paid, for a film: [core/sound.md](sound.md#voices)), voice, rate | all |
 | `pacing` | minutes per chapter, where checks and practice go | lessons, documentaries |
 | `engine` | engine source and version used to build the book | all |

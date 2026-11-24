@@ -1,0 +1,54 @@
+/* morphO style: Flat Cartoon (light). A sunny animated-series look: clear sky blue, bold flat colours with a navy
+   outline, orange and blue accents, chunky buttons with a hard shadow, heavy rounded type. Bright and energetic:
+   suits school-age readers, maths and science explainers, how-tos and upright shorts.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --line
+   and --pop names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they
+   come before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #b9e6f6; --board: #e6f6fd; --panel: #ffffff; --edge: #b8d4e3;
+  --chalk: #1f2a44; --dim: #5a6a85; --faint: #b8d4e3;
+  --task: #ff8a3d; --quiz: #2f80ed; --good: #2fbf64; --bad: #ef4b4b;
+  --on-fill: #ffffff; --vignette: rgba(30, 90, 140, .06); color-scheme: light;
+  --rule: #e2eef5; --track: #d3e8f2; --track-ask: #cfe0fb;
+  --bar-edge: #1f2a44; --hover: #eef7fc; --veil: #b9e6f6;
+  --ui: "Segoe UI Black", "Arial Rounded MT Bold", "Avenir Next", "Segoe UI", Arial, sans-serif;
+
+  --line: #1f2a44;                             /* the outline, the same ink the characters are drawn in */
+  --pop: 0 6px 0 var(--line);                  /* a hard cartoon shadow */
+}
+
+:root #frame { border-radius: 24px; box-shadow: 0 0 0 4px var(--line), 0 10px 0 4px var(--line), 0 30px 60px rgba(30, 90, 140, .25); }
+:root #stage { background:
+  radial-gradient(ellipse 120px 40px at 14% 16%, #fff 98%, transparent), radial-gradient(ellipse 80px 34px at 19% 13%, #fff 98%, transparent),
+  radial-gradient(ellipse 140px 44px at 80% 10%, #fff 98%, transparent), radial-gradient(ellipse 90px 36px at 75% 7%, #fff 98%, transparent),
+  linear-gradient(180deg, transparent 82%, rgba(110, 200, 90, .25) 82%), var(--grain, none), var(--board); }
+
+:root .cover { background: color-mix(in srgb, var(--page) 20%, transparent); }
+:root .cover-k { color: var(--quiz); letter-spacing: .12em; }
+:root .cover-t { font: 900 82px/1.05 var(--ui); color: var(--task); -webkit-text-stroke: 4px var(--line); paint-order: stroke fill;
+  text-shadow: 0 7px 0 var(--line); }
+:root .cover .go { background: var(--quiz); color: #fff; border: 4px solid var(--line); box-shadow: var(--pop); }
+:root .paused-mark div { background: #fff; color: var(--chalk); border: 3px solid var(--line); box-shadow: 0 4px 0 var(--line); }
+
+:root .card { border-radius: 22px; background: var(--panel); border: 4px solid var(--line); border-inline-start: 4px solid var(--line); box-shadow: var(--pop); }
+:root .kicker { color: var(--task); text-transform: uppercase; letter-spacing: .08em; }
+:root .opt { border: 3px solid var(--line); background: #fff; color: var(--chalk); box-shadow: 0 3px 0 var(--line); }
+:root .opt:hover:not(:disabled):not([aria-pressed="true"]) { background: #fff4ea; }
+:root .opt[aria-pressed="true"] { background: var(--task); border-color: var(--line); color: #fff; box-shadow: 0 1px 0 var(--line); transform: translateY(2px); }
+:root .btn { background: var(--chalk); color: #fff; border: 3px solid var(--line); box-shadow: 0 4px 0 var(--line); }
+:root .btn.go { background: var(--quiz); color: #fff; }
+:root .btn.quiet { background: #fff; color: var(--chalk); }
+:root .btn:disabled { background: var(--edge); color: var(--dim); }
+
+:root #bar { background: #fff; border-top: 4px solid var(--line); }
+:root .icon { background: #fff; border: 3px solid var(--line); }
+:root .icon svg { fill: var(--line); }
+:root .seg { height: 10px; border-radius: 5px; background: var(--track); }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: var(--quiz); }
+
+:root .help-box { border-radius: 22px; background: #fff; border: 4px solid var(--line); box-shadow: var(--pop); }
+:root .caption { background: #fff; color: var(--chalk); border: 3px solid var(--line); border-radius: 16px; box-shadow: 0 4px 0 var(--line); }

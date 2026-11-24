@@ -1,0 +1,55 @@
+/* morphO style: Crayon Sketch (light). A child's drawing on white paper: pencil-black ink, crayon red, blue, green
+   and yellow, cards and buttons with wobbly hand-drawn edges, a scribbled highlight, a handwritten title. Warm and
+   unpolished on purpose: suits young children, stories told by a child, art and early writing, and notes.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --hand and
+   --scribble names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions;
+   they come before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #ecebe6; --board: #fdfcf8; --panel: #ffffff; --edge: #2b2b2b;
+  --chalk: #2b2b2b; --dim: #6e6e6e; --faint: #cfcfcf;
+  --task: #e8452c; --quiz: #2f7fd8; --good: #46a82c; --bad: #d8432c;
+  --on-fill: #ffffff; --vignette: rgba(120, 110, 90, .06); color-scheme: light;
+  --rule: #ecebe6; --track: #e4e2dc; --track-ask: #d6e4f6;
+  --bar-edge: #2b2b2b; --hover: #f6f5f0; --veil: #ecebe6;
+  --ui: "Segoe Print", "Comic Sans MS", "Chalkboard SE", "Marker Felt", cursive;
+
+  --hand: 255px 18px 225px 18px / 18px 225px 18px 255px;   /* a wobbly hand-drawn box */
+  --scribble: repeating-linear-gradient(-28deg, rgba(242, 201, 60, .85) 0 5px, rgba(242, 201, 60, .35) 5px 8px);   /* crayon fill */
+}
+
+:root #frame { border-radius: 6px; box-shadow: 0 0 0 1px #d9d7cf, 0 20px 50px rgba(60, 50, 30, .18); }
+:root #stage { background:
+  repeating-linear-gradient(-30deg, rgba(120, 180, 230, .10) 0 6px, transparent 6px 14px) 0 0 / 100% 22% no-repeat,
+  radial-gradient(circle at 86% 14%, rgba(242, 201, 60, .5) 0 46px, transparent 48px),
+  var(--grain, none), var(--board); }
+
+:root .cover { background: color-mix(in srgb, var(--page) 15%, transparent); }
+:root .cover-k { color: var(--task); letter-spacing: .1em; }
+:root .cover-t { font: 700 78px/1.15 var(--ui); color: var(--chalk); }
+:root .cover-t::after { content: ""; display: block; height: 14px; margin: 4px auto 0; width: 70%; background: var(--scribble); border-radius: var(--hand); }
+:root .cover .go { background: var(--task); color: #fff; border: 3px solid var(--chalk); border-radius: var(--hand); }
+:root .paused-mark div { background: #fff; color: var(--chalk); border: 2.5px solid var(--chalk); border-radius: var(--hand); }
+
+:root .card { border-radius: var(--hand); background: var(--panel); border: 3px solid var(--chalk); border-inline-start: 3px solid var(--chalk);
+  box-shadow: 4px 6px 0 rgba(43, 43, 43, .12); }
+:root .kicker { color: var(--task); font-size: 22px; }
+:root .opt { border: 2.5px solid var(--chalk); border-radius: var(--hand); background: #fff; color: var(--chalk); }
+:root .opt:hover:not(:disabled):not([aria-pressed="true"]) { background: #fffbe8; }
+:root .opt[aria-pressed="true"] { background: var(--scribble); border-color: var(--chalk); color: var(--chalk); }
+:root .btn { background: var(--chalk); color: #fff; border: 2.5px solid var(--chalk); border-radius: var(--hand); }
+:root .btn.go { background: var(--quiz); color: #fff; }
+:root .btn.quiet { background: #fff; color: var(--chalk); }
+:root .btn:disabled { background: var(--faint); color: var(--dim); border-color: var(--dim); }
+
+:root #bar { background: #fff; border-top: 2.5px solid var(--chalk); }
+:root .icon { background: #fff; border: 2px solid var(--chalk); border-radius: 50% 45% 55% 48%; }
+:root .icon svg { fill: var(--chalk); }
+:root .seg { border-radius: 3px; height: 10px; background: var(--track); }
+:root .seg i { background: repeating-linear-gradient(-28deg, var(--task) 0 4px, rgba(232, 69, 44, .55) 4px 7px); }
+:root .seg.ask i { background: repeating-linear-gradient(-28deg, var(--quiz) 0 4px, rgba(47, 127, 216, .55) 4px 7px); }
+
+:root .help-box { border-radius: var(--hand); background: #fff; border: 3px solid var(--chalk); }
+:root .caption { border-radius: var(--hand); background: #fff; color: var(--chalk); border: 2.5px solid var(--chalk); }

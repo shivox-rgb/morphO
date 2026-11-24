@@ -1,0 +1,60 @@
+/* morphO style: Kawaii Sticker (light). Pastel and cute: a soft peach and mint room, white sticker cards with a thick
+   plum outline, chunky buttons that press down, pink and mint accents, rounded type. Playful and warm: suits young
+   readers, early maths and reading, listen-and-find games, and friendly how-tos.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --line and
+   --sticker names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they
+   come before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #fbeee4; --board: #fff7f0; --panel: #ffffff; --edge: #f0d8c8;
+  --chalk: #3b2a33; --dim: #8a7480; --faint: #ead1c8;
+  --task: #ff7fa3; --quiz: #3fc4a8; --good: #4fc47a; --bad: #ff6262;
+  --on-fill: #ffffff; --vignette: rgba(255, 170, 150, .10); color-scheme: light;
+  --rule: #f6e4d9; --track: #f6e2d6; --track-ask: #cdf0e7;
+  --bar-edge: #f3dfd2; --hover: #fbeae0; --veil: #fbeee4;
+  --ui: "Arial Rounded MT Bold", "Nunito", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --line: #3b2a33;                             /* the sticker outline, the same ink the characters are drawn in */
+  --sticker: 0 0 0 3px var(--line), 0 0 0 9px #ffffff, 0 12px 26px rgba(160, 90, 80, .22);
+  --press: 0 5px 0 var(--line);               /* a chunky button's base */
+  --glow-1: rgba(160, 235, 215, .55);          /* mint */
+  --glow-2: rgba(255, 196, 210, .55);          /* pink */
+  --glow-3: rgba(255, 226, 160, .45);          /* butter */
+}
+
+:root #frame { border-radius: 34px; box-shadow: 0 0 0 4px var(--line), 0 0 0 12px #fff, 0 30px 70px rgba(160, 90, 80, .25); }
+:root #stage { background:
+  radial-gradient(40% 55% at 8% 10%, var(--glow-1), transparent 70%),
+  radial-gradient(40% 55% at 95% 90%, var(--glow-2), transparent 70%),
+  radial-gradient(30% 40% at 85% 8%, var(--glow-3), transparent 70%),
+  radial-gradient(75% 75% at 50% 45%, transparent 60%, var(--vignette)), var(--grain, none), var(--board); }
+
+:root .cover { background: color-mix(in srgb, var(--page) 25%, transparent); }
+:root .cover-k { color: var(--task); letter-spacing: .14em; }
+:root .cover-t { font: 700 80px/1.05 var(--ui); color: #fff; letter-spacing: .01em;
+  -webkit-text-stroke: 4px var(--line); paint-order: stroke fill; text-shadow: 0 6px 0 var(--line); }
+:root .cover .go { background: var(--task); color: #fff; border: 3px solid var(--line); box-shadow: var(--press); }
+:root .paused-mark div { background: #fff; color: var(--chalk); box-shadow: var(--sticker); }
+
+:root .card { border-radius: 30px; background: var(--panel); border: 0; border-inline-start: 0; box-shadow: var(--sticker); }
+:root .kicker { color: var(--task); }
+:root .opt { border: 3px solid var(--line); background: #fff; color: var(--chalk); box-shadow: 0 3px 0 var(--line); }
+:root .opt:hover:not(:disabled):not([aria-pressed="true"]) { background: #fff3f6; }
+:root .opt[aria-pressed="true"] { background: var(--quiz); border-color: var(--line); color: #fff; box-shadow: 0 1px 0 var(--line); transform: translateY(2px); }
+:root .opt.bad { color: var(--bad); }
+:root .btn { background: var(--chalk); color: #fff; border: 3px solid var(--line); box-shadow: var(--press); }
+:root .btn.go { background: var(--task); color: #fff; }
+:root .btn.quiet { background: #fff; color: var(--chalk); }
+:root .btn:disabled { background: var(--edge); color: var(--dim); box-shadow: 0 3px 0 var(--dim); border-color: var(--dim); }
+
+:root #bar { background: #fff; border-top: 3px solid var(--line); }
+:root .icon { background: #fff; border: 2.5px solid var(--line); box-shadow: 0 2px 0 var(--line); }
+:root .icon svg { fill: var(--line); }
+:root .seg { height: 10px; border-radius: 6px; background: var(--track); }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: var(--quiz); }
+
+:root .help-box { border-radius: 30px; background: #fff; border: 0; box-shadow: var(--sticker); }
+:root .caption { background: #fff; color: var(--chalk); border-radius: 22px; box-shadow: var(--sticker); }

@@ -1,0 +1,53 @@
+/* morphO style: Anime Pop (light). A bright anime key visual: white with doodled hearts and sparkles, white cards with a
+   fine dark line and a candy-pink glow, hot pink and violet with lime and orange highlights, a slanted heavy title.
+   Energetic and expressive: suits teen readers, language learning, music and pop culture, and character stories.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --candy
+   names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they come
+   before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #f4eef8; --board: #ffffff; --panel: #ffffff; --edge: #1a1a2a;
+  --chalk: #1a1a2a; --dim: #6a6080; --faint: #e2d8ec;
+  --task: #ff3d9a; --quiz: #7a5cff; --good: #2fcf8e; --bad: #ff4f6a;
+  --on-fill: #ffffff; --vignette: rgba(122, 92, 255, .04); color-scheme: light;
+  --rule: #f2ecf8; --track: #ece2f6; --track-ask: #e2dcff;
+  --bar-edge: #ece2f6; --hover: #fbf6ff; --veil: #f4eef8;
+  --ui: "Segoe UI", "Hiragino Sans", "Avenir Next", "Helvetica Neue", sans-serif;
+
+  --candy: linear-gradient(120deg, #ff3d9a, #b45cff 55%, #5c8cff);
+  --candy-glow: 0 10px 30px rgba(255, 61, 154, .22), 0 2px 6px rgba(122, 92, 255, .12);
+}
+
+:root #frame { border-radius: 22px; box-shadow: 0 0 0 1px #e2d8ec, 0 30px 70px rgba(122, 92, 255, .18); }
+:root #stage { background:
+  radial-gradient(circle at 8% 14%, rgba(255, 61, 154, .55) 0 6px, transparent 7px), radial-gradient(circle at 92% 20%, rgba(122, 92, 255, .5) 0 8px, transparent 9px),
+  radial-gradient(circle at 86% 84%, rgba(182, 230, 40, .6) 0 6px, transparent 7px), radial-gradient(circle at 12% 80%, rgba(255, 160, 60, .55) 0 7px, transparent 8px),
+  radial-gradient(circle at 20% 30%, rgba(92, 140, 255, .35) 0 4px, transparent 5px), radial-gradient(circle at 76% 10%, rgba(255, 61, 154, .35) 0 4px, transparent 5px),
+  var(--grain, none), var(--board); }
+
+:root .cover { background: transparent; }
+:root .cover-k { color: var(--quiz); letter-spacing: .2em; }
+:root .cover-t { font: italic 900 86px/1.02 var(--ui); background: var(--candy); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 6px 0 rgba(26, 26, 42, .85)); transform: skewX(-6deg); }
+:root .cover .go { background: var(--candy); color: #fff; box-shadow: var(--candy-glow); }
+:root .paused-mark div { background: #fff; color: var(--chalk); box-shadow: var(--candy-glow); }
+
+:root .card { border-radius: 22px; background: var(--panel); border: 2px solid var(--chalk); border-inline-start: 2px solid var(--chalk); box-shadow: var(--candy-glow); }
+:root .kicker { color: var(--task); font-style: italic; letter-spacing: .04em; }
+:root .opt { border: 2px solid var(--faint); background: #fff; color: var(--chalk); }
+:root .opt:hover:not(:disabled) { border-color: var(--task); }
+:root .opt[aria-pressed="true"] { background: var(--candy); border-color: transparent; color: #fff; }
+:root .btn { background: var(--chalk); color: #fff; }
+:root .btn.go { background: var(--candy); color: #fff; box-shadow: var(--candy-glow); }
+:root .btn.quiet { background: #fff; color: var(--chalk); border: 2px solid var(--faint); }
+:root .btn:disabled { background: var(--faint); color: var(--dim); box-shadow: none; }
+
+:root #bar { background: #fff; border-top: 1px solid var(--bar-edge); }
+:root .icon { background: #fff; border: 1.5px solid var(--faint); }
+:root .seg { border-radius: 6px; }
+:root .seg i, :root .seg.ask i { background: var(--candy); }
+
+:root .help-box { border-radius: 22px; background: #fff; border: 2px solid var(--chalk); box-shadow: var(--candy-glow); }
+:root .caption { background: #fff; color: var(--chalk); border: 2px solid var(--chalk); border-radius: 16px; }

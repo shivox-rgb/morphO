@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anime Cel: character sample</title>
+<!-- A character sample for the Anime Cel style (../animecel.css): an original young swordsman, arms crossed, in TV-anime
+     cel shading (flat base colours, one hard-edged shadow tone, a fine dark line) under a deep blue sky with flat
+     painted clouds. Idle motion: a scarf and hair in the wind, a slow blink, drifting clouds. Open it directly in a
+     browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #18263a; color: #f7f3ea; font: 14px/1.4 "Bahnschrift", "Segoe UI", sans-serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 0 3px #10161f, 0 30px 70px rgba(0, 0, 0, .5); }
+  p { margin: 12px 4px 0; color: #c4ccd8; }
+  .a { transform-box: fill-box; }
+  .scarf { animation: scarf 1.6s ease-in-out infinite alternate; transform-origin: 0% 20%; }
+  @keyframes scarf { from { transform: skewY(-3deg) scaleX(1); } to { transform: skewY(4deg) scaleX(.94); } }
+  .hair { animation: hair 2s ease-in-out infinite alternate; transform-origin: 30% 100%; }
+  @keyframes hair { to { transform: skewX(-3deg); } }
+  .breathe { animation: breathe 4s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes breathe { 50% { transform: scaleY(1.008) translateY(-2px); } }
+  .blink { animation: blink 5s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 94%, 100% { transform: scaleY(1); } 96.5% { transform: scaleY(.1); } }
+  .cloud { animation: cloud 30s linear infinite alternate; }
+  .cloud.b { animation-duration: 40s; }
+  @keyframes cloud { to { transform: translateX(80px); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="An anime-style young swordsman with spiky dark blue hair, a red scarf blowing in the wind and a sword over his shoulder stands with arms crossed under a blue sky with flat painted clouds">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f78ad"/><stop offset=".6" stop-color="#4a96c4"/><stop offset="1" stop-color="#78b4d2"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<!-- flat painted clouds, two tones -->
+<g class="cloud"><path d="M120 200 q20 -60 90 -50 q30 -50 100 -30 q70 -20 90 40 q60 0 50 50 l-340 0 q-40 -6 10 -10Z" fill="#a9c8da"/><path d="M130 230 q100 -20 200 -6 q80 -10 150 6Z" fill="#8fb4ca"/></g>
+<g class="cloud b"><path d="M1160 140 q24 -50 90 -40 q34 -40 96 -16 q60 -10 70 40 q50 6 40 40 l-300 0 q-30 -10 4 -24Z" fill="#a9c8da"/><path d="M1170 190 q90 -16 180 -4 q70 -6 110 4Z" fill="#8fb4ca"/></g>
+<g class="cloud"><path d="M1300 420 q14 -30 54 -24 q20 -24 58 -8 q36 -4 40 24 q30 4 22 24 l-180 0 q-20 -6 6 -16Z" fill="#b8d2e0"/></g>
+<path d="M60 560 q10 -30 50 -26 q18 -26 56 -10 q34 0 36 26 l-140 10Z" fill="#b8d2e0"/>
+
+<g stroke="#141820" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+ <!-- sword over the shoulder, behind -->
+ <path d="M560 900 L1080 250" stroke="#141820" stroke-width="22"/><path d="M560 900 L1080 250" stroke="#d8dce4" stroke-width="12"/><path d="M800 600 L1080 250" stroke="#a8b0bc" stroke-width="5"/>
+ <path d="M640 760 l40 40 M700 720 l-30 -30" stroke-width="10"/>
+ <g class="a breathe">
+  <!-- scarf tail in the wind -->
+  <g class="a scarf"><path d="M890 440 Q1020 420 1120 470 Q1180 500 1260 480 Q1210 530 1130 520 Q1040 510 900 500Z" fill="#c8323a"/>
+    <path d="M960 470 Q1060 470 1140 500 Q1200 520 1250 500 Q1200 530 1130 520 Q1040 510 960 500Z" fill="#8e1e28" stroke="none"/></g>
+  <!-- body: dark jacket with a cel shadow -->
+  <path d="M520 900 Q520 620 640 560 Q720 520 800 520 Q880 520 960 560 Q1080 620 1080 900Z" fill="#2a3040"/>
+  <path d="M520 900 Q520 620 640 560 Q680 540 720 532 Q640 620 640 900Z" fill="#1c212c" stroke="none"/>
+  <path d="M760 540 L800 720 L840 540" fill="#3c4458"/><path d="M800 720 V900" stroke="#141820" stroke-width="3"/>
+  <!-- crossed arms -->
+  <path d="M560 760 Q640 690 900 720 Q1000 730 1020 780 Q960 820 820 800 Q660 790 580 830Z" fill="#3a4152"/>
+  <path d="M580 830 Q660 790 820 800 Q960 820 1020 780 Q1010 830 940 850 Q800 860 600 860Z" fill="#262b38"/>
+  <path d="M600 720 Q700 670 900 700 Q960 708 990 740 L960 760 Q900 730 800 730 Q680 730 610 770Z" fill="#4a5266"/>
+  <path d="M910 700 q40 -6 60 16 q10 20 -10 34 q-30 4 -60 -10Z" fill="#e8b48e"/><path d="M930 712 q20 0 30 14 M922 728 q22 0 34 12" fill="none" stroke-width="2.5"/>
+  <path d="M600 790 q-30 10 -26 36 q24 18 56 4Z" fill="#e8b48e"/>
+  <rect x="640" y="704" width="70" height="20" fill="#5a3e2e" transform="rotate(-12 675 714)"/>
+  <!-- scarf at the neck -->
+  <path d="M690 470 Q800 520 910 470 L920 540 Q800 590 680 540Z" fill="#c8323a"/><path d="M690 510 Q800 560 916 506 L920 540 Q800 590 680 540Z" fill="#8e1e28" stroke="none"/>
+  <!-- neck and head -->
+  <path d="M760 420 L760 490 Q800 510 840 490 L840 420Z" fill="#e8b48e"/><path d="M760 440 Q800 470 840 440 L840 470 Q800 494 760 470Z" fill="#c48a66" stroke="none"/>
+  <path d="M700 260 Q700 160 800 150 Q900 160 900 260 Q904 360 860 420 Q830 456 800 460 Q770 456 740 420 Q696 360 700 260Z" fill="#f2c4a0"/>
+  <path d="M700 260 Q700 300 716 340 Q740 400 780 450 Q750 440 730 410 Q698 350 700 260Z" fill="#d89c78" stroke="none"/>
+  <path d="M690 290 q-26 0 -24 30 q6 30 30 26Z M910 290 q26 0 24 30 q-6 30 -30 26Z" fill="#f2c4a0"/>
+  <!-- spiky hair, two tones -->
+  <g class="a hair"><path d="M680 300 L640 250 L690 240 L630 180 L700 180 L670 110 L740 140 L750 60 L800 120 L840 50 L860 130 L920 80 L910 160 L980 150 L930 210 L990 240 L920 260 L930 310 L890 250 Q860 220 820 230 L800 200 L780 236 Q740 230 720 260 L700 230Z" fill="#2a3a6a"/>
+    <path d="M740 140 L750 60 L800 120 L840 50 L860 130 L820 120 L800 160 L780 130Z" fill="#40569a" stroke="none"/>
+    <path d="M700 230 L720 300 L740 250 L760 320 L780 236 L800 300 L820 230 L840 310 L860 240 L890 300 L890 250" fill="#2a3a6a"/></g>
+  <!-- sharp eyes -->
+  <path d="M738 300 L786 312 M818 312 L866 300" stroke-width="7"/>
+  <g class="a blink"><path d="M744 322 Q766 310 790 324 Q768 340 744 330Z" fill="#fff"/><path d="M814 324 Q838 310 860 322 L860 330 Q836 340 814 324Z" fill="#fff"/>
+    <ellipse cx="772" cy="324" rx="8" ry="10" fill="#3a2a6a"/><ellipse cx="832" cy="324" rx="8" ry="10" fill="#3a2a6a"/>
+    <circle cx="770" cy="321" r="2.5" fill="#fff" stroke="none"/><circle cx="830" cy="321" r="2.5" fill="#fff" stroke="none"/>
+    <path d="M742 320 Q766 306 792 322 M812 322 Q838 306 862 320" fill="none" stroke-width="4"/></g>
+  <path d="M800 340 L794 378 L806 380" fill="none" stroke-width="2.5"/>
+  <path d="M780 410 Q800 404 822 410" fill="none" stroke-width="3"/>
+  <path d="M846 348 l18 18 M852 342 l14 14" stroke="#c48a66" stroke-width="2.5"/>
+ </g>
+</g>
+</svg>
+<p>morphO · Anime Cel · character sample: an original swordsman in TV-anime cel shading under a blue sky.</p>
+</main>
+</body>
+</html>

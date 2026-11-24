@@ -1,0 +1,51 @@
+/* morphO style: Mascot Pop (light). A brand mascot sheet: soft sky blue, white cards with a thick navy-violet outline,
+   a darker side face on every shape, watermelon red, grape purple and leaf green, a chunky rounded title. Punchy and
+   friendly: suits food and nutrition, science for kids, brand explainers and upright shorts.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --line
+   names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they come
+   before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #a9dcef; --board: #c4e8f6; --panel: #ffffff; --edge: #120a40;
+  --chalk: #120a40; --dim: #4a4470; --faint: #9ccbe0;
+  --task: #ff3a46; --quiz: #7d5cf0; --good: #00ad3a; --bad: #ff3a46;
+  --on-fill: #ffffff; --vignette: rgba(18, 10, 64, .06); color-scheme: light;
+  --rule: #e4eff6; --track: #a9d3e6; --track-ask: #c9bdf7;
+  --bar-edge: #120a40; --hover: #f2f8fc; --veil: #a9dcef;
+  --ui: "Arial Rounded MT Bold", "Segoe UI Black", "Avenir Next", "Segoe UI", sans-serif;
+
+  --line: 5px solid var(--chalk);              /* the mascot outline */
+  --side: inset -10px -8px 0 rgba(18, 10, 64, .10);   /* the darker side face */
+}
+
+:root #frame { border-radius: 30px; box-shadow: 0 0 0 5px #120a40, 0 30px 60px rgba(18, 10, 64, .25); }
+:root #stage { background: radial-gradient(60% 70% at 50% 45%, #d4eef9, transparent 70%), var(--grain, none), var(--board); }
+
+:root .cover { background: color-mix(in srgb, var(--page) 15%, transparent); }
+:root .cover-k { color: var(--quiz); letter-spacing: .12em; }
+:root .cover-t { font: 900 84px/1.05 var(--ui); color: var(--task); -webkit-text-stroke: 5px var(--chalk); paint-order: stroke fill; }
+:root .cover .go { background: var(--quiz); color: #fff; border: var(--line); box-shadow: var(--side); }
+:root .paused-mark div { background: #fff; color: var(--chalk); border: 4px solid var(--chalk); }
+
+:root .card { border-radius: 28px; background: var(--panel); border: var(--line); border-inline-start: var(--line); box-shadow: var(--side); }
+:root .kicker { color: var(--task); text-transform: uppercase; letter-spacing: .06em; }
+:root .opt { border: 4px solid var(--chalk); background: #fff; color: var(--chalk); box-shadow: inset -5px -4px 0 rgba(18, 10, 64, .08); }
+:root .opt:hover:not(:disabled):not([aria-pressed="true"]) { background: #f6f3ff; }
+:root .opt[aria-pressed="true"] { background: var(--quiz); color: #fff; box-shadow: inset -6px -5px 0 rgba(18, 10, 64, .25); }
+:root .btn { background: var(--chalk); color: #fff; border: 4px solid var(--chalk); }
+:root .btn.go { background: var(--good); color: #fff; box-shadow: inset -6px -5px 0 rgba(18, 10, 64, .25); }
+:root .btn.quiet { background: #fff; color: var(--chalk); }
+:root .btn:disabled { background: var(--faint); color: var(--dim); }
+
+:root #bar { background: #fff; border-top: 5px solid var(--chalk); }
+:root .icon { background: #fff; border: 3px solid var(--chalk); }
+:root .icon svg { fill: var(--chalk); }
+:root .icon.txt, :root .icon.cc { color: var(--chalk); }
+:root .seg { height: 10px; border-radius: 6px; }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: var(--quiz); }
+
+:root .help-box { border-radius: 28px; background: #fff; border: var(--line); box-shadow: var(--side); }
+:root .caption { background: #fff; color: var(--chalk); border: 4px solid var(--chalk); border-radius: 20px; }

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crayon Sketch: character sample</title>
+<!-- A character sample for the Crayon Sketch style (../crayon.css): an original boy waving by a red schoolhouse, drawn
+     as crayon on white paper. Every fill goes through a noise mask (the grain of wax on paper) and every pencil line
+     wobbles; the noise is re-seeded a few times a second, the "boil" of hand-drawn animation. Scribbles are drawn by
+     the script. Open it directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #ecebe6; color: #2b2b2b; font: 15px/1.4 "Segoe Print", "Comic Sans MS", cursive; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 20px 50px rgba(60, 50, 30, .18); }
+  p { margin: 10px 4px 0; color: #6e6e6e; }
+  .a { transform-box: fill-box; }
+  .wave { animation: wave .9s ease-in-out infinite alternate; transform-origin: 8% 92%; }
+  @keyframes wave { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
+  .bob { animation: bob 2.4s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes bob { 50% { transform: translateY(-5px); } }
+  .blink { animation: blink 4s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+  .sun { animation: sun 20s linear infinite; transform-origin: 50% 50%; }
+  @keyframes sun { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="A crayon drawing: a boy with messy brown hair, a white shirt, rainbow trousers and a red and blue backpack waves on a winding path by a red brick schoolhouse with a bell, a big tree, a sun and blue clouds">
+<defs>
+  <filter id="crayon" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence id="t1" type="fractalNoise" baseFrequency=".95 .14" numOctaves="2" seed="3" result="n"/>
+    <feColorMatrix in="n" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.4 1.75" result="m"/>
+    <feComposite in="SourceGraphic" in2="m" operator="in" result="c"/>
+    <feTurbulence id="t2" baseFrequency=".03" numOctaves="2" seed="5" result="w"/>
+    <feDisplacementMap in="c" in2="w" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
+  <filter id="pencil" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence id="t3" baseFrequency=".035" numOctaves="2" seed="8" result="w"/>
+    <feDisplacementMap in="SourceGraphic" in2="w" scale="5" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="1" seed="2" result="g"/>
+    <feColorMatrix in="g" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.5" result="gm"/>
+    <feComposite in="d" in2="gm" operator="in"/></filter>
+  <filter id="paper"><feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="3" seed="4"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .48  0 0 0 0 .42  0 0 0 .35 -.12"/></filter>
+</defs>
+<rect width="1600" height="900" fill="#fdfcf8"/>
+<rect width="1600" height="900" filter="url(#paper)" opacity=".6"/>
+
+<!-- crayon fills -->
+<g filter="url(#crayon)">
+  <!-- clouds and sun -->
+  <path d="M600 130 q20 -40 70 -30 q30 -40 90 -14 q60 -10 70 40 q40 10 20 40 l-230 0 q-40 -10 -20 -36Z" fill="#7fb6e8"/>
+  <path d="M1200 220 q14 -30 54 -24 q24 -30 70 -10 q44 0 50 30 q30 8 14 30 l-170 0 q-30 -8 -18 -26Z" fill="#7fb6e8"/>
+  <path d="M1600 170 q-20 -34 -70 -28 q-30 -30 -80 -10 q-50 0 -50 30 q-30 8 -10 30 l210 0Z" fill="#7fb6e8"/>
+  <path d="M460 520 q10 -22 40 -18 q20 -22 54 -6 q30 0 34 22 q24 6 10 22 l-130 0 q-22 -6 -8 -20Z" fill="#7fb6e8"/>
+  <circle cx="1130" cy="140" r="64" fill="#f6d743"/>
+  <!-- grass -->
+  <path d="M0 700 Q300 640 600 680 Q900 700 1200 660 Q1450 640 1600 660 L1600 900 L0 900Z" fill="#7dc94a"/>
+  <path d="M0 760 Q400 720 700 760 L700 900 L0 900Z" fill="#4fa83a" opacity=".7"/>
+  <path d="M1100 900 Q1300 760 1600 740 L1600 900Z" fill="#4fa83a" opacity=".7"/>
+  <!-- path -->
+  <path d="M1360 740 Q1300 760 1250 780 Q1160 800 1140 830 Q1120 860 1200 880 L1060 900 L620 900 Q700 860 860 830 Q1020 800 1080 770 Q1180 730 1340 718Z" fill="#e2c9a6"/>
+  <!-- bushes and the big tree -->
+  <path d="M150 720 q-10 -70 60 -80 q60 -30 100 20 q50 10 40 60Z" fill="#3f9a3a"/>
+  <path d="M420 740 q0 -60 60 -60 q60 0 60 60Z" fill="#5bb447"/>
+  <path d="M300 400 L330 760 L420 760 L390 400Z" fill="#8a5a34"/>
+  <path d="M180 340 q-30 -150 120 -190 q140 -60 230 60 q100 40 70 170 q10 120 -120 140 q-90 50 -200 0 q-130 -20 -100 -180Z" fill="#5bb447"/>
+  <path d="M220 300 q20 -90 110 -110 q90 -20 140 60 q-40 -10 -80 10 q-60 -30 -100 20Z" fill="#8fd65e"/>
+  <!-- trees by the school -->
+  <path d="M1090 520 L1100 730 L1130 730 L1124 520Z" fill="#8a5a34"/><path d="M1020 480 q-10 -90 80 -100 q90 0 90 90 q20 80 -70 100 q-110 0 -100 -90Z" fill="#6cc04e"/>
+  <path d="M1200 600 L1206 720 L1226 720 L1222 600Z" fill="#8a5a34"/><path d="M1160 580 q-6 -70 54 -76 q60 4 58 70 q4 60 -56 66 q-60 -6 -56 -60Z" fill="#8fd65e"/>
+  <path d="M1720 0Z"/>
+  <path d="M1500 560 L1506 720 L1530 720 L1524 560Z" fill="#8a5a34"/><path d="M1440 520 q-6 -100 70 -110 q80 6 76 100 q6 90 -72 96 q-80 -6 -74 -86Z" fill="#6cc04e"/>
+  <!-- the schoolhouse -->
+  <rect x="1270" y="420" width="240" height="300" fill="#d2483a"/>
+  <path d="M1250 430 L1390 250 L1530 430Z" fill="#d2483a"/>
+  <path d="M1360 230 L1430 230 L1430 330 L1360 330Z" fill="#c23e30"/>
+  <path d="M1340 236 L1395 180 L1450 236Z" fill="#3a3a3a"/>
+  <path d="M1380 290 Q1395 262 1410 290 L1410 320 L1380 320Z" fill="#fdfcf8"/><path d="M1386 312 q0 -26 9 -28 q9 2 9 28Z" fill="#e2a52c"/>
+  <path d="M1390 250 L1600 470 L1560 470 L1390 290Z" fill="#4a3a44"/>
+  <path d="M1510 430 L1600 470 L1600 720 L1510 720Z" fill="#b83b2e"/>
+  <circle cx="1390" cy="380" r="28" fill="#cfe4f2"/>
+  <rect x="1350" y="560" width="80" height="160" fill="#a8743a"/><rect x="1368" y="580" width="44" height="34" fill="#cfe4f2"/>
+  <rect x="1530" y="560" width="30" height="80" fill="#cfe4f2"/><rect x="1570" y="560" width="26" height="80" fill="#cfe4f2"/>
+  <!-- the boy -->
+  <g transform="translate(157 100) scale(.8)"><g class="a bob">
+   <path d="M600 520 Q600 470 650 466 L700 470 L706 650 L640 650 Q598 650 598 610Z" fill="#d83c2e"/>
+   <path d="M600 570 L700 570 L702 640 L606 640Z" fill="#3f7fd8"/>
+   <path d="M690 490 Q750 470 820 490 L830 720 L690 720Z" fill="#ffffff"/>
+   <path d="M690 720 L830 720 L846 920 L788 920 L760 780 L742 920 L686 920Z" fill="#e8452c"/>
+   <path d="M700 720 L740 720 L736 920 L702 920Z" fill="#f2c94c"/><path d="M760 720 L800 720 L812 920 L776 920Z" fill="#3f7fd8"/><path d="M800 720 L830 720 L846 920 L812 920Z" fill="#8a4fd8"/>
+   <path d="M694 494 Q660 560 700 620" stroke="#a88fe0" stroke-width="40" fill="none" stroke-linecap="round"/>
+   <circle cx="706" cy="628" r="22" fill="#f6c39a"/>
+   <g class="a wave"><path d="M812 500 Q880 470 910 400" stroke="#a88fe0" stroke-width="40" fill="none" stroke-linecap="round"/>
+     <path d="M902 410 Q884 380 896 350 L908 350 L912 380 L918 334 L932 334 L930 378 L942 340 L956 344 L946 384 L962 360 L974 366 L958 404 Q944 434 902 410Z" fill="#f6c39a"/></g>
+   <path d="M690 905 L760 905 L764 950 L668 950 Q664 920 690 905Z" fill="#8a5a34"/><path d="M780 905 L846 905 Q872 914 870 950 L782 950Z" fill="#8a5a34"/>
+   <ellipse cx="760" cy="380" rx="86" ry="92" fill="#f6c39a"/>
+   <path d="M672 360 Q660 270 730 250 Q720 230 750 228 Q760 214 790 224 Q830 222 836 250 Q862 270 848 350 Q836 310 806 304 Q812 290 790 290 Q776 306 750 296 Q740 312 720 304 Q700 320 690 336Z" fill="#6b3f22"/>
+   <ellipse cx="706" cy="418" rx="18" ry="12" fill="#ef8c80"/><ellipse cx="818" cy="414" rx="18" ry="12" fill="#ef8c80"/>
+   <path d="M728 438 Q762 476 800 434 Q764 450 728 438Z" fill="#b8352e"/>
+  </g></g>
+</g>
+
+<!-- scribbles and grass strokes, drawn by the script -->
+<g id="scribbles" filter="url(#pencil)"></g>
+
+<!-- pencil lines -->
+<g filter="url(#pencil)" fill="none" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+  <g class="a sun"><circle cx="1130" cy="140" r="64"/><path d="M1130 50 v-30 M1130 230 v30 M1040 140 h-30 M1220 140 h30 M1066 76 l-20 -20 M1194 204 l20 20 M1194 76 l20 -20 M1066 204 l-20 20" stroke="#e8b72c" stroke-width="6"/></g>
+  <path d="M600 130 q20 -40 70 -30 q30 -40 90 -14 q60 -10 70 40 q40 10 20 40" stroke="#5a8fc8" stroke-width="3"/>
+  <path d="M300 400 L330 760 M390 400 L420 760 M330 560 Q280 520 250 470 M390 520 Q440 480 470 430"/>
+  <path d="M180 340 q-30 -150 120 -190 q140 -60 230 60 q100 40 70 170 q10 120 -120 140 q-90 50 -200 0 q-130 -20 -100 -180Z" stroke-width="3.5"/>
+  <path d="M1020 480 q-10 -90 80 -100 q90 0 90 90 q20 80 -70 100 q-110 0 -100 -90Z" stroke-width="3"/>
+  <path d="M1440 520 q-6 -100 70 -110 q80 6 76 100 q6 90 -72 96 q-80 -6 -74 -86Z" stroke-width="3"/>
+  <path d="M1270 430 L1270 720 L1510 720 L1510 430 M1250 430 L1390 250 L1530 430 Z M1390 250 L1600 470 M1510 430 L1600 470 M1360 230 L1360 330 M1430 230 L1430 330 M1340 236 L1395 180 L1450 236Z"/>
+  <path d="M1350 720 V560 H1430 V720 M1368 580 h44 v34 h-44Z M1530 560 h30 v80 h-30Z M1570 560 h26 v80"/>
+  <circle cx="1390" cy="380" r="28"/><path d="M1362 380 h56 M1390 352 v56" stroke-width="3"/>
+  <path d="M1290 470 h40 M1440 470 h50 M1300 520 h30 M1450 520 h40 M1290 660 h40 M1450 680 h40" stroke="#8a2a20" stroke-width="3"/>
+  <path d="M1340 718 Q1180 730 1080 770 Q1020 800 860 830 Q700 860 620 900 M1360 740 Q1300 760 1250 780 Q1160 800 1140 830 Q1120 860 1200 880" stroke-width="3.5"/>
+  <g transform="translate(157 100) scale(.8)"><g class="a bob">
+   <path d="M600 520 Q600 470 650 466 L700 470 L706 650 L640 650 Q598 650 598 610Z M600 570 L700 570"/>
+   <path d="M690 490 Q750 470 820 490 L830 720 L690 720Z"/>
+   <path d="M690 720 L830 720 L846 920 L788 920 L760 780 L742 920 L686 920Z"/>
+   <path d="M690 905 L760 905 L764 950 L668 950 Q664 920 690 905Z M780 905 L846 905 Q872 914 870 950 L782 950Z"/>
+   <path d="M694 494 Q660 560 700 620"/>
+   <g class="a wave"><path d="M812 500 Q880 470 910 400"/><path d="M902 410 Q884 380 896 350 L908 350 L912 380 L918 334 L932 334 L930 378 L942 340 L956 344 L946 384 L962 360 L974 366 L958 404 Q944 434 902 410Z" stroke-width="3.5"/></g>
+   <ellipse cx="760" cy="380" rx="86" ry="92"/>
+   <path d="M672 360 Q660 270 730 250 Q720 230 750 228 Q760 214 790 224 Q830 222 836 250 Q862 270 848 350" stroke="#3d2412"/>
+   <path d="M700 300 l-20 -40 M730 270 l-6 -46 M790 260 l14 -44 M830 280 l30 -30" stroke="#3d2412" stroke-width="5"/>
+   <g class="a blink"><circle cx="730" cy="388" r="8" fill="#2b2b2b"/><circle cx="790" cy="384" r="8" fill="#2b2b2b"/><circle cx="727" cy="384" r="2.5" fill="#fff" stroke="none"/><circle cx="787" cy="380" r="2.5" fill="#fff" stroke="none"/></g>
+   <path d="M716 362 q14 -10 28 -2 M776 358 q14 -10 28 0"/>
+   <path d="M760 400 q12 18 -4 22"/><path d="M728 438 Q762 476 800 434 Q764 450 728 438Z"/>
+   <path d="M674 384 q-14 4 -10 24 q6 12 16 8"/>
+  </g></g>
+</g>
+</svg>
+<p>morphO · Crayon Sketch · character sample: an original boy by a red schoolhouse, in crayon and pencil on white paper.</p>
+</main>
+<script>
+  // Scribbles: loose crayon strokes over the fills (tree, grass, bushes, the boy's trousers), from a fixed seed.
+  let s = 21; const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280, NS = 'http://www.w3.org/2000/svg';
+  const g = document.getElementById('scribbles');
+  const scribble = (x0, y0, w, h, colour, n, width = 3) => { let d = '';
+    for (let i = 0; i < n; i++) { const x = x0 + rnd() * w, y = y0 + rnd() * h, l = 14 + rnd() * 26; d += `M${x.toFixed(0)} ${y.toFixed(0)} l${(l * .8).toFixed(0)} ${(-l * .55).toFixed(0)} `; }
+    const p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); p.setAttribute('stroke', colour); p.setAttribute('stroke-width', width); p.setAttribute('fill', 'none'); p.setAttribute('stroke-linecap', 'round'); p.setAttribute('opacity', '.7'); g.appendChild(p); };
+  scribble(190, 170, 420, 320, '#2f7a2c', 120); scribble(1020, 390, 170, 180, '#3f8a2c', 40); scribble(1440, 420, 150, 170, '#3f8a2c', 40);
+  scribble(0, 700, 1600, 200, '#3f8a2c', 220, 2.5); scribble(1270, 440, 240, 280, '#a8302a', 70, 2.5); scribble(150, 650, 200, 70, '#2f7a2c', 30);
+  // grass tufts
+  let d = ''; for (let i = 0; i < 70; i++) { const x = rnd() * 1600, y = 690 + rnd() * 200; if (x > 620 && x < 1300 && y > 760) continue; d += `M${x.toFixed(0)} ${y.toFixed(0)} l6 -22 l6 22 l6 -26 l6 26 l6 -18 `; }
+  const t = document.createElementNS(NS, 'path'); t.setAttribute('d', d); t.setAttribute('stroke', '#2b6a22'); t.setAttribute('stroke-width', '3'); t.setAttribute('fill', 'none'); t.setAttribute('stroke-linejoin', 'round'); g.appendChild(t);
+  // The boil: re-seed the noise a few times a second, as hand-drawn frames never line up exactly.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { let k = 0; const ids = ['t1', 't2', 't3'].map(i => document.getElementById(i));
+    setInterval(() => { k = (k + 1) % 3; ids.forEach((e, i) => e.setAttribute('seed', 3 + i * 5 + k)); }, 160); }
+</script>
+</body>
+</html>

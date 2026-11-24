@@ -1,0 +1,70 @@
+/* morphO style: Glass Night (dark). Deep indigo-to-blue light with pink and violet glows, frosted cards that let
+   the colour through, white ink, and an indigo-to-violet accent. The night twin of glass.css: suits a bold cover,
+   a story at night, tech and finance topics, or any book that wants depth.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --glass and
+   --glow names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they come
+   before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #10154a; --board: #1b2468; --panel: #262f7a; --edge: #3d4796;
+  --chalk: #f5f6ff; --dim: #aab2e6; --faint: #5c66b3;
+  --task: #c9a3ff; --quiz: #8fb0ff; --good: #6fe3b0; --bad: #ff8fa3;
+  --on-fill: #151b4f; --vignette: rgba(8, 10, 40, .30); color-scheme: dark;
+  --rule: #343e8c; --track: #333d8a; --track-ask: #3c4aa6;
+  --bar-edge: #3a4494; --hover: #2c3582; --veil: #0b0f38;
+  --ui: "Avenir Next", "Segoe UI Variable Display", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --glass: rgba(255, 255, 255, .10);           /* frosted card fill */
+  --glass-strong: rgba(30, 38, 110, .62);      /* bar, captions, help: glass that text sits on for longer */
+  --glass-edge: rgba(255, 255, 255, .22);      /* the bright rim of a glass card */
+  --glass-shadow: 0 20px 50px rgba(5, 8, 40, .40), inset 0 1px 0 rgba(255, 255, 255, .18);
+  --glow-1: rgba(80, 110, 255, .55);           /* blurred colour light behind the stage */
+  --glow-2: rgba(214, 120, 255, .45);
+  --glow-3: rgba(255, 140, 200, .35);
+  --accent: linear-gradient(135deg, #5b72ff 0%, #9a6bff 60%, #e08cff 100%);
+  --accent-shadow: 0 10px 26px rgba(140, 110, 255, .45);
+  --title: linear-gradient(90deg, #ffffff 0%, #ffffff 40%, #c9b3ff 70%, #8fd3ff 100%);
+}
+
+/* ---- Glass rules: the same in glass.css and glass-night.css ---- */
+:root #frame { border-radius: 32px; box-shadow: 0 0 0 1px var(--glass-edge), 0 40px 100px rgba(40, 50, 140, .20); }
+:root #stage { background:
+  radial-gradient(42% 55% at 88% 12%, var(--glow-2), transparent 70%),
+  radial-gradient(45% 60% at 6% 92%, var(--glow-3), transparent 70%),
+  radial-gradient(38% 50% at 62% 105%, var(--glow-1), transparent 70%),
+  radial-gradient(75% 75% at 50% 45%, transparent 60%, var(--vignette)), var(--grain, none), var(--board); }
+
+:root .cover { background: color-mix(in srgb, var(--page) 30%, transparent); backdrop-filter: blur(6px); }
+:root .cover-k { color: var(--quiz); letter-spacing: .18em; }
+:root .cover-t { font: 700 76px/1.06 var(--ui); letter-spacing: -.025em;
+  background: var(--title); -webkit-background-clip: text; background-clip: text; color: transparent; }
+:root .cover .go { background: var(--chalk); color: var(--board); box-shadow: 0 14px 34px rgba(21, 27, 79, .28); }
+:root .paused-mark div { background: var(--glass-strong); color: var(--chalk); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
+
+:root .card { border-radius: 28px; background: var(--glass); border: 1px solid var(--glass-edge);
+  border-inline-start: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); }
+:root .kicker { color: var(--quiz); letter-spacing: .02em; }
+:root .opt { border: 1.5px solid var(--edge); background: var(--glass-strong); color: var(--chalk); }
+:root .opt:hover:not(:disabled) { border-color: var(--quiz); }
+:root .opt[aria-pressed="true"] { background: var(--accent); border-color: transparent; color: #fff; box-shadow: var(--accent-shadow); }
+:root .opt.bad { background: color-mix(in srgb, var(--bad) 10%, var(--panel)); }
+:root .btn { background: var(--chalk); color: var(--board); box-shadow: 0 8px 20px rgba(21, 27, 79, .18); }
+:root .btn.go { background: var(--accent); color: #fff; box-shadow: var(--accent-shadow); }
+:root .btn.quiet { background: var(--glass-strong); color: var(--dim); border: 1px solid var(--edge); box-shadow: none; }
+:root .btn:disabled { background: var(--edge); color: var(--dim); box-shadow: none; }
+
+:root #bar { background: var(--glass-strong); border-top: 1px solid var(--glass-edge);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+:root .icon { background: var(--panel); border: 1px solid var(--edge); box-shadow: 0 4px 12px rgba(76, 86, 190, .10); }
+:root .seg { border-radius: 6px; }
+:root .seg i, :root .seg.ask i { background: var(--accent); }
+
+:root .help { background: color-mix(in srgb, var(--veil) 55%, transparent); backdrop-filter: blur(10px); }
+:root .help-box { border-radius: 30px; background: var(--glass-strong); border: 1px solid var(--glass-edge);
+  box-shadow: var(--glass-shadow); backdrop-filter: blur(24px); }
+:root .caption { background: var(--glass-strong); color: var(--chalk); border: 1px solid var(--glass-edge);
+  border-radius: 18px; box-shadow: var(--glass-shadow); backdrop-filter: blur(18px); }

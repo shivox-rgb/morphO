@@ -1,0 +1,55 @@
+/* morphO style: Soft Pastel (light). Calm, muted and flat: pale sage and cream, terracotta and dusty teal, soft
+   rounded cards with no outlines, gentle glows of sage and peach, quiet type. Restful and modern: suits early years,
+   wellbeing and mindfulness, gentle stories, and lessons that want little visual noise.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --soft
+   names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they come
+   before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #e3e8e0; --board: #f2f3ec; --panel: #fbfaf5; --edge: #dadfd2;
+  --chalk: #3f4a44; --dim: #7d877f; --faint: #cdd3c6;
+  --task: #c9785a; --quiz: #6f9a94; --good: #86a865; --bad: #c96a5a;
+  --on-fill: #ffffff; --vignette: rgba(120, 130, 110, .08); color-scheme: light;
+  --rule: #e8ebe2; --track: #e1e5da; --track-ask: #d2e2df;
+  --bar-edge: #e1e5da; --hover: #eef0e8; --veil: #e3e8e0;
+  --ui: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --soft-shadow: 0 2px 6px rgba(80, 90, 70, .06), 0 16px 40px rgba(80, 90, 70, .10);
+  --soft-sage: rgba(170, 195, 165, .45);
+  --soft-peach: rgba(240, 190, 160, .40);
+  --soft-sky: rgba(190, 215, 220, .45);
+}
+
+:root #frame { border-radius: 28px; box-shadow: 0 0 0 1px var(--edge), 0 30px 70px rgba(80, 90, 70, .16); }
+:root #stage { background:
+  radial-gradient(45% 55% at 8% 92%, var(--soft-sage), transparent 70%),
+  radial-gradient(35% 45% at 92% 12%, var(--soft-peach), transparent 70%),
+  radial-gradient(40% 40% at 70% 100%, var(--soft-sky), transparent 70%),
+  var(--grain, none), var(--board); }
+
+:root .cover { background: color-mix(in srgb, var(--page) 20%, transparent); }
+:root .cover-k { color: var(--task); letter-spacing: .18em; }
+:root .cover-t { font: 500 74px/1.1 var(--ui); color: var(--chalk); letter-spacing: -.01em; }
+:root .cover .go { background: var(--task); color: #fff; box-shadow: var(--soft-shadow); }
+:root .paused-mark div { background: var(--panel); color: var(--chalk); box-shadow: var(--soft-shadow); }
+
+:root .card { border-radius: 26px; background: var(--panel); border: 0; border-inline-start: 0; box-shadow: var(--soft-shadow); }
+:root .kicker { color: var(--task); }
+:root .opt { border: 1.5px solid var(--edge); background: #fff; color: var(--chalk); }
+:root .opt:hover:not(:disabled) { border-color: var(--quiz); }
+:root .opt[aria-pressed="true"] { background: var(--quiz); border-color: var(--quiz); color: #fff; }
+:root .btn { background: var(--chalk); color: #fff; }
+:root .btn.go { background: var(--task); color: #fff; }
+:root .btn.quiet { background: transparent; color: var(--dim); border: 1.5px solid var(--edge); }
+:root .btn:disabled { background: var(--edge); color: var(--dim); }
+
+:root #bar { background: #f6f7f1; border-top: 1px solid var(--bar-edge); }
+:root .icon { background: #fff; border: 1px solid var(--edge); }
+:root .seg { border-radius: 6px; }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: var(--quiz); }
+
+:root .help-box { border-radius: 26px; background: var(--panel); border: 0; box-shadow: var(--soft-shadow); }
+:root .caption { background: var(--panel); color: var(--chalk); border-radius: 18px; box-shadow: var(--soft-shadow); }

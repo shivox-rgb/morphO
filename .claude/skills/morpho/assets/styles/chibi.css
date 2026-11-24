@@ -1,0 +1,56 @@
+/* morphO style: Chibi Anime (light). A sunny chibi poster: sky over sea over sand, white cards with a thick near-black
+   line and a hard shadow, red, blue and sunshine-yellow accents, a heavy outlined title. Bright and adventurous:
+   suits adventure stories, geography and travel, team stories and upright shorts.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --line
+   names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they come
+   before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #9fdcf8; --board: #e6f6fd; --panel: #ffffff; --edge: #1b1b2f;
+  --chalk: #1b1b2f; --dim: #4f5670; --faint: #b8dcec;
+  --task: #ff5a3c; --quiz: #1e88e5; --good: #2db552; --bad: #e83a3a;
+  --on-fill: #ffffff; --vignette: rgba(27, 27, 47, .04); color-scheme: light;
+  --rule: #e2eff6; --track: #bfe0ef; --track-ask: #c4dcf6;
+  --bar-edge: #1b1b2f; --hover: #f2f9fd; --veil: #9fdcf8;
+  --ui: "Segoe UI Black", "Arial Rounded MT Bold", "Avenir Next", "Segoe UI", sans-serif;
+
+  --line: 4px solid var(--chalk);
+  --pop: 0 6px 0 var(--chalk);
+  --sun: #ffd23f;
+}
+
+:root #frame { border-radius: 24px; box-shadow: 0 0 0 4px #1b1b2f, 0 30px 60px rgba(30, 90, 140, .25); }
+:root #stage { background:
+  radial-gradient(ellipse 110px 34px at 14% 14%, #fff 97%, transparent), radial-gradient(ellipse 70px 30px at 18% 10%, #fff 97%, transparent),
+  radial-gradient(ellipse 130px 36px at 82% 12%, #fff 97%, transparent),
+  linear-gradient(180deg, #8fd6f6 0 52%, #1e9bdc 52% 64%, #63c3ec 64% 66%, #f6e0ae 66%); }
+
+:root .cover { background: color-mix(in srgb, #ffffff 25%, transparent); }
+:root .cover-k { color: var(--quiz); letter-spacing: .14em; }
+:root .cover-t { font: 900 84px/1.05 var(--ui); color: var(--sun); -webkit-text-stroke: 5px var(--chalk); paint-order: stroke fill;
+  text-shadow: 0 7px 0 var(--chalk); }
+:root .cover .go { background: var(--task); color: #fff; border: var(--line); box-shadow: var(--pop); }
+:root .paused-mark div { background: #fff; color: var(--chalk); border: var(--line); }
+
+:root .card { border-radius: 22px; background: var(--panel); border: var(--line); border-inline-start: var(--line); box-shadow: var(--pop); }
+:root .kicker { color: var(--task); text-transform: uppercase; letter-spacing: .08em; }
+:root .opt { border: 3px solid var(--chalk); background: #fff; color: var(--chalk); box-shadow: 0 3px 0 var(--chalk); }
+:root .opt:hover:not(:disabled):not([aria-pressed="true"]) { background: #fffae6; }
+:root .opt[aria-pressed="true"] { background: var(--quiz); color: #fff; box-shadow: 0 1px 0 var(--chalk); transform: translateY(2px); }
+:root .btn { background: var(--chalk); color: #fff; border: 3px solid var(--chalk); box-shadow: 0 4px 0 #000; }
+:root .btn.go { background: var(--task); color: #fff; }
+:root .btn.quiet { background: #fff; color: var(--chalk); }
+:root .btn:disabled { background: var(--faint); color: var(--dim); }
+
+:root #bar { background: #fff; border-top: var(--line); }
+:root .icon { background: #fff; border: 3px solid var(--chalk); }
+:root .icon svg { fill: var(--chalk); }
+:root .icon.txt, :root .icon.cc { color: var(--chalk); }
+:root .seg { height: 10px; border-radius: 6px; }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: var(--sun); }
+
+:root .help-box { border-radius: 22px; background: #fff; border: var(--line); box-shadow: var(--pop); }
+:root .caption { background: #fff; color: var(--chalk); border: 3px solid var(--chalk); border-radius: 16px; }

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossy Sticker: character sample</title>
+<!-- A character sample for the Glossy Sticker style (../sticker.css): an original round monster licking a dripping ice
+     cream, with a navy outline, glossy shines and a white die-cut rim, in front of a butter-yellow paint splash. Idle
+     motion: a happy wobble, blinking, falling drips, a growing puddle. Open it directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #dcdcf2; color: #1a2440; font: 14px/1.4 "Arial Rounded MT Bold", "Segoe UI", sans-serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 30px; box-shadow: 0 30px 70px rgba(26, 36, 64, .2); }
+  p { margin: 12px 4px 0; color: #5a6080; }
+  .a { transform-box: fill-box; }
+  .wobble { animation: wobble 2s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes wobble { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg) translateY(-6px); } }
+  .blink { animation: blink 3.4s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 91%, 100% { transform: scaleY(1); } 94% { transform: scaleY(.08); } }
+  .drip { animation: drip 1.8s ease-in infinite; }
+  .drip.b { animation-delay: -.6s; } .drip.c { animation-delay: -1.2s; }
+  @keyframes drip { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(160px); opacity: 0; } }
+  .puddle { animation: puddle 4s ease-in-out infinite alternate; transform-origin: 30% 50%; }
+  @keyframes puddle { to { transform: scaleX(1.12); } }
+  .bob { animation: bob 2s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes bob { 50% { transform: rotate(8deg); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="A round purple monster with two little horns, huge shiny eyes and a big grin licks a dripping strawberry ice cream cone, outlined in navy with a white sticker edge, in front of a yellow paint splash">
+<defs>
+  <filter id="rim" x="-20%" y="-20%" width="140%" height="140%">
+    <feMorphology in="SourceAlpha" operator="dilate" radius="12" result="d"/><feFlood flood-color="#fff"/><feComposite in2="d" operator="in" result="w"/>
+    <feOffset in="d" dy="12" result="o"/><feGaussianBlur in="o" stdDeviation="10" result="b"/><feFlood flood-color="#1a2440" flood-opacity=".2"/><feComposite in2="b" operator="in" result="s"/>
+    <feMerge><feMergeNode in="s"/><feMergeNode in="w"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <radialGradient id="body" cx="38%" cy="30%" r="75%"><stop offset="0" stop-color="#c79cff"/><stop offset=".6" stop-color="#9a5cf0"/><stop offset="1" stop-color="#6b36c8"/></radialGradient>
+  <linearGradient id="cone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2c47a"/><stop offset="1" stop-color="#c98a3e"/></linearGradient>
+  <pattern id="waffle" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="22" height="22" fill="url(#cone)"/><path d="M0 0 H22 M0 0 V22" stroke="#a86a2a" stroke-width="3"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="#e9e9f8"/>
+<!-- paint splash -->
+<path d="M560 200 Q640 140 720 190 Q800 120 900 170 Q1000 150 1020 240 Q1110 280 1060 360 Q1120 440 1050 500 Q1100 600 1010 640 Q1000 740 900 720 Q820 780 740 730 Q640 760 600 680 Q510 660 530 580 Q460 520 520 460 Q470 380 540 330 Q500 250 560 200Z" fill="#fbe3a8"/>
+<circle cx="480" cy="300" r="22" fill="#fbe3a8"/><circle cx="1120" cy="620" r="18" fill="#fbe3a8"/><circle cx="1090" cy="210" r="12" fill="#fbe3a8"/>
+<!-- ground line, shadow, puddle -->
+<path d="M420 790 H1180" stroke="#1a2440" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="790" cy="792" rx="190" ry="20" fill="#1a2440" opacity=".12"/>
+<g class="a puddle"><path d="M860 790 q20 -20 80 -14 q70 -6 90 14 q30 20 -20 28 q-60 10 -120 0 q-50 -6 -30 -28Z" fill="#ff6fa3" stroke="#1a2440" stroke-width="4"/><ellipse cx="930" cy="790" rx="26" ry="6" fill="#fff" opacity=".6"/></g>
+<circle cx="560" cy="812" r="12" fill="#ff6fa3" stroke="#1a2440" stroke-width="3"/><ellipse cx="520" cy="800" rx="22" ry="10" fill="#2a2a44"/>
+
+<g filter="url(#rim)">
+ <g class="a wobble" stroke="#1a2440" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+  <!-- feet -->
+  <ellipse cx="720" cy="770" rx="64" ry="28" fill="url(#body)"/><ellipse cx="868" cy="770" rx="64" ry="28" fill="url(#body)"/>
+  <!-- body and head in one round shape -->
+  <path d="M790 250 Q980 250 1000 470 Q1010 640 900 740 Q790 780 680 740 Q570 640 580 470 Q600 250 790 250Z" fill="url(#body)"/>
+  <!-- horns -->
+  <path d="M680 290 Q640 200 690 180 Q704 236 724 270Z" fill="#ffd36b"/><path d="M900 290 Q940 200 890 180 Q876 236 856 270Z" fill="#ffd36b"/>
+  <!-- shines -->
+  <ellipse cx="690" cy="330" rx="46" ry="22" fill="#fff" opacity=".75" stroke="none" transform="rotate(-24 690 330)"/><circle cx="740" cy="300" r="10" fill="#fff" opacity=".8" stroke="none"/>
+  <path d="M960 520 Q970 600 930 660" fill="none" stroke="#fff" stroke-width="10" opacity=".45"/>
+  <!-- eyes -->
+  <g class="a blink"><ellipse cx="716" cy="420" rx="66" ry="76" fill="#1f1a3a" stroke="#ff4f8b" stroke-width="7"/><ellipse cx="866" cy="420" rx="66" ry="76" fill="#1f1a3a" stroke="#ff4f8b" stroke-width="7"/>
+    <ellipse cx="740" cy="390" rx="22" ry="26" fill="#fff" stroke="none"/><ellipse cx="890" cy="390" rx="22" ry="26" fill="#fff" stroke="none"/>
+    <circle cx="700" cy="450" r="9" fill="#fff" stroke="none"/><circle cx="850" cy="450" r="9" fill="#fff" stroke="none"/></g>
+  <!-- grin with tongue -->
+  <path d="M700 540 Q790 640 880 540 Q790 566 700 540Z" fill="#3a1030"/>
+  <path d="M716 545 L736 572 L756 552 L776 576 L796 554 L816 576 L836 552 L856 572 L868 547" fill="#fff" stroke-width="4"/>
+  <path d="M770 590 Q790 640 830 600 Q800 610 770 590Z" fill="#ff7aa8" stroke-width="4"/>
+  <ellipse cx="640" cy="520" rx="22" ry="12" fill="#ff8fb4" stroke="none" opacity=".7"/><ellipse cx="940" cy="520" rx="22" ry="12" fill="#ff8fb4" stroke="none" opacity=".7"/>
+  <!-- arms and the ice cream -->
+  <g class="a bob">
+   <path d="M920 640 L1010 460 L1060 486 L976 668Z" fill="url(#waffle)"/>
+   <path d="M1000 470 Q980 400 1040 380 Q1110 370 1110 440 Q1110 500 1060 496 Q1030 520 1000 470Z" fill="#ff8fb8"/>
+   <path d="M1010 470 q-6 30 6 50 q12 -6 8 -40Z M1086 488 q4 30 -4 44 q-12 -6 -6 -40Z" fill="#ff8fb8"/>
+   <ellipse cx="1040" cy="410" rx="18" ry="9" fill="#fff" opacity=".8" stroke="none"/>
+   <g stroke="none"><rect x="1030" y="440" width="12" height="5" rx="2" fill="#4fd1e0" transform="rotate(30 1036 442)"/><rect x="1066" y="420" width="12" height="5" rx="2" fill="#ffe16b" transform="rotate(-20 1072 422)"/><rect x="1060" y="460" width="12" height="5" rx="2" fill="#fff" transform="rotate(60 1066 462)"/></g>
+  </g>
+  <path d="M960 620 Q1000 600 1010 640 Q990 680 950 666Z" fill="url(#body)"/>
+  <path d="M610 600 Q560 620 570 660 Q610 690 640 650Z" fill="url(#body)"/>
+ </g>
+</g>
+<!-- drips -->
+<g fill="#ff6fa3" stroke="#1a2440" stroke-width="3">
+  <path class="drip" d="M1040 520 q10 18 0 26 q-10 -8 0 -26Z"/><path class="drip b" d="M1090 520 q10 18 0 26 q-10 -8 0 -26Z"/><path class="drip c" d="M1010 500 q8 14 0 20 q-8 -6 0 -20Z"/>
+</g>
+</svg>
+<p>morphO · Glossy Sticker · character sample: an original monster with an ice cream, glossy and die-cut on a paint splash.</p>
+</main>
+</body>
+</html>

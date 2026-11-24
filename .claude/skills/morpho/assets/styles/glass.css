@@ -1,0 +1,70 @@
+/* morphO style: Glass (light). Soft lavender light with colour glows, frosted white cards, navy ink, and an
+   indigo-to-violet accent on the buttons and the progress bar. Calm and modern: suits maths, science, business and
+   any lesson that wants a clean, app-like feel. Its night twin is glass-night.css.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --glass and
+   --glow names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they come
+   before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #e9ebf8; --board: #f5f6fd; --panel: #ffffff; --edge: #dcdff2;
+  --chalk: #151b4f; --dim: #6a7096; --faint: #c3c7e2;
+  --task: #8a5cf6; --quiz: #4c63ff; --good: #1fae6e; --bad: #e9506a;
+  --on-fill: #ffffff; --vignette: rgba(120, 110, 220, .08); color-scheme: light;
+  --rule: #e6e8f5; --track: #e1e4f4; --track-ask: #d6dcff;
+  --bar-edge: #e3e5f4; --hover: #eceefa; --veil: #e9ebf8;
+  --ui: "Avenir Next", "Segoe UI Variable Display", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --glass: rgba(255, 255, 255, .62);           /* frosted card fill */
+  --glass-strong: rgba(255, 255, 255, .80);    /* bar, captions, help: glass that text sits on for longer */
+  --glass-edge: rgba(255, 255, 255, .95);      /* the bright rim of a glass card */
+  --glass-shadow: 0 18px 50px rgba(76, 86, 190, .14), 0 2px 6px rgba(76, 86, 190, .06);
+  --glow-1: rgba(140, 155, 255, .60);          /* blurred colour light behind the stage */
+  --glow-2: rgba(215, 160, 255, .62);
+  --glow-3: rgba(140, 205, 255, .55);
+  --accent: linear-gradient(135deg, #4c63ff 0%, #8a5cf6 60%, #c06bff 100%);
+  --accent-shadow: 0 10px 24px rgba(92, 90, 255, .32);
+  --title: linear-gradient(90deg, #151b4f 0%, #2b3590 45%, #5b5cff 75%, #b46bff 100%);
+}
+
+/* ---- Glass rules: the same in glass.css and glass-night.css ---- */
+:root #frame { border-radius: 32px; box-shadow: 0 0 0 1px var(--glass-edge), 0 40px 100px rgba(40, 50, 140, .20); }
+:root #stage { background:
+  radial-gradient(42% 55% at 88% 12%, var(--glow-2), transparent 70%),
+  radial-gradient(45% 60% at 6% 92%, var(--glow-3), transparent 70%),
+  radial-gradient(38% 50% at 62% 105%, var(--glow-1), transparent 70%),
+  radial-gradient(75% 75% at 50% 45%, transparent 60%, var(--vignette)), var(--grain, none), var(--board); }
+
+:root .cover { background: color-mix(in srgb, var(--page) 30%, transparent); backdrop-filter: blur(6px); }
+:root .cover-k { color: var(--quiz); letter-spacing: .18em; }
+:root .cover-t { font: 700 76px/1.06 var(--ui); letter-spacing: -.025em;
+  background: var(--title); -webkit-background-clip: text; background-clip: text; color: transparent; }
+:root .cover .go { background: var(--chalk); color: var(--board); box-shadow: 0 14px 34px rgba(21, 27, 79, .28); }
+:root .paused-mark div { background: var(--glass-strong); color: var(--chalk); backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow); }
+
+:root .card { border-radius: 28px; background: var(--glass); border: 1px solid var(--glass-edge);
+  border-inline-start: 1px solid var(--glass-edge); box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(22px) saturate(1.4); -webkit-backdrop-filter: blur(22px) saturate(1.4); }
+:root .kicker { color: var(--quiz); letter-spacing: .02em; }
+:root .opt { border: 1.5px solid var(--edge); background: var(--glass-strong); color: var(--chalk); }
+:root .opt:hover:not(:disabled) { border-color: var(--quiz); }
+:root .opt[aria-pressed="true"] { background: var(--accent); border-color: transparent; color: #fff; box-shadow: var(--accent-shadow); }
+:root .opt.bad { background: color-mix(in srgb, var(--bad) 10%, var(--panel)); }
+:root .btn { background: var(--chalk); color: var(--board); box-shadow: 0 8px 20px rgba(21, 27, 79, .18); }
+:root .btn.go { background: var(--accent); color: #fff; box-shadow: var(--accent-shadow); }
+:root .btn.quiet { background: var(--glass-strong); color: var(--dim); border: 1px solid var(--edge); box-shadow: none; }
+:root .btn:disabled { background: var(--edge); color: var(--dim); box-shadow: none; }
+
+:root #bar { background: var(--glass-strong); border-top: 1px solid var(--glass-edge);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+:root .icon { background: var(--panel); border: 1px solid var(--edge); box-shadow: 0 4px 12px rgba(76, 86, 190, .10); }
+:root .seg { border-radius: 6px; }
+:root .seg i, :root .seg.ask i { background: var(--accent); }
+
+:root .help { background: color-mix(in srgb, var(--veil) 55%, transparent); backdrop-filter: blur(10px); }
+:root .help-box { border-radius: 30px; background: var(--glass-strong); border: 1px solid var(--glass-edge);
+  box-shadow: var(--glass-shadow); backdrop-filter: blur(24px); }
+:root .caption { background: var(--glass-strong); color: var(--chalk); border: 1px solid var(--glass-edge);
+  border-radius: 18px; box-shadow: var(--glass-shadow); backdrop-filter: blur(18px); }

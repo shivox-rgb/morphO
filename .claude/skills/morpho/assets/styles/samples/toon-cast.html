@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TV Toon: character sample</title>
+<!-- A character sample for the TV Toon style (../toon.css): an original cast of three (Pip, a lanky kid with scribbled
+     hair; Glomb, a tall grumpy monster with noodle arms; Crumb, a tiny walking cookie) on a title card of orange rings
+     and a glassy bubble, each with a bubbly name tag. Idle motion: Pip talks and waves, Glomb sighs, Crumb marches.
+     Open it directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #d9703f; color: #2a1840; font: 14px/1.4 "Segoe UI", sans-serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 26px; box-shadow: 0 0 0 5px #2a1840; }
+  p { margin: 16px 4px 0; color: #fbeedd; }
+  .a { transform-box: fill-box; }
+  .wave { animation: wave .7s ease-in-out infinite alternate; transform-origin: 4% 50%; }
+  @keyframes wave { from { transform: rotate(-12deg); } to { transform: rotate(14deg); } }
+  .talk { animation: talk .28s ease-in-out infinite alternate; transform-origin: 50% 0%; }
+  @keyframes talk { from { transform: scaleY(1); } to { transform: scaleY(.45); } }
+  .bob { animation: bob 1.4s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes bob { 50% { transform: translateY(-6px); } }
+  .sigh { animation: sigh 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes sigh { 0%, 100% { transform: scaleY(1); } 40% { transform: scaleY(1.04) translateY(-4px); } 60% { transform: scaleY(.98); } }
+  .march { animation: march .4s steps(2) infinite; transform-origin: 50% 100%; }
+  @keyframes march { 0% { transform: rotate(-5deg) translateY(0); } 50% { transform: rotate(5deg) translateY(-6px); } }
+  .tag { animation: tag 2.4s ease-in-out infinite; transform-origin: 50% 50%; }
+  .tag.b { animation-delay: -.8s; } .tag.c { animation-delay: -1.6s; }
+  @keyframes tag { 50% { transform: rotate(-3deg) scale(1.04); } }
+  .blink { animation: blink 3.4s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="A cartoon title card with orange rings: a lanky kid with scribbled brown hair waves and talks, a tall grumpy teal monster with long noodle arms stands beside him, and a tiny cookie in a headband marches between them, each labelled with a bubbly name">
+<defs>
+  <radialGradient id="rings" cx="50%" cy="50%" r="62%">
+    <stop offset="0" stop-color="#fbeedd"/><stop offset=".3" stop-color="#fbeedd"/><stop offset=".3" stop-color="#f4d6b6"/><stop offset=".45" stop-color="#f4d6b6"/><stop offset=".45" stop-color="#ecbd92"/>
+    <stop offset=".6" stop-color="#ecbd92"/><stop offset=".6" stop-color="#e6a274"/><stop offset=".75" stop-color="#e6a274"/><stop offset=".75" stop-color="#df8a5a"/><stop offset=".9" stop-color="#df8a5a"/><stop offset=".9" stop-color="#d9703f"/></radialGradient>
+  <radialGradient id="glow"><stop offset="0" stop-color="#fff6ea" stop-opacity=".9"/><stop offset="1" stop-color="#fff6ea" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#rings)"/>
+<circle cx="800" cy="460" r="300" fill="url(#glow)"/>
+<path d="M430 300 Q520 160 700 130" stroke="#fff" stroke-width="26" stroke-linecap="round" fill="none" opacity=".5"/>
+<path d="M1200 640 Q1160 720 1080 770" stroke="#fff" stroke-width="22" stroke-linecap="round" fill="none" opacity=".45"/>
+<circle cx="800" cy="460" r="400" fill="none" stroke="#fff" stroke-width="3" opacity=".35"/>
+
+<!-- PIP -->
+<g class="a bob">
+  <path d="M560 560 L554 780 M600 560 L612 780" stroke="#4a4a78" stroke-width="40" stroke-linecap="square"/>
+  <path d="M534 760 h44 M592 760 h44" stroke="#fff" stroke-width="22"/>
+  <path d="M520 800 q4 -26 40 -24 q30 0 30 24Z M592 800 q0 -24 30 -24 q36 -2 40 24Z" fill="#4a9ad8"/>
+  <path d="M520 500 Q580 480 640 500 L646 570 L516 570Z" fill="#e8962e"/>
+  <path d="M528 520 Q500 600 512 660" stroke="#f7b4a4" stroke-width="12" fill="none" stroke-linecap="round"/><path d="M504 664 q-6 18 8 22 q6 -10 4 -20" fill="#f7b4a4"/>
+  <g class="a wave"><path d="M636 520 Q700 560 740 520 Q760 500 770 470" stroke="#f7b4a4" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M762 474 q-6 -26 4 -40 M770 470 q4 -28 18 -36 M776 476 q16 -18 30 -18 M776 486 q20 -6 32 4" stroke="#f7b4a4" stroke-width="9" stroke-linecap="round" fill="none"/></g>
+  <rect x="566" y="456" width="10" height="48" fill="#2a1840"/>
+  <!-- head -->
+  <path d="M470 330 Q470 250 580 250 Q690 254 686 340 Q684 440 590 460 Q470 470 470 330Z" fill="#f7b4a4"/>
+  <ellipse cx="462" cy="380" rx="22" ry="26" fill="#f7b4a4"/><path d="M456 372 q12 -6 14 8 q-8 6 -10 0" stroke="#2a1840" stroke-width="3" fill="none"/>
+  <path d="M480 300 Q440 200 560 180 Q620 120 700 170 Q760 170 740 250 Q780 300 700 320 Q690 280 640 270 Q590 300 540 280 Q500 300 480 300Z" fill="#a8664e"/>
+  <path d="M540 220 q40 -40 80 -10 q-30 40 -60 10 q30 -30 70 -10 M600 200 q30 -30 60 0 q-20 26 -50 4 M650 240 q30 -20 50 10" stroke="#2a1840" stroke-width="3" fill="none"/>
+  <g class="a blink"><ellipse cx="560" cy="350" rx="34" ry="30" fill="#fff" stroke="#2a1840" stroke-width="4"/><ellipse cx="640" cy="352" rx="30" ry="28" fill="#fff" stroke="#2a1840" stroke-width="4"/>
+    <circle cx="576" cy="354" r="11" fill="#2a1840"/><circle cx="652" cy="356" r="10" fill="#2a1840"/></g>
+  <path d="M528 316 q30 -20 56 -4 M620 318 q24 -14 44 0" stroke="#2a1840" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <ellipse cx="604" cy="392" rx="20" ry="16" fill="#e8706a"/>
+  <ellipse cx="530" cy="396" rx="20" ry="12" fill="#ff8f8f" opacity=".6"/><ellipse cx="664" cy="396" rx="18" ry="11" fill="#ff8f8f" opacity=".6"/>
+  <g class="a talk"><path d="M548 410 Q600 404 640 412 Q636 466 590 470 Q550 466 548 410Z" fill="#5a2a3a"/><path d="M560 414 h50 v14 h-50Z" fill="#fff"/><path d="M566 450 q24 -14 50 0 q-24 16 -50 0Z" fill="#e8506a"/></g>
+</g>
+
+<!-- GLOMB -->
+<g class="a sigh">
+  <path d="M1010 600 L1000 820 M1060 600 L1074 820" stroke="#c43a3a" stroke-width="22" stroke-linecap="round"/>
+  <path d="M970 830 h56 M1056 830 h56" stroke="#c43a3a" stroke-width="18" stroke-linecap="round"/>
+  <path d="M980 470 Q1040 450 1100 470 L1110 620 L970 620Z" fill="#c43a3a"/>
+  <path d="M976 520 L1104 520 M988 470 L1060 610" stroke="#2a1840" stroke-width="10"/><circle cx="1040" cy="532" r="16" fill="#f4efe4"/>
+  <path d="M970 480 Q930 620 950 780 Q954 800 970 790" stroke="#3fc0d0" stroke-width="22" fill="none" stroke-linecap="round"/>
+  <path d="M1110 480 Q1150 620 1130 780 Q1126 800 1110 790" stroke="#3fc0d0" stroke-width="22" fill="none" stroke-linecap="round"/>
+  <path d="M960 784 q-6 18 10 20 M1120 784 q6 18 -10 20" stroke="#3fc0d0" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <!-- head blob -->
+  <path d="M930 420 Q920 330 1000 320 Q1040 290 1090 320 Q1160 330 1150 420 Q1160 480 1090 484 Q1040 500 990 484 Q920 480 930 420Z" fill="#3fc0d0"/>
+  <g fill="#2fa6b6"><circle cx="980" cy="360" r="14"/><circle cx="1120" cy="400" r="18"/><circle cx="1060" cy="340" r="10"/><circle cx="960" cy="450" r="12"/></g>
+  <path d="M1010 330 Q990 240 1030 210 Q1090 200 1070 260 Q1060 290 1030 270" stroke="#3fc0d0" stroke-width="22" fill="none" stroke-linecap="round"/>
+  <path d="M1006 230 q-30 -20 -50 6 q30 16 50 -6Z" fill="#3fc0d0"/><path d="M996 236 q-20 -10 -32 4" stroke="#2a1840" stroke-width="4" fill="none"/>
+  <path d="M1030 318 q-10 -20 6 -30 q2 18 14 26 q-4 -24 14 -30 q-2 20 10 30Z" fill="#2a1840"/>
+  <g class="a blink"><ellipse cx="1050" cy="392" rx="28" ry="24" fill="#fff" stroke="#2a1840" stroke-width="4"/><circle cx="1056" cy="398" r="10" fill="#2a1840"/></g>
+  <path d="M1020 384 Q1050 372 1080 384 L1080 392 L1020 392Z" fill="#3fc0d0" stroke="#2a1840" stroke-width="4"/>
+  <path d="M1016 366 l60 -6" stroke="#2a1840" stroke-width="8" stroke-linecap="round"/>
+  <path d="M980 450 Q1050 470 1120 448" stroke="#2a1840" stroke-width="5" fill="none"/>
+  <path d="M1006 452 l8 22 l10 -20Z M1090 452 l8 22 l10 -22Z" fill="#fff7d6" stroke="#2a1840" stroke-width="3"/>
+</g>
+
+<!-- CRUMB -->
+<g class="a march">
+  <path d="M770 790 q-14 20 -2 34 M830 790 q14 20 2 34" stroke="#8a5a34" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M750 752 q-26 -4 -30 20 M850 752 q26 -4 30 20" stroke="#8a5a34" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <circle cx="800" cy="750" r="54" fill="#d99a5a" stroke="#2a1840" stroke-width="4"/>
+  <circle cx="800" cy="750" r="18" fill="#c4834a"/>
+  <g fill="#5a3418"><circle cx="772" cy="728" r="6"/><circle cx="828" cy="732" r="5"/><circle cx="786" cy="782" r="5"/><circle cx="826" cy="772" r="6"/></g>
+  <path d="M748 720 Q800 700 852 720 L852 736 Q800 718 748 736Z" fill="#2a1840"/><path d="M748 724 l-26 -10 l4 22Z" fill="#2a1840"/>
+  <path d="M776 748 l14 6 M826 748 l-14 6" stroke="#2a1840" stroke-width="5" stroke-linecap="round"/>
+  <path d="M790 770 q10 -6 20 0" stroke="#2a1840" stroke-width="4" fill="none" stroke-linecap="round"/>
+</g>
+
+<!-- bubbly name tags -->
+<g font-family="Segoe UI Black, Arial Rounded MT Bold, sans-serif" font-weight="900" stroke-linejoin="round" paint-order="stroke">
+  <g class="a tag"><text x="300" y="250" font-size="110" fill="#2a1840" stroke="#2a1840" stroke-width="34" transform="translate(8 10)">PIP</text>
+    <text x="300" y="250" font-size="110" fill="#ffb02e" stroke="#2a1840" stroke-width="18">PIP</text>
+    <text x="300" y="250" font-size="110" fill="none" stroke="#ffe08a" stroke-width="4" transform="translate(-4 -4)" opacity=".7">PIP</text></g>
+  <g class="a tag b"><text x="1180" y="430" font-size="96" fill="#2a1840" stroke="#2a1840" stroke-width="32" transform="translate(8 10)">GLOMB</text>
+    <text x="1180" y="430" font-size="96" fill="#3fc0d0" stroke="#2a1840" stroke-width="16">GLOMB</text></g>
+  <g class="a tag c"><text x="640" y="880" font-size="80" fill="#2a1840" stroke="#2a1840" stroke-width="28" transform="translate(7 8)">CRUMB</text>
+    <text x="640" y="880" font-size="80" fill="#9a6ae0" stroke="#2a1840" stroke-width="14">CRUMB</text></g>
+</g>
+</svg>
+<p>morphO · TV Toon · character sample: an original cast of three on a title card, each with a bubbly name.</p>
+</main>
+</body>
+</html>

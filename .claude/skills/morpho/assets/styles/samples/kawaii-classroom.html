@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kawaii Sticker: character sample</title>
+<!-- A character sample for the Kawaii Sticker style (../kawaii.css): an original chibi boy with huge sparkly eyes, a
+     thick plum outline and a white sticker edge, waving in front of a soft, blurred pastel classroom. Idle motion: a
+     wave with motion lines, a blink, a little bob. Open it directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #fbeee4; color: #3b2a33; font: 14px/1.4 "Arial Rounded MT Bold", "Segoe UI", sans-serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 30px; box-shadow: 0 0 0 4px #3b2a33, 0 0 0 12px #fff, 0 30px 70px rgba(160, 90, 80, .25); }
+  p { margin: 22px 4px 0; color: #8a7480; }
+  .a { transform-box: fill-box; }
+  .bob { animation: bob 2.2s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes bob { 50% { transform: translateY(-8px) rotate(-.6deg); } }
+  .wave { animation: wave .9s ease-in-out infinite alternate; transform-origin: 8% 92%; }
+  @keyframes wave { from { transform: rotate(-10deg); } to { transform: rotate(8deg); } }
+  .blink { animation: blink 3.8s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 91%, 100% { transform: scaleY(1); } 94% { transform: scaleY(.08); } }
+  .lines { animation: lines .9s ease-in-out infinite alternate; }
+  @keyframes lines { from { opacity: .2; } to { opacity: 1; } }
+  .sparkle { animation: sparkle 1.6s ease-in-out infinite; transform-origin: 50% 50%; }
+  @keyframes sparkle { 50% { transform: scale(.75); opacity: .7; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="A chibi boy with curly hair, huge sparkly eyes and a pink backpack waves happily, a white sticker outline around him, in front of a soft blurred pastel classroom">
+<defs>
+  <filter id="soft" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="7"/></filter>
+  <filter id="sticker" x="-15%" y="-10%" width="130%" height="125%">
+    <feMorphology in="SourceAlpha" operator="dilate" radius="14" result="d"/>
+    <feFlood flood-color="#ffffff"/><feComposite in2="d" operator="in" result="w"/>
+    <feOffset in="d" dy="10" result="o"/><feGaussianBlur in="o" stdDeviation="8" result="b"/>
+    <feFlood flood-color="#a0605a" flood-opacity=".28"/><feComposite in2="b" operator="in" result="s"/>
+    <feMerge><feMergeNode in="s"/><feMergeNode in="w"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <radialGradient id="iris" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#9a6a4a"/><stop offset=".7" stop-color="#5a3624"/><stop offset="1" stop-color="#3a2014"/></radialGradient>
+</defs>
+
+<!-- the classroom, softly out of focus -->
+<g filter="url(#soft)">
+  <rect width="1600" height="900" fill="#c6ecdf"/>
+  <rect width="1600" height="90" fill="#fbe9dc"/><rect y="86" width="1600" height="14" fill="#f2c9b4"/>
+  <rect x="360" y="20" width="300" height="40" rx="8" fill="#fff7ee"/><rect x="1270" y="20" width="300" height="40" rx="8" fill="#fff7ee"/>
+  <rect x="0" y="100" width="190" height="900" fill="#bfe3f2"/><path d="M190 100 L260 160 L260 900 L190 900Z" fill="#a9d6ea"/>
+  <rect x="10" y="150" width="140" height="210" rx="8" fill="#e8b98a"/><rect x="22" y="164" width="116" height="180" fill="#fdf6ea"/><path d="M30 300 L70 240 L100 280 L130 230" stroke="#e86a6a" stroke-width="5" fill="none"/>
+  <rect x="300" y="170" width="120" height="110" fill="#fffaf0"/><circle cx="360" cy="222" r="30" fill="#ff9a9a"/>
+  <rect x="220" y="270" width="100" height="130" fill="#fffaf0"/><circle cx="270" cy="320" r="24" fill="#ffd166"/>
+  <rect x="345" y="310" width="90" height="120" fill="#fffaf0"/><path d="M360 380 q20 -40 40 0 q20 -40 30 0" stroke="#6aa8e8" stroke-width="5" fill="none"/>
+  <rect x="470" y="240" width="200" height="420" rx="10" fill="#e8b98a"/><rect x="486" y="256" width="168" height="380" fill="#3f6e57"/>
+  <g stroke="#e8f5ee" stroke-width="5" fill="none"><circle cx="560" cy="330" r="34"/><path d="M546 324 h2 M574 324 h2 M546 344 q14 12 28 0"/><path d="M600 470 l16 34 l-34 -20 h38 l-34 20Z"/><circle cx="560" cy="560" r="28"/></g>
+  <rect x="1340" y="150" width="290" height="200" rx="6" fill="#f6f2e4"/><rect x="1352" y="162" width="266" height="176" fill="#cfe9f6"/>
+  <path d="M1380 220 q30 -30 60 -10 q20 30 -10 50 q-40 10 -50 -40Z M1460 200 q40 -20 80 10 q20 30 -20 60 q-40 0 -60 -70Z M1500 290 q20 -10 40 10 q-10 30 -40 -10Z" fill="#6ab04c"/>
+  <rect x="1740" y="0" width="1" height="1" fill="none"/>
+  <rect x="1440" y="410" width="180" height="420" fill="#e8b98a"/><rect x="1452" y="430" width="156" height="120" fill="#f6dcc0"/>
+  <g><rect x="1470" y="450" width="18" height="96" fill="#5aa86a"/><rect x="1492" y="456" width="16" height="90" fill="#e85a5a"/><rect x="1512" y="448" width="20" height="98" fill="#4a7ad8"/><rect x="1536" y="460" width="16" height="86" fill="#f2b93b"/><rect x="1556" y="452" width="18" height="94" fill="#9a6ad8"/></g>
+  <rect x="1452" y="570" width="156" height="120" fill="#f6dcc0"/>
+  <g><rect x="1470" y="590" width="18" height="96" fill="#e85a5a"/><rect x="1492" y="596" width="16" height="90" fill="#5aa86a"/><rect x="1512" y="588" width="20" height="98" fill="#f2b93b"/><rect x="1536" y="600" width="16" height="86" fill="#4a7ad8"/></g>
+  <rect y="760" width="1600" height="140" fill="#f7d6c2"/>
+  <!-- teacher and two classmates -->
+  <path d="M250 610 q-10 -170 100 -190 q110 20 100 190Z" fill="#e8a0c8"/><circle cx="350" cy="420" r="62" fill="#f6c9a8"/><path d="M286 420 q0 -90 64 -92 q70 0 66 92 q-10 -50 -66 -56 q-50 6 -64 56Z" fill="#8a5a3a"/>
+  <rect x="80" y="610" width="440" height="40" rx="8" fill="#e8a868"/><rect x="100" y="650" width="400" height="200" fill="#d9965a"/>
+  <rect x="140" y="560" width="120" height="60" rx="6" fill="#a8b8d8"/>
+  <path d="M1250 760 q-10 -150 90 -160 q100 10 90 160Z" fill="#7ac4e8"/><circle cx="1340" cy="560" r="58" fill="#f6d2b0"/><path d="M1280 560 q0 -80 60 -82 q66 0 62 82 q-6 -46 -62 -50 q-50 4 -60 50Z" fill="#f2c45a"/>
+  <path d="M1400 800 q-10 -140 80 -150 q90 10 80 150Z" fill="#6ac08a"/><circle cx="1480" cy="610" r="56" fill="#9a6a4a"/><circle cx="1480" cy="582" r="56" fill="#4a3328"/>
+  <g fill="#f2c88a"><rect x="0" y="720" width="380" height="40" rx="8"/><rect x="620" y="760" width="240" height="40" rx="8"/><rect x="1240" y="780" width="380" height="40" rx="8"/></g>
+  <g fill="#7aa8d8"><rect x="40" y="760" width="16" height="140"/><rect x="320" y="760" width="16" height="140"/><rect x="640" y="800" width="16" height="100"/><rect x="1270" y="820" width="16" height="80"/><rect x="1580" y="820" width="16" height="80"/></g>
+  <rect x="0" y="720" width="1600" height="180" fill="#fff4ec" opacity=".25"/>
+</g>
+
+<!-- the boy: a chibi sticker -->
+<g filter="url(#sticker)">
+ <g class="a bob" stroke="#3b2a33" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+  <!-- backpack behind -->
+  <path d="M590 690 Q600 600 680 610 L700 900 L600 900Z" fill="#ff8fb4"/>
+  <path d="M1000 640 Q1080 640 1080 720 L1080 900 L1010 900Z" fill="#ff8fb4"/>
+  <!-- body: colour-block polo -->
+  <path d="M640 900 Q630 690 720 640 Q820 610 920 640 Q1010 690 1000 900Z" fill="#ffd25e"/>
+  <path d="M632 800 Q820 830 1004 800 L1006 900 L636 900Z" fill="#5fd0b0"/>
+  <path d="M760 632 L820 680 L880 632 L860 616 L820 646 L780 616Z" fill="#6aa8e8"/>
+  <path d="M820 680 L820 760" fill="none"/><circle cx="820" cy="712" r="7" fill="#6aa8e8"/><circle cx="820" cy="744" r="7" fill="#6aa8e8"/>
+  <!-- straps -->
+  <path d="M702 650 Q690 760 706 900" fill="none" stroke-width="30" stroke="#3b2a33"/><path d="M702 650 Q690 760 706 900" fill="none" stroke-width="18" stroke="#ff8fb4"/>
+  <path d="M948 650 Q962 760 946 900" fill="none" stroke-width="30" stroke="#3b2a33"/><path d="M948 650 Q962 760 946 900" fill="none" stroke-width="18" stroke="#ff8fb4"/>
+  <!-- small pocket and charm -->
+  <rect x="610" y="760" width="70" height="90" rx="22" fill="#7ad6c2"/><path d="M630 800 q15 -14 30 0 q-15 22 -30 0Z" fill="#ff6b6b" stroke-width="4"/>
+  <!-- near hand on the strap -->
+  <path d="M700 690 Q650 760 690 810" fill="none" stroke-width="58" stroke="#3b2a33"/><path d="M700 690 Q650 760 690 810" fill="none" stroke-width="44" stroke="#d99a6c"/>
+  <path d="M676 778 Q690 752 726 758 Q748 772 736 800 Q716 820 690 812Z" fill="#d99a6c"/>
+  <path d="M700 772 h22 M698 790 h24" fill="none" stroke-width="4"/>
+  <!-- waving arm -->
+  <g class="a wave">
+   <path d="M960 660 Q1030 610 1080 520" fill="none" stroke-width="58" stroke="#3b2a33"/>
+   <path d="M960 660 Q1030 610 1080 520" fill="none" stroke-width="44" stroke="#d99a6c"/>
+   <path d="M1008 644 Q1000 610 1030 606 L1048 640Z" fill="#6aa8e8"/>
+   <path d="M1062 534 Q1040 500 1054 470 L1066 470 L1070 500 L1074 452 L1090 452 L1088 498 L1100 456 L1116 460 L1106 504 L1124 476 L1136 484 L1118 528 Q1104 558 1062 534Z" fill="#d99a6c"/>
+   <path d="M1040 520 Q1030 500 1046 494 L1058 516Z" fill="#d99a6c"/>
+  </g>
+  <!-- head -->
+  <ellipse cx="822" cy="380" rx="200" ry="180" fill="#e0a476"/>
+  <path d="M630 340 Q610 380 640 400" fill="none"/>
+  <ellipse cx="630" cy="410" rx="34" ry="42" fill="#d99a6c"/><path d="M624 396 q14 6 10 26" fill="none" stroke-width="5"/>
+  <ellipse cx="1014" cy="410" rx="34" ry="42" fill="#d99a6c"/>
+  <!-- curly hair -->
+  <path d="M630 360 Q610 300 650 270 Q640 220 700 200 Q720 160 780 170 Q820 130 870 160 Q930 150 950 200 Q1010 210 1010 270 Q1040 320 1014 370 Q1000 330 970 320 Q980 290 950 280 Q930 300 900 290 Q880 270 850 284 Q820 268 790 286 Q760 272 740 292 Q712 286 700 310 Q672 312 668 344 Q650 340 630 360Z" fill="#4a3328"/>
+  <g fill="none" stroke="#6e4c3c" stroke-width="5"><path d="M700 230 q16 -10 30 0"/><path d="M800 196 q16 -10 30 0"/><path d="M900 200 q16 -10 30 0"/><path d="M960 260 q12 -8 24 4"/></g>
+  <circle cx="742" cy="220" r="9" fill="#8a6a5a" stroke="none"/><circle cx="868" cy="190" r="7" fill="#8a6a5a" stroke="none"/>
+  <!-- brows -->
+  <path d="M700 312 Q730 296 760 308" fill="none" stroke-width="10"/><path d="M880 306 Q910 294 940 308" fill="none" stroke-width="10"/>
+  <!-- huge sparkly eyes -->
+  <g class="a blink">
+   <ellipse cx="736" cy="390" rx="54" ry="62" fill="#fff"/><ellipse cx="906" cy="388" rx="54" ry="62" fill="#fff"/>
+   <ellipse cx="742" cy="398" rx="44" ry="52" fill="url(#iris)"/><ellipse cx="900" cy="396" rx="44" ry="52" fill="url(#iris)"/>
+   <ellipse cx="742" cy="402" rx="24" ry="28" fill="#2a1610" stroke="none"/><ellipse cx="900" cy="400" rx="24" ry="28" fill="#2a1610" stroke="none"/>
+   <circle class="a sparkle" cx="726" cy="378" r="15" fill="#fff" stroke="none"/><circle cx="884" cy="376" r="15" fill="#fff" stroke="none"/>
+   <circle cx="758" cy="418" r="7" fill="#fff" stroke="none"/><circle cx="916" cy="416" r="7" fill="#fff" stroke="none"/>
+   <circle cx="740" cy="428" r="3.5" fill="#fff" stroke="none" opacity=".8"/><circle cx="898" cy="426" r="3.5" fill="#fff" stroke="none" opacity=".8"/>
+  </g>
+  <!-- nose, cheeks, mouth -->
+  <circle cx="822" cy="438" r="5" fill="#b8784c" stroke="none"/>
+  <ellipse cx="682" cy="470" rx="34" ry="20" fill="#ff8f9a" stroke="none" opacity=".55"/><ellipse cx="962" cy="468" rx="34" ry="20" fill="#ff8f9a" stroke="none" opacity=".55"/>
+  <g stroke="#e8606e" stroke-width="4"><path d="M666 476 l8 -12 M682 478 l8 -12 M698 476 l8 -12"/><path d="M946 474 l8 -12 M962 476 l8 -12 M978 474 l8 -12"/></g>
+  <path d="M780 456 Q822 450 864 456 Q860 520 822 524 Q784 520 780 456Z" fill="#8a2a34"/>
+  <path d="M786 458 Q822 452 858 458 L856 472 Q822 466 788 472Z" fill="#fff" stroke="none"/>
+  <path d="M796 506 Q822 482 848 506 Q836 520 822 520 Q806 520 796 506Z" fill="#ff8a9a" stroke="none"/>
+  <!-- motion lines -->
+  <g class="lines" fill="none" stroke-width="7"><path d="M1150 420 l14 -36"/><path d="M1182 450 l30 -24"/><path d="M1196 494 l36 -6"/><path d="M1150 560 l20 26"/><path d="M1174 540 l30 14"/></g>
+ </g>
+</g>
+<!-- floating sparkles -->
+<g fill="#fff" class="lines"><path d="M1240 260 l8 22 l22 8 l-22 8 l-8 22 l-8 -22 l-22 -8 l22 -8Z"/><path d="M420 540 l6 16 l16 6 l-16 6 l-6 16 l-6 -16 l-16 -6 l16 -6Z"/></g>
+</svg>
+<p>morphO · Kawaii Sticker · character sample: an original chibi boy with a sticker edge, in front of a blurred pastel classroom.</p>
+</main>
+</body>
+</html>

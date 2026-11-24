@@ -1,0 +1,60 @@
+/* morphO style: Pixel Art (light). A sunny retro game: clear sky, square cards with a hard navy edge and a stepped
+   shadow, chunky square buttons, a blocky title in orange, monospace type. Playful and nostalgic: suits coding and
+   computing lessons, games, puzzles, school-age maths and upright shorts.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --px names
+   are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they come before the
+   engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #2a3566; --board: #dff3fb; --panel: #ffffff; --edge: #9fc6da;
+  --chalk: #1d2340; --dim: #4f5b82; --faint: #a8cbe0;
+  --task: #f28c28; --quiz: #3a7bd5; --good: #3fae49; --bad: #e5484d;
+  --on-fill: #ffffff; --vignette: rgba(29, 35, 64, .06); color-scheme: light;
+  --rule: #d4e7f2; --track: #b9dcec; --track-ask: #c4d7f6;
+  --bar-edge: #1d2340; --hover: #eaf6fc; --veil: #2a3566;
+  --ui: "Consolas", "Lucida Console", "Courier New", ui-monospace, monospace;
+
+  --px: 4px;                                   /* one "pixel" of the frame's chrome */
+  --px-edge: 0 0 0 var(--px) var(--chalk);     /* a hard one-pixel outline */
+  --px-shadow: var(--px-edge), calc(var(--px) * 2) calc(var(--px) * 2) 0 var(--px) var(--chalk);   /* outline and a stepped drop */
+}
+
+:root #frame { border-radius: 0; box-shadow: 0 0 0 6px #1d2340, 12px 12px 0 6px rgba(0, 0, 0, .35); image-rendering: pixelated; }
+:root #stage { background:
+  linear-gradient(180deg, transparent 0 78%, #8fd16a 78% 80%, #6fbf4a 80%),
+  radial-gradient(ellipse 120px 36px at 16% 18%, #fff 97%, transparent), radial-gradient(ellipse 70px 30px at 20% 14%, #fff 97%, transparent),
+  radial-gradient(ellipse 130px 36px at 78% 12%, #fff 97%, transparent),
+  linear-gradient(180deg, #8fd3f5, var(--board) 70%); }
+
+:root .cover { background: color-mix(in srgb, var(--page) 15%, transparent); }
+:root .cover-k { color: var(--quiz); letter-spacing: .3em; }
+:root .cover-t { font: 700 72px/1.1 var(--ui); color: var(--task); letter-spacing: .04em; text-transform: uppercase;
+  text-shadow: 4px 0 0 var(--chalk), -4px 0 0 var(--chalk), 0 4px 0 var(--chalk), 0 -4px 0 var(--chalk), 8px 8px 0 var(--chalk); }
+:root .cover .go { border-radius: 0; background: var(--good); color: #fff; box-shadow: var(--px-shadow); }
+:root .paused-mark div { border-radius: 0; background: #fff; color: var(--chalk); box-shadow: var(--px-shadow); }
+
+:root .card { border-radius: 0; background: var(--panel); border: 0; border-inline-start: 0; box-shadow: var(--px-shadow), inset 0 0 0 var(--px) #e6f2f9; }
+:root .kicker { color: var(--task); text-transform: uppercase; letter-spacing: .1em; }
+:root .opt { border-radius: 0; border: 0; background: #fff; color: var(--chalk); box-shadow: var(--px-edge), 4px 4px 0 var(--px) var(--chalk); margin: 4px; }
+:root .opt:hover:not(:disabled):not([aria-pressed="true"]) { background: #fff6e8; }
+:root .opt[aria-pressed="true"] { background: var(--quiz); color: #fff; box-shadow: var(--px-edge); transform: translate(4px, 4px); }
+:root .btn { border-radius: 0; background: var(--chalk); color: #fff; box-shadow: var(--px-edge), 4px 4px 0 var(--px) #000; }
+:root .btn.go { background: var(--good); color: #fff; }
+:root .btn.quiet { background: #fff; color: var(--chalk); }
+:root .btn:disabled { background: var(--edge); color: var(--dim); }
+
+:root #bar { background: var(--chalk); border-top: 0; }
+:root .icon { border-radius: 0; background: #3a4680; color: #fff; border: 0; box-shadow: inset -4px -4px 0 #232c56, inset 4px 4px 0 #56639e; }
+:root .icon svg { fill: #fff; }
+:root .icon.txt, :root .icon.cc { color: #c9d4f2; }
+:root .icon.speed { border-radius: 0; }
+:root .icon.cc[aria-pressed="true"] { background: var(--task); color: #fff; }
+:root .step { color: #c9d4f2; }
+:root .seg { border-radius: 0; height: 12px; background: #3a4680; }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: var(--good); }
+
+:root .help-box { border-radius: 0; background: #fff; border: 0; box-shadow: var(--px-shadow); }
+:root .caption { border-radius: 0; background: #fff; color: var(--chalk); box-shadow: var(--px-shadow); }

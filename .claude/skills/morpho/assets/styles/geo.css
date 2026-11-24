@@ -1,0 +1,48 @@
+/* morphO style: Geo Flat (light). Mid-century flat illustration: a pale blue wall over a white floor, flat shapes with
+   no outlines and no shadows, navy, crimson, mid blue and spring green, square-cornered cards and clean geometric
+   type. Clear and inclusive: suits social studies, citizenship and teamwork, workplace training and explainers.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them). The rules after
+   it restyle the frame, cards, buttons, bar and captions; they come before the engine's rules, so each starts with
+   ':root' to win. */
+:root {
+  --page: #c3d4e4; --board: #d4e2ef; --panel: #ffffff; --edge: #b9cbdc;
+  --chalk: #0d1b3d; --dim: #4f6280; --faint: #b9cbdc;
+  --task: #c2004f; --quiz: #3c6fa0; --good: #6fae4f; --bad: #c2004f;
+  --on-fill: #ffffff; --vignette: rgba(13, 27, 61, 0); color-scheme: light;
+  --rule: #e6eef6; --track: #bccfe0; --track-ask: #b0c8e2;
+  --bar-edge: #d4e2ef; --hover: #f3f7fb; --veil: #c3d4e4;
+  --ui: "Futura", "Century Gothic", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+:root #frame { border-radius: 4px; box-shadow: 0 30px 60px rgba(13, 27, 61, .18); }
+:root #stage { background: linear-gradient(180deg, var(--board) 0 74%, #ffffff 74%); }
+
+:root .cover { background: transparent; }
+:root .cover-k { color: var(--task); letter-spacing: .24em; }
+:root .cover-t { font: 700 76px/1.08 var(--ui); color: var(--chalk); letter-spacing: -.01em; }
+:root .cover .go { border-radius: 4px; background: var(--task); color: #fff; }
+:root .paused-mark div { border-radius: 4px; background: #fff; color: var(--chalk); }
+
+:root .card { border-radius: 4px; background: var(--panel); border: 0; border-inline-start: 10px solid var(--quiz); box-shadow: none; }
+:root .kicker { color: var(--task); text-transform: uppercase; letter-spacing: .14em; font-size: 17px; }
+:root .opt { border-radius: 4px; border: 2px solid var(--faint); background: #fff; color: var(--chalk); }
+:root .opt:hover:not(:disabled) { border-color: var(--quiz); }
+:root .opt[aria-pressed="true"] { background: var(--quiz); border-color: var(--quiz); color: #fff; }
+:root .btn { border-radius: 4px; background: var(--chalk); color: #fff; }
+:root .btn.go { background: var(--task); color: #fff; }
+:root .btn.quiet { background: transparent; color: var(--chalk); border: 2px solid var(--faint); }
+:root .btn:disabled { background: var(--faint); color: var(--dim); }
+
+:root #bar { background: #fff; border-top: 0; }
+:root .icon { border-radius: 4px; background: var(--board); border: 0; }
+:root .icon svg { fill: var(--chalk); }
+:root .icon.txt, :root .icon.cc { color: var(--chalk); }
+:root .seg { border-radius: 0; height: 8px; }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: var(--quiz); }
+
+:root .help-box { border-radius: 4px; background: #fff; border: 0; }
+:root .caption { border-radius: 4px; background: var(--chalk); color: #fff; }

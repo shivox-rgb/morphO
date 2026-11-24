@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soft Anime: character sample</title>
+<!-- A character sample for the Soft Anime style (../softanime.css): an original girl in a wine-red beret and a cream
+     scarf, glancing back over her shoulder, drawn with a fine dark line and soft gradient shading on a peach-to-cream
+     wash, with falling leaves. Idle motion: a slow blink, hair and scarf in the breeze, drifting leaves. Open it
+     directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #f2d8c8; color: #3a2a2a; font: 15px/1.4 "Iowan Old Style", Georgia, serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 20px; box-shadow: 0 30px 70px rgba(160, 90, 60, .18); }
+  p { margin: 12px 4px 0; color: #85696a; font-style: italic; }
+  .a { transform-box: fill-box; }
+  .hair { animation: hair 3s ease-in-out infinite alternate; transform-origin: 20% 0%; }
+  @keyframes hair { to { transform: skewX(2.5deg) rotate(.8deg); } }
+  .scarf { animation: scarf 2.6s ease-in-out infinite alternate; transform-origin: 0% 0%; }
+  @keyframes scarf { to { transform: rotate(3deg); } }
+  .breathe { animation: breathe 4.4s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes breathe { 50% { transform: translateY(-3px); } }
+  .blink { animation: blink 5s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
+  .leaf { animation: leaf 9s linear infinite; }
+  .leaf.b { animation-duration: 11s; animation-delay: -4s; } .leaf.c { animation-duration: 13s; animation-delay: -8s; } .leaf.d { animation-duration: 10s; animation-delay: -2s; }
+  @keyframes leaf { 0% { transform: translate(0, -120px) rotate(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translate(-160px, 1000px) rotate(540deg); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="An anime-style girl with a chestnut bob, a wine-red beret and a cream scarf glances back over her shoulder with a gentle smile, softly shaded, on a peach wash with falling autumn leaves">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f5c4ab"/><stop offset=".5" stop-color="#f7dccb"/><stop offset="1" stop-color="#f8eee4"/></linearGradient>
+  <radialGradient id="skin" cx="60%" cy="35%" r="75%"><stop offset="0" stop-color="#fff1e8"/><stop offset=".65" stop-color="#ffdcc8"/><stop offset="1" stop-color="#f2b89c"/></radialGradient>
+  <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a4a2a"/><stop offset=".55" stop-color="#b8683a"/><stop offset="1" stop-color="#d89058"/></linearGradient>
+  <linearGradient id="hairHi" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f6c08a" stop-opacity="0"/><stop offset=".5" stop-color="#f6c08a" stop-opacity=".8"/><stop offset="1" stop-color="#f6c08a" stop-opacity="0"/></linearGradient>
+  <radialGradient id="beret" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#c84a4e"/><stop offset=".7" stop-color="#8e2a34"/><stop offset="1" stop-color="#6a1c26"/></radialGradient>
+  <linearGradient id="coat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4ece0"/><stop offset="1" stop-color="#c9bba8"/></linearGradient>
+  <linearGradient id="scarf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff8ec"/><stop offset="1" stop-color="#e2d2b8"/></linearGradient>
+  <radialGradient id="iris" cx="50%" cy="65%" r="60%"><stop offset="0" stop-color="#9ac4ff"/><stop offset=".5" stop-color="#4f7fc4"/><stop offset="1" stop-color="#1e3a6a"/></radialGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<!-- falling leaves -->
+<g><path class="leaf" d="M300 0 q20 -20 40 0 q-20 20 -40 0Z" fill="#d9783a"/><path class="leaf b" d="M1300 0 q22 -22 44 0 q-22 22 -44 0Z" fill="#c8504a"/>
+  <path class="leaf c" d="M1100 0 q16 -16 32 0 q-16 16 -32 0Z" fill="#e8a040"/><path class="leaf d" d="M520 0 q18 -18 36 0 q-18 18 -36 0Z" fill="#c8504a"/>
+  <path class="leaf b" d="M1500 0 q16 -16 32 0 q-16 16 -32 0Z" fill="#d9783a"/></g>
+
+<g stroke="#3a2a2a" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+ <g class="a breathe">
+  <!-- back hair -->
+  <g class="a hair"><path d="M720 260 Q700 420 760 560 Q800 640 760 700 Q860 660 900 600 Q980 640 1040 600 Q1020 520 1040 430 Q1060 300 980 230Z" fill="url(#hair)"/></g>
+  <!-- coat, turned three-quarters away -->
+  <path d="M600 900 Q610 700 720 620 Q800 580 900 590 Q1000 600 1060 660 Q1120 740 1120 900Z" fill="url(#coat)"/>
+  <path d="M740 640 Q760 760 740 900 M960 620 Q1000 720 1000 900" fill="none" stroke-width="1.6" opacity=".5"/>
+  <path d="M640 780 Q700 760 760 790" fill="none" stroke-width="1.6" opacity=".5"/>
+  <!-- scarf -->
+  <g class="a scarf"><path d="M760 560 Q860 620 990 570 Q1010 600 990 640 Q860 690 740 620Z" fill="url(#scarf)"/>
+    <path d="M940 620 Q960 700 930 800 Q980 790 1010 720 Q1010 660 990 630Z" fill="url(#scarf)"/>
+    <path d="M790 600 q60 20 120 4 M950 660 q10 50 -6 100" fill="none" stroke-width="1.6" opacity=".6"/></g>
+  <!-- neck and face, turned back over the shoulder -->
+  <path d="M860 470 L850 580 Q890 600 930 574 L930 480Z" fill="#f6c8ae"/>
+  <path d="M760 330 Q760 230 860 220 Q980 220 990 330 Q996 420 950 480 Q910 520 880 528 Q850 524 830 500 Q770 440 760 330Z" fill="url(#skin)"/>
+  <path d="M1000 330 q24 4 20 34 q-4 26 -26 26" fill="#f6c8ae"/>
+  <!-- front hair: bob with soft strands -->
+  <g class="a hair"><path d="M740 360 Q730 220 860 200 Q1000 196 1010 340 Q1012 420 990 470 Q980 400 970 360 Q950 300 900 290 Q930 330 920 380 Q890 320 840 310 Q850 350 830 400 Q810 340 790 330 Q780 380 760 430 Q744 400 740 360Z" fill="url(#hair)"/>
+    <path d="M820 236 Q880 220 940 240" fill="none" stroke="url(#hairHi)" stroke-width="12"/>
+    <path d="M840 310 q4 40 -10 90 M900 290 q20 40 20 90 M790 330 q-4 50 -30 100" fill="none" stroke-width="1.6"/>
+    <path d="M990 340 q10 60 0 130" fill="none" stroke-width="1.6"/></g>
+  <!-- beret -->
+  <path d="M720 250 Q740 150 880 140 Q1020 140 1040 230 Q1010 260 900 250 Q790 250 720 250Z" fill="url(#beret)"/>
+  <path d="M760 240 Q880 230 1020 232" fill="none" stroke="#5a1420" stroke-width="2"/>
+  <path d="M872 142 q6 -18 18 -14 q2 12 -10 16" fill="#6a1c26"/>
+  <!-- eye: three-quarter view, one large eye and one narrower -->
+  <g class="a blink">
+   <path d="M800 372 Q826 352 860 360 Q872 366 876 376" fill="none" stroke-width="5"/>
+   <path d="M806 380 Q830 368 868 378 Q866 410 838 414 Q810 410 806 380Z" fill="#fff"/>
+   <ellipse cx="840" cy="392" rx="16" ry="20" fill="url(#iris)"/><ellipse cx="840" cy="394" rx="7" ry="10" fill="#14203a" stroke="none"/>
+   <circle cx="834" cy="384" r="5" fill="#fff" stroke="none"/><circle cx="846" cy="402" r="2.5" fill="#fff" stroke="none"/>
+   <path d="M912 368 Q934 358 958 368" fill="none" stroke-width="5"/>
+   <path d="M916 376 Q936 368 956 376 Q954 400 936 404 Q918 400 916 376Z" fill="#fff"/>
+   <ellipse cx="934" cy="388" rx="12" ry="16" fill="url(#iris)"/><ellipse cx="934" cy="390" rx="5" ry="8" fill="#14203a" stroke="none"/>
+   <circle cx="930" cy="382" r="4" fill="#fff" stroke="none"/>
+   <path d="M802 368 l-8 -6 M808 362 l-6 -8" stroke-width="2"/>
+  </g>
+  <path d="M808 346 Q832 336 858 344 M912 346 Q932 340 952 348" fill="none" stroke="#6a3a22" stroke-width="2.5"/>
+  <path d="M888 420 Q884 432 892 434" fill="none" stroke-width="1.8"/>
+  <path d="M870 470 Q890 480 910 466" fill="none" stroke-width="2.4"/>
+  <ellipse cx="830" cy="444" rx="22" ry="10" fill="#ff9a8a" stroke="none" opacity=".4"/><ellipse cx="944" cy="440" rx="18" ry="9" fill="#ff9a8a" stroke="none" opacity=".4"/>
+ </g>
+</g>
+<text x="120" y="840" font-family="Segoe Script, Brush Script MT, cursive" font-size="34" fill="#b88a7a" opacity=".8">morphO</text>
+</svg>
+<p>morphO · Soft Anime · character sample: an original girl glancing back, in fine line and soft gradient shading.</p>
+</main>
+</body>
+</html>

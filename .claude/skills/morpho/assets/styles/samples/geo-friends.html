@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geo Flat: character sample</title>
+<!-- A character sample for the Geo Flat style (../geo.css): five original friends arm in arm, built from flat geometric
+     shapes with no outlines and no shading beyond a second skin tone, long straight limbs, against a pale blue wall
+     and a white floor. Idle motion: the group sways together, blinks, a tapping foot. Open it directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #c3d4e4; color: #0d1b3d; font: 14px/1.4 "Century Gothic", "Segoe UI", sans-serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 30px 60px rgba(13, 27, 61, .18); }
+  p { margin: 12px 4px 0; color: #4f6280; }
+  .a { transform-box: fill-box; }
+  .sway { animation: sway 2.6s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+  @keyframes sway { from { transform: rotate(-1.2deg); } to { transform: rotate(1.2deg); } }
+  .tap { animation: tap .6s ease-in-out infinite alternate; transform-origin: 10% 90%; }
+  @keyframes tap { to { transform: rotate(-14deg); } }
+  .blink { animation: blink 4s infinite; transform-origin: 50% 50%; }
+  .blink.b { animation-delay: -1.3s; } .blink.c { animation-delay: -2.6s; }
+  @keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
+  .laugh { animation: laugh .5s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+  @keyframes laugh { to { transform: translateY(-4px) rotate(-2deg); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="Five friends in flat geometric shapes stand arm in arm and smile on a white floor against a pale blue wall: a woman with long dark hair, a man in a striped top, a woman in a pink headscarf and round glasses, an older man with white curly hair, and a woman with long crimson hair">
+<rect width="1600" height="680" fill="#d4e2ef"/><rect y="680" width="1600" height="220" fill="#ffffff"/>
+<g stroke="#d4e2ef" stroke-width="4"><path d="M90 800 H300 M370 800 H620 M680 800 H900 M960 800 H1210 M1270 800 H1510"/></g>
+<g class="a sway">
+  <!-- 1: long dark hair, blue top, white skirt -->
+  <g>
+    <path d="M190 560 L150 790 L178 790 L214 570Z M232 570 L238 790 L266 790 L258 560Z" fill="#f39a74"/>
+    <path d="M140 790 L178 790 L176 800 L128 800Z M232 790 L262 790 L270 800 L226 800Z" fill="#0d1b3d"/>
+    <path d="M178 600 L282 600 L304 690 L160 690Z" fill="#ffffff"/>
+    <path d="M170 360 Q230 340 290 360 L280 600 L180 600Z" fill="#6a9ac8"/>
+    <path d="M184 380 L120 470 L188 540" stroke="#f39a74" stroke-width="18" fill="none" stroke-linejoin="round"/>
+    <path d="M150 260 Q150 140 230 140 Q310 140 316 250 L320 470 Q290 520 250 470 L240 300Z" fill="#0d1b3d"/>
+    <circle cx="232" cy="250" r="72" fill="#f39a74"/><path d="M232 178 a72 72 0 0 0 -60 112 L232 250Z" fill="#0d1b3d"/>
+    <circle cx="176" cy="266" r="16" fill="#e8805a"/>
+    <g class="a blink"><path d="M226 244 q8 -10 16 0 M262 244 q8 -10 16 0" stroke="#0d1b3d" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+    <path d="M232 280 q20 20 40 0Z" fill="#fff"/><path d="M230 278 q22 30 44 0" fill="#e5146a"/><path d="M236 280 h32 v6 h-32Z" fill="#fff"/>
+    <rect x="216" y="320" width="22" height="44" fill="#f39a74"/>
+    <path d="M280 380 L420 380" stroke="#f39a74" stroke-width="18" stroke-linecap="round"/>
+  </g>
+  <!-- 2: dark hair, striped top, crimson cardigan -->
+  <g>
+    <path d="M440 640 L430 800 L460 800 L470 640Z M500 640 L520 800 L550 800 L528 640Z" fill="#0d1b3d"/>
+    <path d="M412 800 L462 800 L464 812 L404 812Z M512 800 L560 800 L574 812 L512 812Z" fill="#5a8ac0"/>
+    <path d="M420 600 L560 600 L560 650 Q490 670 420 650Z" fill="#0d1b3d"/>
+    <path d="M420 380 L540 380 L550 610 L410 610Z" fill="#ffffff"/>
+    <g fill="#ffffff"><rect x="420" y="440" width="120" height="16" fill="#9fcf7a"/><rect x="420" y="480" width="120" height="16" fill="#5a8ac0"/><rect x="420" y="520" width="120" height="16" fill="#c2004f"/></g>
+    <path d="M410 380 L440 380 L436 610 L404 610Z M520 380 L560 380 L572 600 L530 610Z" fill="#c2004f"/><rect x="530" y="420" width="24" height="18" fill="#e5146a"/>
+    <path d="M560 400 L600 600" stroke="#f39a74" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="474" cy="260" r="76" fill="#f39a74"/><path d="M398 260 a76 76 0 0 0 130 54 Q450 300 430 230Z" fill="#e8805a"/>
+    <path d="M398 250 Q396 168 480 170 Q556 174 550 230 Q500 200 440 222 L432 290 L414 290Z" fill="#0d1b3d"/>
+    <circle cx="410" cy="276" r="16" fill="#e8805a"/>
+    <g class="a blink b"><circle cx="484" cy="268" r="7" fill="#0d1b3d"/><circle cx="522" cy="268" r="7" fill="#0d1b3d"/></g>
+    <path d="M490 296 q16 14 32 0Z" fill="#fff"/>
+    <rect x="462" y="330" width="24" height="54" fill="#f39a74"/>
+  </g>
+  <!-- 3: pink headscarf, round glasses -->
+  <g>
+    <path d="M690 700 L690 800 L720 800 L716 700Z M736 700 L740 800 L770 800 L762 700Z" fill="#9a5434"/>
+    <path d="M680 790 L720 790 L720 806 L666 806Z M740 790 L774 790 L786 806 L740 806Z" fill="#0d1b3d"/>
+    <path d="M680 560 L780 560 L784 720 L676 720Z" fill="#0d1b3d"/>
+    <path d="M670 380 L790 380 L800 570 L660 570Z" fill="#9fcf7a"/><path d="M712 380 L748 380 L746 570 L714 570Z" fill="#ffffff"/>
+    <path d="M674 400 L620 560 L604 600" stroke="#9a5434" stroke-width="16" fill="none" stroke-linecap="round"/>
+    <path d="M786 400 L860 520" stroke="#9a5434" stroke-width="16" stroke-linecap="round"/>
+    <path d="M650 250 Q650 150 730 150 Q810 150 810 250 L810 300 Q730 320 650 300Z" fill="#e5146a"/>
+    <circle cx="730" cy="270" r="66" fill="#9a5434"/><path d="M676 240 Q730 180 784 240 Q730 220 676 240Z" fill="#0d1b3d"/>
+    <g fill="none" stroke="#ffffff" stroke-width="5"><circle cx="704" cy="272" r="20"/><circle cx="758" cy="272" r="20"/><path d="M724 272 h14 M684 272 h-14 M778 272 h14"/></g>
+    <g class="a blink c"><circle cx="704" cy="272" r="6" fill="#0d1b3d"/><circle cx="758" cy="272" r="6" fill="#0d1b3d"/></g>
+    <path d="M714 306 q16 14 32 0" stroke="#0d1b3d" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <rect x="718" y="330" width="24" height="54" fill="#9a5434"/>
+  </g>
+  <!-- 4: white curly hair, blue jacket, green tee -->
+  <g>
+    <path d="M940 640 L954 800 L980 800 L970 640Z M1010 640 L1030 800 L1056 800 L1036 640Z" fill="#c2004f"/>
+    <path d="M934 800 L986 800 L990 816 L926 816Z M1020 800 L1070 800 L1084 816 L1020 816Z" fill="#9fcf7a"/>
+    <path d="M934 610 L1050 610 L1054 660 Q994 676 930 660Z" fill="#c2004f"/>
+    <path d="M920 380 L1050 380 L1056 620 L926 620Z" fill="#9fcf7a"/><rect x="1004" y="420" width="22" height="20" fill="#86b866"/>
+    <path d="M914 380 L950 380 L946 620 L918 620Z M1030 380 L1066 380 L1062 620 L1034 620Z" fill="#3c6fa0"/>
+    <path d="M916 400 L860 520" stroke="#3c6fa0" stroke-width="22" stroke-linecap="round"/>
+    <path d="M1064 400 L1180 380" stroke="#3c6fa0" stroke-width="22" stroke-linecap="round"/><circle cx="1190" cy="380" r="14" fill="#f39a74"/>
+    <circle cx="986" cy="262" r="76" fill="#f39a74"/><path d="M1062 262 a76 76 0 0 1 -130 54 Q1010 300 1030 230Z" fill="#e8805a"/>
+    <g fill="#ffffff"><circle cx="930" cy="200" r="28"/><circle cx="970" cy="176" r="30"/><circle cx="1016" cy="180" r="30"/><circle cx="1054" cy="210" r="28"/><circle cx="1070" cy="254" r="26"/><circle cx="1064" cy="300" r="24"/><circle cx="1042" cy="336" r="20"/></g>
+    <rect x="1030" y="250" width="16" height="64" rx="8" fill="#ffffff"/>
+    <g class="a laugh"><path d="M940 256 q10 10 22 0 M984 256 q10 10 22 0" stroke="#0d1b3d" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M956 292 q18 18 36 0Z" fill="#fff"/></g>
+    <rect x="974" y="330" width="24" height="54" fill="#f39a74"/>
+  </g>
+  <!-- 5: long crimson hair, black top, denim skirt -->
+  <g>
+    <path d="M1260 640 L1230 800 L1254 800 L1286 650Z M1316 650 L1350 800 L1374 800 L1340 640Z" fill="#6a9ac8"/>
+    <g class="a tap"><path d="M1230 800 L1254 800 L1240 830 L1214 830Z" fill="#0d1b3d"/></g>
+    <path d="M1350 800 L1374 800 L1388 830 L1364 830Z" fill="#0d1b3d"/>
+    <path d="M1250 580 L1356 580 L1362 660 L1244 660Z" fill="#3c6fa0"/>
+    <path d="M1240 380 Q1300 360 1360 380 L1356 590 L1250 590Z" fill="#0d1b3d"/>
+    <path d="M1356 400 L1420 480 L1350 560" stroke="#f39a74" stroke-width="18" fill="none" stroke-linejoin="round"/>
+    <path d="M1240 400 L1196 386" stroke="#f39a74" stroke-width="18" stroke-linecap="round"/>
+    <path d="M1220 270 Q1220 150 1310 150 Q1400 150 1400 270 L1396 500 Q1340 520 1320 470 L1320 300 L1300 520 Q1240 520 1224 470Z" fill="#b8003f"/>
+    <circle cx="1310" cy="262" r="72" fill="#f39a74"/><path d="M1310 190 a72 72 0 0 1 60 112 L1310 262Z" fill="#b8003f"/>
+    <circle cx="1252" cy="278" r="16" fill="#e8805a"/>
+    <g class="a blink b"><path d="M1270 256 q8 -10 16 0 M1306 256 q8 -10 16 0" stroke="#0d1b3d" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+    <path d="M1274 290 q22 30 44 0" fill="#e5146a"/><path d="M1280 292 h32 v6 h-32Z" fill="#fff"/>
+    <rect x="1298" y="330" width="22" height="54" fill="#f39a74"/>
+  </g>
+</g>
+</svg>
+<p>morphO · Geo Flat · character sample: five original friends in flat geometric shapes, arm in arm.</p>
+</main>
+</body>
+</html>

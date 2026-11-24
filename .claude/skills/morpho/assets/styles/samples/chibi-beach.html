@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chibi Anime: character sample</title>
+<!-- A character sample for the Chibi Anime style (../chibi.css): an original crew of three (Suzu, a captain with goggles
+     and a map; Kai, a lookout with a spyglass; Mochi, a round seal in a sailor cap) in chibi proportions with a thick
+     near-black line and glossy anime eyes, on a sunny beach with a plain sailboat. Idle motion: bouncing, blinking,
+     waves rolling in, a bobbing boat. Open it directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #9fdcf8; color: #1b1b2f; font: 14px/1.4 "Segoe UI", sans-serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 24px; box-shadow: 0 0 0 4px #1b1b2f; }
+  p { margin: 14px 4px 0; color: #1b4f6a; }
+  .a { transform-box: fill-box; }
+  .hop { animation: hop 1.2s ease-in-out infinite; transform-origin: 50% 100%; }
+  .hop.b { animation-delay: -.4s; } .hop.c { animation-delay: -.8s; animation-duration: .9s; }
+  @keyframes hop { 0%, 100% { transform: translateY(0) scale(1, 1); } 40% { transform: translateY(-14px) scale(.98, 1.02); } 80% { transform: translateY(0) scale(1.03, .97); } }
+  .point { animation: point 1.2s ease-in-out infinite; transform-origin: 6% 80%; }
+  @keyframes point { 50% { transform: rotate(-8deg); } }
+  .blink { animation: blink 3.6s infinite; transform-origin: 50% 50%; }
+  .blink.b { animation-delay: -1.2s; } .blink.c { animation-delay: -2.4s; }
+  @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+  .boat { animation: boat 3s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes boat { 50% { transform: rotate(3deg) translateY(-6px); } }
+  .surf { animation: surf 4s ease-in-out infinite; }
+  @keyframes surf { 50% { transform: translateY(10px); } }
+  .cloud { animation: cloud 20s ease-in-out infinite alternate; }
+  @keyframes cloud { to { transform: translateX(60px); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="Three chibi characters on a sunny beach: a captain girl with teal hair, goggles and a map points ahead with a grin, a boy with a blue bandana holds a spyglass, and a round grey seal in a sailor cap claps, with a small white sailboat on the sea behind">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5fc2f2"/><stop offset="1" stop-color="#bfe8fb"/></linearGradient>
+  <radialGradient id="eye" cx="50%" cy="35%" r="70%"><stop offset="0" stop-color="#5a8ad8"/><stop offset=".7" stop-color="#2a4a9a"/><stop offset="1" stop-color="#1a2a5a"/></radialGradient>
+  <radialGradient id="eyeB" cx="50%" cy="35%" r="70%"><stop offset="0" stop-color="#c47a3a"/><stop offset=".7" stop-color="#6a3a1a"/><stop offset="1" stop-color="#3a1a0a"/></radialGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<g fill="#fff" class="cloud"><ellipse cx="200" cy="120" rx="150" ry="40"/><ellipse cx="160" cy="90" rx="70" ry="50"/><ellipse cx="260" cy="86" rx="80" ry="56"/>
+  <ellipse cx="1300" cy="140" rx="170" ry="40"/><ellipse cx="1260" cy="104" rx="80" ry="52"/><ellipse cx="1370" cy="100" rx="90" ry="60"/></g>
+<rect y="440" width="1600" height="140" fill="#1e88d0"/>
+<path d="M0 470 H1600 M0 510 H1600" stroke="#4fb0e8" stroke-width="6" stroke-dasharray="80 60" opacity=".7"/>
+<!-- the boat: a plain white sail -->
+<g class="a boat" stroke="#1b1b2f" stroke-width="6" stroke-linejoin="round">
+  <path d="M760 470 L1000 470 L960 530 L800 530Z" fill="#c4663a"/><path d="M780 488 H980" stroke="#e8a060" stroke-width="6"/>
+  <path d="M880 470 V230" stroke-width="10"/>
+  <path d="M886 240 Q980 300 990 450 L886 450Z" fill="#fffaf0"/><path d="M874 270 Q800 330 796 450 L874 450Z" fill="#f2ead8"/>
+  <path d="M884 230 L930 244 L884 258Z" fill="#ff5a3c"/>
+</g>
+<!-- surf and sand -->
+<g class="surf"><path d="M0 580 Q100 560 200 580 T400 580 T600 580 T800 580 T1000 580 T1200 580 T1400 580 T1600 580 V610 H0Z" fill="#ffffff" opacity=".9"/></g>
+<rect y="600" width="1600" height="300" fill="#f6e0ae"/>
+<g fill="#e8c88a"><ellipse cx="200" cy="700" rx="40" ry="8"/><ellipse cx="1400" cy="760" rx="50" ry="9"/><ellipse cx="900" cy="860" rx="40" ry="8"/><ellipse cx="560" cy="820" rx="30" ry="6"/></g>
+<!-- palm -->
+<g stroke="#1b1b2f" stroke-width="6" stroke-linejoin="round">
+  <path d="M1480 820 Q1460 640 1500 470 L1530 474 Q1494 640 1516 820Z" fill="#b8763e"/>
+  <path d="M1510 470 Q1420 400 1340 440 Q1420 420 1500 480Z M1512 470 Q1560 380 1620 380 L1620 420 Q1560 420 1516 480Z M1508 472 Q1440 360 1460 300 Q1480 380 1516 470Z" fill="#3fae49"/>
+  <circle cx="1500" cy="486" r="14" fill="#8a5a2a"/><circle cx="1522" cy="490" r="14" fill="#8a5a2a"/>
+</g>
+<g fill="#ff8a6a" stroke="#1b1b2f" stroke-width="4"><path d="M300 820 l10 -24 l10 24 l24 0 l-20 14 l8 24 l-22 -14 l-22 14 l8 -24 l-20 -14Z"/></g>
+<ellipse cx="1180" cy="830" rx="40" ry="14" fill="#fff" stroke="#1b1b2f" stroke-width="4"/>
+
+<g stroke="#1b1b2f" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+ <!-- SUZU, the captain -->
+ <ellipse cx="560" cy="842" rx="110" ry="16" fill="#1b1b2f" opacity=".14" stroke="none"/>
+ <g class="a hop">
+  <path d="M520 760 L516 820 M600 760 L606 820" stroke-width="26"/><path d="M520 760 L516 820 M600 760 L606 820" stroke="#ffd9b8" stroke-width="14"/>
+  <path d="M490 820 h52 q8 18 -6 24 h-50 q-10 -14 4 -24Z M580 820 h52 q14 10 4 24 h-50 q-14 -6 -6 -24Z" fill="#8a4a2a"/>
+  <path d="M500 660 L620 660 L630 770 L490 770Z" fill="#2a4a8a"/>
+  <path d="M496 590 Q560 570 624 590 L630 680 L490 680Z" fill="#ff5a3c"/>
+  <path d="M540 588 L560 640 L580 588" fill="#fff"/><path d="M500 670 H620" stroke="#ffd23f" stroke-width="10"/>
+  <path d="M496 610 Q450 650 470 700" fill="none" stroke-width="30"/><path d="M496 610 Q450 650 470 700" fill="none" stroke="#ff5a3c" stroke-width="18"/>
+  <g transform="rotate(-12 440 700)"><rect x="410" y="680" width="80" height="60" rx="6" fill="#f2dca0"/><path d="M424 720 q14 -20 28 -6 t26 -10" fill="none" stroke="#c4663a" stroke-width="4" stroke-dasharray="6 5"/><path d="M470 692 l8 8 m0 -8 l-8 8" stroke="#ff5a3c" stroke-width="4"/></g>
+  <circle cx="474" cy="706" r="16" fill="#ffd9b8"/>
+  <g class="a point"><path d="M624 610 Q680 590 720 540" fill="none" stroke-width="30"/><path d="M624 610 Q680 590 720 540" fill="none" stroke="#ff5a3c" stroke-width="18"/>
+    <circle cx="726" cy="530" r="18" fill="#ffd9b8"/><path d="M738 520 L770 496" stroke-width="16"/><path d="M738 520 L770 496" stroke="#ffd9b8" stroke-width="6"/></g>
+  <!-- big chibi head -->
+  <path d="M440 430 Q430 300 560 290 Q690 300 680 430 Q684 560 560 568 Q436 560 440 430Z" fill="#ffd9b8"/>
+  <path d="M430 450 Q410 330 470 290 Q540 240 640 270 Q710 300 700 420 Q690 470 680 500 Q672 410 640 380 Q600 400 560 380 Q520 404 480 384 Q450 410 446 500 Q432 480 430 450Z" fill="#2fb8b0"/>
+  <path d="M470 310 Q520 280 580 290" fill="none" stroke="#7fe0d8" stroke-width="8"/>
+  <!-- goggles -->
+  <path d="M446 340 Q560 300 676 336" stroke-width="16"/><path d="M446 340 Q560 300 676 336" stroke="#8a4a2a" stroke-width="6"/>
+  <circle cx="520" cy="322" r="30" fill="#ffd23f"/><circle cx="520" cy="322" r="18" fill="#9adcf0"/><circle cx="602" cy="320" r="30" fill="#ffd23f"/><circle cx="602" cy="320" r="18" fill="#9adcf0"/>
+  <path d="M512 314 q6 -6 12 -2 M594 312 q6 -6 12 -2" stroke="#fff" stroke-width="4"/>
+  <g class="a blink"><ellipse cx="514" cy="450" rx="30" ry="40" fill="url(#eye)"/><ellipse cx="606" cy="450" rx="30" ry="40" fill="url(#eye)"/>
+    <ellipse cx="514" cy="456" rx="14" ry="20" fill="#0e1430" stroke="none"/><ellipse cx="606" cy="456" rx="14" ry="20" fill="#0e1430" stroke="none"/>
+    <circle cx="504" cy="436" r="10" fill="#fff" stroke="none"/><circle cx="596" cy="436" r="10" fill="#fff" stroke="none"/><circle cx="522" cy="474" r="4" fill="#fff" stroke="none"/><circle cx="614" cy="474" r="4" fill="#fff" stroke="none"/></g>
+  <path d="M484 402 q30 -14 56 -2 M582 400 q26 -12 54 2" fill="none" stroke-width="7"/>
+  <ellipse cx="478" cy="504" rx="20" ry="10" fill="#ff8f8f" stroke="none" opacity=".7"/><ellipse cx="642" cy="504" rx="20" ry="10" fill="#ff8f8f" stroke="none" opacity=".7"/>
+  <path d="M526 504 Q560 540 594 504 Q560 512 526 504Z" fill="#8a1a1a" stroke-width="5"/><path d="M532 506 Q560 512 588 506 L586 512 Q560 518 534 512Z" fill="#fff" stroke="none"/>
+ </g>
+
+ <!-- KAI, the lookout -->
+ <ellipse cx="960" cy="842" rx="100" ry="14" fill="#1b1b2f" opacity=".14" stroke="none"/>
+ <g class="a hop b">
+  <path d="M930 770 L924 822 M996 770 L1002 822" stroke-width="26"/><path d="M930 770 L924 822 M996 770 L1002 822" stroke="#c88a5a" stroke-width="14"/>
+  <path d="M900 822 h52 q6 16 -6 22 h-48 q-10 -12 2 -22Z M978 822 h52 q12 10 2 22 h-48 q-12 -6 -6 -22Z" fill="#f2b93b"/>
+  <path d="M904 680 L1020 680 L1026 780 L898 780Z" fill="#3fae49"/>
+  <path d="M900 610 Q962 590 1024 610 L1026 690 L898 690Z" fill="#fff8e6"/><path d="M900 640 H1024 M900 664 H1024" stroke="#1e88d0" stroke-width="8"/>
+  <path d="M902 630 Q870 680 900 720" fill="none" stroke-width="28"/><path d="M902 630 Q870 680 900 720" fill="none" stroke="#c88a5a" stroke-width="16"/>
+  <path d="M1020 630 Q1060 600 1070 560" fill="none" stroke-width="28"/><path d="M1020 630 Q1060 600 1070 560" fill="none" stroke="#c88a5a" stroke-width="16"/>
+  <g transform="rotate(-30 1080 520)"><rect x="1050" y="500" width="110" height="34" rx="8" fill="#d4a23c"/><rect x="1150" y="496" width="20" height="42" rx="6" fill="#8a5a2a"/><rect x="1080" y="500" width="10" height="34" fill="#8a5a2a"/></g>
+  <circle cx="1068" cy="560" r="16" fill="#c88a5a"/>
+  <path d="M846 450 Q840 330 962 320 Q1084 330 1076 450 Q1080 570 962 576 Q846 570 846 450Z" fill="#c88a5a"/>
+  <path d="M840 420 Q846 320 920 300 Q900 280 940 270 Q960 250 990 270 Q1020 260 1030 290 Q1090 310 1080 420 Q1060 380 1030 376 L1010 340 Q990 370 960 360 Q940 380 910 372 Q880 390 860 440Z" fill="#1b1b2f"/>
+  <path d="M842 376 Q962 320 1082 372 L1080 400 Q962 352 846 404Z" fill="#1e88d0"/><path d="M1080 386 l40 -20 l-6 40Z" fill="#1e88d0"/>
+  <g class="a blink b"><ellipse cx="920" cy="478" rx="26" ry="32" fill="url(#eyeB)"/><ellipse cx="1004" cy="478" rx="26" ry="32" fill="url(#eyeB)"/>
+    <ellipse cx="920" cy="484" rx="12" ry="16" fill="#1a0a04" stroke="none"/><ellipse cx="1004" cy="484" rx="12" ry="16" fill="#1a0a04" stroke="none"/>
+    <circle cx="912" cy="468" r="8" fill="#fff" stroke="none"/><circle cx="996" cy="468" r="8" fill="#fff" stroke="none"/></g>
+  <path d="M894 428 l44 6 M1030 428 l-44 6" fill="none" stroke-width="7"/>
+  <ellipse cx="882" cy="516" rx="16" ry="8" fill="#e8806a" stroke="none" opacity=".6"/><ellipse cx="1042" cy="516" rx="16" ry="8" fill="#e8806a" stroke="none" opacity=".6"/>
+  <path d="M930 520 q32 22 64 0" fill="none" stroke-width="7"/><path d="M948 534 l6 10 l6 -8" fill="#fff" stroke-width="3"/>
+  <path d="M870 500 l14 -2 M1040 498 l14 2" stroke="#8a4a2a" stroke-width="5"/>
+ </g>
+
+ <!-- MOCHI, the seal -->
+ <ellipse cx="1250" cy="842" rx="80" ry="12" fill="#1b1b2f" opacity=".14" stroke="none"/>
+ <g class="a hop c">
+  <path d="M1170 830 Q1150 720 1250 690 Q1350 700 1336 830Z" fill="#b8c4d4"/>
+  <path d="M1200 830 Q1196 770 1250 760 Q1306 768 1302 830Z" fill="#e6ecf2"/>
+  <path d="M1180 760 Q1140 760 1150 800 Q1180 800 1190 780Z M1324 760 Q1364 760 1354 800 Q1324 800 1314 780Z" fill="#9aa8bc"/>
+  <path d="M1336 820 q40 0 50 20 q-30 10 -50 -6Z" fill="#9aa8bc"/>
+  <g class="a blink c"><circle cx="1222" cy="740" r="12" fill="#1b1b2f"/><circle cx="1278" cy="740" r="12" fill="#1b1b2f"/><circle cx="1218" cy="735" r="4" fill="#fff" stroke="none"/><circle cx="1274" cy="735" r="4" fill="#fff" stroke="none"/></g>
+  <ellipse cx="1250" cy="760" rx="12" ry="8" fill="#1b1b2f"/><path d="M1238 772 q12 10 24 0" fill="none" stroke-width="4"/>
+  <path d="M1220 768 l-40 -6 M1222 776 l-40 4 M1280 768 l40 -6 M1278 776 l40 4" stroke-width="3"/>
+  <ellipse cx="1206" cy="760" rx="10" ry="6" fill="#ff9aa8" stroke="none"/><ellipse cx="1294" cy="760" rx="10" ry="6" fill="#ff9aa8" stroke="none"/>
+  <path d="M1200 700 Q1250 670 1300 700 L1294 716 Q1250 696 1206 716Z" fill="#fff"/><path d="M1206 708 Q1250 690 1294 708" stroke="#1e88d0" stroke-width="6" fill="none"/>
+  <path d="M1220 698 Q1250 640 1280 698Z" fill="#fff"/>
+ </g>
+</g>
+</svg>
+<p>morphO · Chibi Anime · character sample: an original crew of three on a sunny beach, in chibi proportions.</p>
+</main>
+</body>
+</html>

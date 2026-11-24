@@ -1,0 +1,59 @@
+/* morphO style: Vintage Cartoon (light, sepia). An old cartoon reel: aged cream paper, sepia and olive, brick red and
+   faded blue, thick ink outlines, a dark film vignette with specks, a bold slab-serif title. Cheerful with a wink:
+   suits history, old tales and fables, jokes, music and anything set in the 1920s and 30s.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --ink and
+   --reel names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they
+   come before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #2a2118; --board: #efe2c4; --panel: #f8efdc; --edge: #2a1f17;
+  --chalk: #2a1f17; --dim: #6b5a44; --faint: #cdb98e;
+  --task: #c8553d; --quiz: #3f6f8a; --good: #6b8e3a; --bad: #b8402e;
+  --on-fill: #f8efdc; --vignette: rgba(60, 35, 10, .55); color-scheme: light;
+  --rule: #e2d2ae; --track: #d9c7a0; --track-ask: #c9d4d2;
+  --bar-edge: #2a1f17; --hover: #f2e6cc; --veil: #2a2118;
+  --ui: "Rockwell", "Georgia", "Times New Roman", serif;
+  --story: "Rockwell Extra Bold", "Cooper Black", "Rockwell", Georgia, serif;
+
+  --ink: 3px solid var(--chalk);               /* a cartoon's ink line */
+  --reel: 5px 6px 0 rgba(42, 31, 23, .85);     /* the hard shadow of a cel */
+}
+
+:root #frame { border-radius: 18px; box-shadow: 0 0 0 5px #1a130d, 0 30px 80px rgba(0, 0, 0, .6); }
+:root #stage { background:
+  radial-gradient(circle at 12% 22%, rgba(42, 31, 23, .5) 0 1.5px, transparent 2px), radial-gradient(circle at 63% 71%, rgba(42, 31, 23, .45) 0 1.5px, transparent 2px),
+  radial-gradient(circle at 81% 33%, rgba(42, 31, 23, .4) 0 2px, transparent 2.5px), radial-gradient(circle at 34% 84%, rgba(42, 31, 23, .45) 0 1px, transparent 1.5px),
+  radial-gradient(80% 75% at 50% 48%, transparent 50%, var(--vignette)), var(--grain, none),
+  linear-gradient(180deg, #f2e4c2, #e6d3a8); }
+
+:root .cover { background: color-mix(in srgb, var(--board) 10%, transparent); }
+:root .cover-k { color: var(--task); letter-spacing: .24em; }
+:root .cover-t { font: 400 84px/1.05 var(--story); color: var(--board); -webkit-text-stroke: 3px var(--chalk); paint-order: stroke fill;
+  text-shadow: 5px 6px 0 var(--chalk); }
+:root .cover .go { background: var(--task); color: var(--on-fill); border: var(--ink); box-shadow: var(--reel); }
+:root .paused-mark div { background: var(--panel); color: var(--chalk); border: var(--ink); }
+
+:root .card { border-radius: 22px; background: var(--panel); border: var(--ink); border-inline-start: var(--ink); box-shadow: var(--reel); }
+:root .kicker { color: var(--task); text-transform: uppercase; letter-spacing: .12em; font-size: 18px; }
+:root .opt { border: var(--ink); background: #fbf5e8; color: var(--chalk); box-shadow: 3px 3px 0 var(--chalk); }
+:root .opt:hover:not(:disabled):not([aria-pressed="true"]) { background: #fff8e8; }
+:root .opt[aria-pressed="true"] { background: var(--quiz); color: var(--on-fill); box-shadow: 1px 1px 0 var(--chalk); transform: translate(2px, 2px); }
+:root .btn { background: var(--chalk); color: var(--panel); border: var(--ink); box-shadow: 3px 3px 0 #000; }
+:root .btn.go { background: var(--task); color: var(--on-fill); }
+:root .btn.quiet { background: var(--panel); color: var(--chalk); }
+:root .btn:disabled { background: var(--faint); color: var(--dim); }
+
+:root #bar { background: #2a2118; border-top: 0; }
+:root .icon { background: #3e3226; color: #f2e4c2; border: 2px solid #5a4a38; }
+:root .icon svg { fill: #f2e4c2; }
+:root .icon.txt, :root .icon.cc { color: #cdb98e; }
+:root .icon.cc[aria-pressed="true"] { background: var(--task); border-color: var(--task); color: var(--on-fill); }
+:root .step { color: #cdb98e; }
+:root .seg { background: #4a3c2c; }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: #8fb2c4; }
+
+:root .help-box { border-radius: 22px; background: var(--panel); border: var(--ink); box-shadow: var(--reel); }
+:root .caption { background: #1a130d; color: #f2e4c2; border-radius: 6px; font-family: var(--ui); letter-spacing: .02em; }   /* a title card */

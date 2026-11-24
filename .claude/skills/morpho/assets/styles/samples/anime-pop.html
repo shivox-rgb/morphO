@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anime Pop: character sample</title>
+<!-- A character sample for the Anime Pop style (../animepop.css): two original friends in a selfie (Rin, black hair
+     with lime and orange streaks, golden eyes, a peace sign; Yuki, silver hair with a cyan streak and headphones,
+     winking), in bright anime colours with glossy eyes, fine dark line and doodled hearts and sparkles on white.
+     Idle motion: blinking, a bobbing peace sign, twinkling doodles. Open it directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #f4eef8; color: #1a1a2a; font: 14px/1.4 "Segoe UI", sans-serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 30px 70px rgba(122, 92, 255, .18); }
+  p { margin: 12px 4px 0; color: #6a6080; }
+  .a { transform-box: fill-box; }
+  .bob { animation: bob 2.4s ease-in-out infinite; transform-origin: 50% 100%; }
+  .bob.b { animation-delay: -1.2s; }
+  @keyframes bob { 50% { transform: translateY(-6px) rotate(-.6deg); } }
+  .peace { animation: peace .9s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+  @keyframes peace { to { transform: rotate(-8deg) translateY(-4px); } }
+  .blink { animation: blink 3.8s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.08); } }
+  .twinkle { animation: twinkle 1.6s ease-in-out infinite; transform-origin: 50% 50%; }
+  .twinkle.b { animation-delay: -.5s; } .twinkle.c { animation-delay: -1s; }
+  @keyframes twinkle { 50% { transform: scale(.7) rotate(15deg); opacity: .6; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="Two anime-style friends in a selfie on white: a girl with black hair, lime and orange streaks and golden eyes grins and makes a peace sign, and a girl with silver hair, a cyan streak and magenta headphones winks, with doodled hearts, stars and sparkles around them">
+<defs>
+  <linearGradient id="irisGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6a4a08"/><stop offset=".45" stop-color="#d89a1a"/><stop offset="1" stop-color="#ffe27a"/></linearGradient>
+  <linearGradient id="irisBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a3a6a"/><stop offset=".45" stop-color="#2a8ad8"/><stop offset="1" stop-color="#9ae0ff"/></linearGradient>
+  <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe9dc"/><stop offset="1" stop-color="#ffd8c4"/></linearGradient>
+  <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f8ff"/><stop offset="1" stop-color="#b8c4d8"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="#ffffff"/>
+<!-- doodles -->
+<g fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <g class="a twinkle"><path d="M140 160 l14 34 l36 6 l-28 22 l8 36 l-30 -20 l-30 20 l8 -36 l-28 -22 l36 -6Z" stroke="#ff7ac0"/></g>
+  <path d="M120 600 q-20 -30 10 -40 q20 -6 26 16 q6 -22 26 -16 q30 10 10 40 l-36 36Z" stroke="#b48cff"/>
+  <path d="M260 760 q-14 -22 8 -30 q14 -4 18 12 q4 -16 18 -12 q22 8 8 30 l-26 26Z" stroke="#ff7ac0"/>
+  <g class="a twinkle b"><path d="M1420 140 q4 40 40 44 q-36 4 -40 44 q-4 -40 -40 -44 q36 -4 40 -44Z" stroke="#7a5cff"/></g>
+  <path d="M1460 300 l40 -60 M1490 330 l60 -30 M1480 380 l70 6" stroke="#2ad0e8"/>
+  <path d="M1400 640 q-20 -30 10 -40 q20 -6 26 16 q6 -22 26 -16 q30 10 10 40 l-36 36Z" stroke="#ff7ac0"/>
+  <g class="a twinkle c"><path d="M1500 760 q3 26 26 30 q-23 4 -26 30 q-3 -26 -26 -30 q23 -4 26 -30Z" stroke="#b6e628"/></g>
+  <path d="M200 380 q3 22 22 26 q-19 4 -22 26 q-3 -22 -22 -26 q19 -4 22 -26Z" stroke="#ffa03c"/>
+</g>
+
+<g stroke="#1a1a2a" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+ <!-- YUKI (behind, right) -->
+ <g class="a bob b">
+  <path d="M820 900 Q830 700 1000 680 Q1180 690 1200 900Z" fill="#2a3a8a"/>
+  <path d="M900 900 Q920 760 1000 740 Q1090 760 1110 900Z" fill="#1a1a2a"/><path d="M990 740 L1000 900 M1010 740 L1000 900" stroke="#9aa8c4"/>
+  <path d="M840 780 Q900 720 950 760 L940 900 L830 900Z M1160 780 Q1110 720 1060 760 L1070 900 L1180 900Z" fill="#2a8ad8"/>
+  <path d="M846 820 L930 800 M1154 820 L1070 800" stroke="#ff3d9a" stroke-width="8"/>
+  <!-- hair back -->
+  <path d="M800 400 Q780 200 1000 180 Q1220 200 1210 420 Q1230 600 1180 720 L1080 700 Q1100 560 1000 560 Q900 560 920 700 L820 720 Q770 600 800 400Z" fill="url(#silver)"/>
+  <path d="M1150 300 Q1220 460 1180 700" fill="none" stroke="#2ad0e8" stroke-width="30"/>
+  <!-- face -->
+  <path d="M860 380 Q860 520 920 590 Q960 630 1000 636 Q1040 630 1080 590 Q1140 520 1140 380Z" fill="url(#skin)"/>
+  <!-- bangs -->
+  <path d="M840 430 Q830 250 1000 230 Q1170 250 1160 430 Q1144 380 1130 346 Q1124 410 1108 450 Q1094 384 1080 334 Q1068 400 1050 440 Q1036 380 1020 326 Q1008 400 990 450 Q976 388 962 336 Q948 400 930 456 Q918 396 902 346 Q892 410 878 446 Q864 400 852 380 Q846 404 840 430Z" fill="url(#silver)"/>
+  <path d="M1080 334 Q1068 400 1050 440 Q1036 380 1020 326 Q1050 300 1080 334Z" fill="#2ad0e8"/>
+  <path d="M900 280 Q960 250 1020 260" fill="none" stroke="#ffffff" stroke-width="8"/>
+  <!-- headphones -->
+  <path d="M830 420 Q840 200 1000 196 Q1160 200 1170 420" fill="none" stroke-width="22"/><path d="M830 420 Q840 200 1000 196 Q1160 200 1170 420" fill="none" stroke="#3a3a4a" stroke-width="12"/>
+  <rect x="800" y="400" width="56" height="110" rx="24" fill="#2a2a3a"/><rect x="808" y="420" width="40" height="22" rx="8" fill="#ff3d9a"/><rect x="808" y="460" width="40" height="10" rx="4" fill="#ff3d9a"/>
+  <rect x="1144" y="400" width="56" height="110" rx="24" fill="#2a2a3a"/><rect x="1152" y="420" width="40" height="22" rx="8" fill="#ff3d9a"/>
+  <!-- eyes: left open, right winking -->
+  <g class="a blink"><path d="M908 470 Q930 446 970 450 Q984 454 990 462" fill="none" stroke-width="7"/>
+    <ellipse cx="948" cy="492" rx="24" ry="32" fill="url(#irisBlue)" stroke-width="3"/><ellipse cx="948" cy="496" rx="10" ry="15" fill="#0a1a3a" stroke="none"/>
+    <ellipse cx="940" cy="480" rx="8" ry="10" fill="#fff" stroke="none"/><circle cx="956" cy="508" r="4" fill="#fff" stroke="none"/></g>
+  <path d="M1020 490 Q1050 470 1086 488" fill="none" stroke-width="7"/><path d="M1030 470 l-12 -10 M1050 466 l-4 -14 M1070 470 l8 -12" stroke-width="3"/>
+  <path d="M914 440 Q944 426 974 434 M1028 434 Q1058 426 1086 440" fill="none" stroke="#8a94aa" stroke-width="5"/>
+  <path d="M1000 528 l-4 14 l8 0" fill="none" stroke-width="3"/>
+  <path d="M976 572 Q1000 590 1026 570" fill="none" stroke-width="5"/>
+  <ellipse cx="918" cy="550" rx="22" ry="10" fill="#ff9ab8" stroke="none" opacity=".55"/><ellipse cx="1082" cy="550" rx="22" ry="10" fill="#ff9ab8" stroke="none" opacity=".55"/>
+ </g>
+
+ <!-- RIN (front, left) -->
+ <g class="a bob">
+  <path d="M380 900 Q390 720 600 700 Q800 720 810 900Z" fill="#1a1a2a"/>
+  <path d="M520 720 Q600 760 680 720" fill="none" stroke="#c4c4d4" stroke-width="8" stroke-dasharray="2 18"/>
+  <path d="M400 820 Q440 730 520 740 L500 900 L390 900Z M800 820 Q760 730 680 740 L700 900 L810 900Z" fill="#ff8a2a"/>
+  <!-- hair back with streaks -->
+  <path d="M380 420 Q370 220 600 200 Q830 220 820 420 Q850 620 790 760 L700 740 Q720 600 600 600 Q480 600 500 740 L410 760 Q350 620 380 420Z" fill="#1a1a2a"/>
+  <path d="M400 460 Q380 620 420 760" fill="none" stroke="#b6e628" stroke-width="34"/><path d="M430 470 Q420 600 450 740" fill="none" stroke="#ff8a2a" stroke-width="22"/>
+  <path d="M800 460 Q820 620 780 760" fill="none" stroke="#ff8a2a" stroke-width="26"/>
+  <!-- face -->
+  <path d="M450 400 Q450 560 510 630 Q556 676 600 682 Q644 676 690 630 Q750 560 750 400Z" fill="url(#skin)"/>
+  <!-- bangs and a crescent clip -->
+  <path d="M430 450 Q420 260 600 250 Q780 260 772 450 Q752 400 736 372 Q732 430 714 478 Q700 410 688 356 Q676 420 656 468 Q646 400 630 344 Q618 420 600 476 Q584 410 572 344 Q556 410 540 466 Q526 400 512 352 Q500 420 482 476 Q470 410 460 372 Q446 410 430 450Z" fill="#1a1a2a"/>
+  <path d="M520 290 Q570 266 630 274" fill="none" stroke="#4a4a6a" stroke-width="10"/>
+  <path d="M640 250 Q700 230 740 270 Q700 256 660 276Z" fill="#ff8a2a"/>
+  <!-- eyes -->
+  <g class="a blink"><path d="M492 480 Q520 454 562 460 Q576 464 582 474" fill="none" stroke-width="8"/><path d="M620 474 Q630 462 646 458 Q686 454 712 482" fill="none" stroke-width="8"/>
+    <ellipse cx="538" cy="506" rx="27" ry="36" fill="url(#irisGold)" stroke-width="3"/><ellipse cx="664" cy="504" rx="27" ry="36" fill="url(#irisGold)" stroke-width="3"/>
+    <ellipse cx="538" cy="508" rx="6" ry="20" fill="#2a1a04" stroke="none"/><ellipse cx="664" cy="506" rx="6" ry="20" fill="#2a1a04" stroke="none"/>
+    <ellipse cx="528" cy="492" rx="9" ry="11" fill="#fff" stroke="none"/><ellipse cx="654" cy="490" rx="9" ry="11" fill="#fff" stroke="none"/>
+    <circle cx="548" cy="524" r="4" fill="#fff" stroke="none"/><circle cx="674" cy="522" r="4" fill="#fff" stroke="none"/></g>
+  <path d="M500 448 Q530 432 566 442 M636 442 Q670 432 702 448" fill="none" stroke-width="5"/>
+  <path d="M600 548 l-4 14 l8 0" fill="none" stroke-width="3"/>
+  <path d="M552 590 Q600 650 650 588 Q600 600 552 590Z" fill="#c4304a"/><path d="M558 592 Q600 602 644 590 L640 600 Q600 610 562 602Z" fill="#fff" stroke="none"/>
+  <path d="M584 626 q16 -10 32 0 q-16 10 -32 0Z" fill="#ff7a8a" stroke="none"/>
+  <ellipse cx="500" cy="572" rx="26" ry="12" fill="#ff9ab8" stroke="none" opacity=".6"/><ellipse cx="700" cy="570" rx="26" ry="12" fill="#ff9ab8" stroke="none" opacity=".6"/>
+  <path d="M488 572 l10 -12 M502 574 l10 -12 M688 570 l10 -12 M702 572 l10 -12" stroke="#ff6a9a" stroke-width="3"/>
+  <!-- peace sign by the cheek -->
+  <g class="a peace"><path d="M380 700 Q370 620 400 580 L384 470 L404 466 L420 560 L424 456 L444 456 L446 580 Q460 640 430 700Z" fill="url(#skin)"/>
+    <path d="M396 600 q20 -8 40 0 M400 630 q16 -6 34 2" fill="none" stroke-width="3"/>
+    <path d="M370 700 Q400 690 440 702 L444 760 L366 760Z" fill="#ff8a2a"/></g>
+ </g>
+</g>
+</svg>
+<p>morphO · Anime Pop · character sample: two original friends in a selfie, bright anime colour and doodles.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mascot Pop: character sample</title>
+<!-- A character sample for the Mascot Pop style (../mascot.css): an original strawberry mascot with a thick navy-violet
+     outline, flat colour and a darker side face, holding a cookie and a smiling lollipop, on soft sky blue. Idle motion:
+     a bounce, a blink, a wobbling leaf crown, a waggled lollipop. Open it directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #a9dcef; color: #120a40; font: 14px/1.4 "Arial Rounded MT Bold", "Segoe UI", sans-serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 30px; box-shadow: 0 0 0 5px #120a40; }
+  p { margin: 16px 4px 0; color: #4a4470; }
+  .a { transform-box: fill-box; }
+  .bounce { animation: bounce 1.6s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes bounce { 0%, 100% { transform: translateY(0) scale(1, 1); } 45% { transform: translateY(-14px) scale(.98, 1.02); } 90% { transform: translateY(0) scale(1.03, .97); } }
+  .crown { animation: crown 1.6s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes crown { 50% { transform: rotate(6deg); } }
+  .lolly { animation: lolly .8s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+  @keyframes lolly { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
+  .blink { animation: blink 3.6s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+  .spark { animation: spark 1.4s ease-in-out infinite; transform-origin: 50% 50%; }
+  .spark.b { animation-delay: -.7s; }
+  @keyframes spark { 50% { transform: scale(.6) rotate(20deg); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="A strawberry mascot with a leaf crown, big eyes and a green T-shirt holds a sprinkled cookie and a smiling star lollipop, drawn with a thick navy outline on soft sky blue">
+<defs><radialGradient id="bg" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#d4eef9"/><stop offset="1" stop-color="#a9dcef"/></radialGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<g stroke="#120a40" stroke-width="10" stroke-linejoin="round" stroke-linecap="round">
+  <g class="a spark"><path d="M300 200 l14 34 l34 14 l-34 14 l-14 34 l-14 -34 l-34 -14 l34 -14Z" fill="#ffe16b" stroke-width="7"/></g>
+  <g class="a spark b"><path d="M1320 640 l10 24 l24 10 l-24 10 l-10 24 l-10 -24 l-24 -10 l24 -10Z" fill="#ff8fb4" stroke-width="6"/></g>
+  <ellipse cx="800" cy="860" rx="210" ry="22" fill="#120a40" opacity=".12" stroke="none"/>
+  <g class="a bounce">
+   <!-- body: arms, T-shirt -->
+   <path d="M610 700 Q560 740 560 800 L560 900 L1040 900 L1040 800 Q1040 740 990 700 Q900 660 800 660 Q700 660 610 700Z" fill="#00ad3a"/>
+   <path d="M610 700 Q560 740 560 800 L560 900 L640 900 L640 760Q630 720 610 700Z" fill="#008a2e" stroke="none"/>
+   <circle cx="800" cy="800" r="56" fill="none" stroke="#fff" stroke-width="9"/><path d="M776 790 v14 M824 790 v14 M772 818 q28 24 56 0" fill="none" stroke="#fff" stroke-width="8"/>
+   <!-- left arm with the cookie -->
+   <path d="M600 730 Q520 760 480 700" fill="none" stroke-width="56"/><path d="M600 730 Q520 760 480 700" fill="none" stroke="#8a62ec" stroke-width="36"/>
+   <g><circle cx="430" cy="640" r="96" fill="#d99a5a"/><path d="M350 600 a96 96 0 0 0 60 132" fill="none" stroke="#b97a3e" stroke-width="16" opacity=".8"/>
+     <circle cx="430" cy="640" r="96" fill="none"/>
+     <g stroke="none"><ellipse cx="400" cy="600" rx="14" ry="10" fill="#4a2a1a"/><ellipse cx="462" cy="616" rx="12" ry="9" fill="#4a2a1a"/><ellipse cx="420" cy="676" rx="13" ry="9" fill="#4a2a1a"/><ellipse cx="476" cy="672" rx="10" ry="8" fill="#4a2a1a"/></g>
+     <path d="M380 640 l14 -6 M450 580 l12 8 M470 700 l-8 12" stroke="#ff8fb4" stroke-width="8"/></g>
+   <circle cx="486" cy="706" r="34" fill="#8a62ec"/>
+   <!-- right arm with the lollipop -->
+   <path d="M1000 730 Q1080 760 1120 700" fill="none" stroke-width="56"/><path d="M1000 730 Q1080 760 1120 700" fill="none" stroke="#8a62ec" stroke-width="36"/>
+   <g class="a lolly"><path d="M1130 690 L1150 520" stroke-width="22"/><path d="M1130 690 L1150 520" stroke="#fff" stroke-width="8"/>
+     <path d="M1150 380 l34 66 l74 10 l-54 50 l14 72 l-68 -36 l-66 36 l14 -72 l-54 -50 l74 -10Z" fill="#ffd23f"/>
+     <circle cx="1130" cy="470" r="8" fill="#120a40" stroke="none"/><circle cx="1170" cy="466" r="8" fill="#120a40" stroke="none"/><path d="M1128 494 q24 18 46 -2" fill="none" stroke-width="7"/></g>
+   <circle cx="1114" cy="706" r="34" fill="#8a62ec"/>
+   <!-- strawberry head -->
+   <path d="M800 640 Q600 630 560 440 Q540 300 660 250 Q730 222 800 236 Q870 222 940 250 Q1060 300 1040 440 Q1000 630 800 640Z" fill="#ff3a46"/>
+   <path d="M800 640 Q600 630 560 440 Q540 300 660 250 Q700 236 740 236 Q640 300 650 440 Q670 590 800 640Z" fill="#d61f33" stroke="none"/>
+   <path d="M800 640 Q600 630 560 440 Q540 300 660 250 Q730 222 800 236 Q870 222 940 250 Q1060 300 1040 440 Q1000 630 800 640Z" fill="none"/>
+   <g fill="#ffe16b" stroke="none"><ellipse cx="660" cy="460" rx="9" ry="14"/><ellipse cx="700" cy="560" rx="9" ry="14"/><ellipse cx="900" cy="560" rx="9" ry="14"/><ellipse cx="960" cy="440" rx="9" ry="14"/><ellipse cx="800" cy="590" rx="9" ry="14"/><ellipse cx="620" cy="360" rx="8" ry="12"/><ellipse cx="990" cy="340" rx="8" ry="12"/></g>
+   <!-- leaf crown -->
+   <g class="a crown"><path d="M800 250 Q740 160 660 200 Q720 230 730 270 Q680 260 640 300 Q720 300 800 270 Q880 300 960 300 Q920 260 870 270 Q880 230 940 200 Q860 160 800 250Z" fill="#00ad3a"/>
+     <path d="M800 250 Q790 190 820 150" fill="none" stroke-width="14"/></g>
+   <!-- face -->
+   <g class="a blink"><circle cx="730" cy="420" r="52" fill="#fff"/><circle cx="870" cy="420" r="52" fill="#fff"/>
+     <circle cx="742" cy="430" r="28" fill="#120a40" stroke="none"/><circle cx="858" cy="430" r="28" fill="#120a40" stroke="none"/>
+     <circle cx="732" cy="418" r="10" fill="#3a2e9a" stroke="none"/><circle cx="848" cy="418" r="10" fill="#3a2e9a" stroke="none"/></g>
+   <ellipse cx="660" cy="500" rx="28" ry="16" fill="#ff8fb4" stroke="none" opacity=".8"/><ellipse cx="940" cy="500" rx="28" ry="16" fill="#ff8fb4" stroke="none" opacity=".8"/>
+   <path d="M748 508 Q800 560 852 508 Q800 524 748 508Z" fill="#7a0f24"/>
+  </g>
+</g>
+</svg>
+<p>morphO · Mascot Pop · character sample: an original strawberry mascot in thick ink and flat colour.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>morphO styles</title>
+<!-- The style gallery: every preset in ../ with its character sample, each shown live in a frame. -->
+<style>
+  :root { --bg: #f4f1ea; --ink: #23201c; --dim: #6f685e; --card: #fff; --edge: #e2dccf; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 "Avenir Next", "Segoe UI", sans-serif; }
+  header { max-width: 1200px; margin: 0 auto; padding: 40px 16px 8px; }
+  h1 { margin: 0; font-size: 30px; font-weight: 600; }
+  header p { margin: 6px 0 0; color: var(--dim); }
+  .grid { max-width: 1200px; margin: 0 auto; padding: 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
+  .card { background: var(--card); border: 1px solid var(--edge); border-radius: 16px; overflow: hidden; }
+  .frame { position: relative; aspect-ratio: 16 / 9; background: #ddd; }
+  iframe { position: absolute; inset: 0; width: 200%; height: 200%; border: 0; transform: scale(.5); transform-origin: 0 0; pointer-events: none; }
+  .meta { padding: 12px 16px 16px; }
+  .meta h2 { margin: 0; font-size: 18px; font-weight: 600; }
+  .meta p { margin: 4px 0 10px; color: var(--dim); font-size: 14px; }
+  .meta a { color: inherit; font-size: 14px; margin-right: 14px; }
+  code { font-size: 13px; background: #f0ece3; padding: 1px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<header><h1>morphO styles</h1><p>Each style is a block for a book&rsquo;s <code>lib/book.css</code> (<code>style.py apply site/&lt;book&gt; &lt;id&gt;</code>) and a character look; each sample shows a character drawn to match it.</p></header>
+<section class="grid">
+  <article class="card"><div class="frame"><iframe src="enchanted-explorer.html" title="Enchanted sample"></iframe></div>
+    <div class="meta"><h2>Enchanted</h2><p>Golden-hour forest, fireflies, gold and teal. Fairy tales, adventure, nature.</p><a href="enchanted-explorer.html">Open sample</a><code>enchanted.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="collage-school.html" title="Paper Collage sample"></iframe></div>
+    <div class="meta"><h2>Paper Collage</h2><p>Scrapbook paper, gingham, polka dots, newspaper. Young children, school, crafts.</p><a href="collage-school.html">Open sample</a><code>collage.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="kawaii-classroom.html" title="Kawaii Sticker sample"></iframe></div>
+    <div class="meta"><h2>Kawaii Sticker</h2><p>Pastel, chibi, thick outline, sticker edge. Young readers, early maths and reading.</p><a href="kawaii-classroom.html">Open sample</a><code>kawaii.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="watercolor-path.html" title="Watercolor Storybook sample"></iframe></div>
+    <div class="meta"><h2>Watercolor Storybook</h2><p>Soft washes on cream paper, sepia line. Picture books, history, every age.</p><a href="watercolor-path.html">Open sample</a><code>watercolor.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="cartoon-schoolyard.html" title="Flat Cartoon sample"></iframe></div>
+    <div class="meta"><h2>Flat Cartoon</h2><p>Bright flat colour, navy outline. School-age explainers, how-tos, shorts.</p><a href="cartoon-schoolyard.html">Open sample</a><code>cartoon.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="glass-gloss.html" title="Glass sample"></iframe></div>
+    <div class="meta"><h2>Glass</h2><p>Frosted cards, lavender light; soft-gloss characters with no outlines. Lessons, business, tech.</p><a href="glass-gloss.html">Open sample</a><code>glass.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="glass-night-neon.html" title="Glass Night sample"></iframe></div>
+    <div class="meta"><h2>Glass Night</h2><p>Deep indigo with violet and pink glows; neon-line characters. Tech, space, night scenes.</p><a href="glass-night-neon.html">Open sample</a><code>glass-night.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="pixel-school.html" title="Pixel Art sample"></iframe></div>
+    <div class="meta"><h2>Pixel Art</h2><p>A retro game at 320 × 180 in 30 colours, square edges. Coding, games, puzzles, shorts.</p><a href="pixel-school.html">Open sample</a><code>pixel.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="crayon-school.html" title="Crayon Sketch sample"></iframe></div>
+    <div class="meta"><h2>Crayon Sketch</h2><p>Crayon and pencil on white paper, hand-drawn edges. Young children, art, early writing.</p><a href="crayon-school.html">Open sample</a><code>crayon.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="vintage-school.html" title="Vintage Cartoon sample"></iframe></div>
+    <div class="meta"><h2>Vintage Cartoon</h2><p>Sepia rubber-hose cartoon on an old reel. History, fables, jokes, music.</p><a href="vintage-school.html">Open sample</a><code>vintage.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="pastel-school.html" title="Soft Pastel sample"></iframe></div>
+    <div class="meta"><h2>Soft Pastel</h2><p>Muted sage and terracotta, flat with no outlines. Early years, wellbeing, gentle stories.</p><a href="pastel-school.html">Open sample</a><code>pastel.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="mascot-berry.html" title="Mascot Pop sample"></iframe></div>
+    <div class="meta"><h2>Mascot Pop</h2><p>Thick navy ink, flat colour, a darker side face. Food, kids' science, brand explainers.</p><a href="mascot-berry.html">Open sample</a><code>mascot.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="toon-cast.html" title="TV Toon sample"></iframe></div>
+    <div class="meta"><h2>TV Toon</h2><p>Wonky modern TV cartoon, orange rings, bubbly name tags. Comedy, character stories, shorts.</p><a href="toon-cast.html">Open sample</a><code>toon.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="geo-friends.html" title="Geo Flat sample"></iframe></div>
+    <div class="meta"><h2>Geo Flat</h2><p>Geometric flat people, no outlines, pale wall and white floor. Social studies, teamwork, training.</p><a href="geo-friends.html">Open sample</a><code>geo.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="sticker-monster.html" title="Glossy Sticker sample"></iframe></div>
+    <div class="meta"><h2>Glossy Sticker</h2><p>Outline, shine and a white die-cut rim on a paint splash. Young readers, space, food, shorts.</p><a href="sticker-monster.html">Open sample</a><code>sticker.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="chibi-beach.html" title="Chibi Anime sample"></iframe></div>
+    <div class="meta"><h2>Chibi Anime</h2><p>Big heads, thick line, glossy eyes, a sunny beach. Adventure, geography, team stories.</p><a href="chibi-beach.html">Open sample</a><code>chibi.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="anime-pop.html" title="Anime Pop sample"></iframe></div>
+    <div class="meta"><h2>Anime Pop</h2><p>Vivid hair streaks, glossy eyes, doodles on white. Teen readers, languages, music.</p><a href="anime-pop.html">Open sample</a><code>animepop.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="anime-cel.html" title="Anime Cel sample"></iframe></div>
+    <div class="meta"><h2>Anime Cel</h2><p>TV-anime line and hard cel shadows under a blue sky. History, biography, drama.</p><a href="anime-cel.html">Open sample</a><code>animecel.css</code></div></article>
+  <article class="card"><div class="frame"><iframe src="soft-anime.html" title="Soft Anime sample"></iframe></div>
+    <div class="meta"><h2>Soft Anime</h2><p>Fine line and soft gradient shading on peach. Literature, slice of life, older readers.</p><a href="soft-anime.html">Open sample</a><code>softanime.css</code></div></article>
+</section>
+</body>
+</html>

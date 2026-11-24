@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enchanted: character sample</title>
+<!-- A character sample for the Enchanted style (../enchanted.css): an original young explorer and her moss sprite in
+     a golden-hour forest, drawn in SVG with soft shading (gradients for volume, a warm rim light) and idle motion
+     (breathing, blinking, a swaying ponytail, the sprite's ears). Open it directly in a browser. -->
+<style>
+  :root { --page: #0a1b1a; --chalk: #fff4dc; --dim: #bccab2; }
+  html, body { margin: 0; height: 100%; background: var(--page); color: var(--chalk);
+    font: 16px/1.4 "Avenir Next", "Segoe UI", sans-serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 0 0 1px rgba(255, 214, 150, .3), 0 30px 80px rgba(0, 0, 0, .55); }
+  p { margin: 12px 4px 0; color: var(--dim); font-size: 14px; }
+  .a { transform-box: fill-box; }
+  .breathe { animation: breathe 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes breathe { 50% { transform: translateY(-5px) scaleY(1.008); } }
+  .head { animation: tilt 6s ease-in-out infinite; transform-origin: 50% 90%; }
+  @keyframes tilt { 0%, 100% { transform: rotate(0deg); } 40% { transform: rotate(-2.2deg); } 70% { transform: rotate(1.4deg); } }
+  .blink { animation: blink 4.6s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 93%, 100% { transform: scaleY(1); } 95.5% { transform: scaleY(.08); } }
+  .pony { animation: sway 2.8s ease-in-out infinite; transform-origin: 10% 90%; }
+  @keyframes sway { 50% { transform: rotate(5deg); } }
+  .point { animation: point 3.2s ease-in-out infinite; transform-origin: 10% 30%; }
+  @keyframes point { 50% { transform: rotate(-4deg); } }
+  .map { animation: mapbob 3.2s ease-in-out infinite; transform-origin: 0% 50%; }
+  @keyframes mapbob { 50% { transform: rotate(2deg) translateY(-2px); } }
+  .sprite { animation: hop 2.4s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes hop { 0%, 60%, 100% { transform: translateY(0); } 75% { transform: translateY(-7px); } }
+  .earL { animation: twitchL 3.6s ease-in-out infinite; transform-origin: 90% 90%; }
+  .earR { animation: twitchR 3.6s ease-in-out infinite; transform-origin: 10% 90%; }
+  @keyframes twitchL { 0%, 80%, 100% { transform: rotate(0); } 85% { transform: rotate(-12deg); } 90% { transform: rotate(4deg); } }
+  @keyframes twitchR { 0%, 82%, 100% { transform: rotate(0); } 87% { transform: rotate(12deg); } 92% { transform: rotate(-4deg); } }
+  .ray { animation: ray 7s ease-in-out infinite; }
+  .ray:nth-child(2) { animation-delay: -2.5s; } .ray:nth-child(3) { animation-delay: -4.5s; }
+  @keyframes ray { 50% { opacity: .45; } }
+  .fly { animation: fly var(--d, 5s) ease-in-out infinite; animation-delay: var(--del, 0s); }
+  @keyframes fly { 0%, 100% { opacity: .15; transform: translate(0, 0); } 50% { opacity: 1; transform: translate(var(--dx, 8px), var(--dy, -14px)); } }
+  .glowfl { animation: glowfl 4s ease-in-out infinite; }
+  @keyframes glowfl { 50% { opacity: .55; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="A young explorer with goggles, a backpack and a map, pointing the way, with a small teal moss sprite on her backpack, in a golden-hour forest">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d4a43"/><stop offset=".55" stop-color="#2f6a55"/><stop offset="1" stop-color="#173a30"/></linearGradient>
+  <radialGradient id="sun" cx="78%" cy="8%" r="70%"><stop offset="0" stop-color="#ffe7a8" stop-opacity=".95"/><stop offset=".25" stop-color="#ffc66b" stop-opacity=".5"/><stop offset=".6" stop-color="#ffb35a" stop-opacity="0"/></radialGradient>
+  <linearGradient id="rayg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0c2" stop-opacity=".55"/><stop offset="1" stop-color="#fff0c2" stop-opacity="0"/></linearGradient>
+  <linearGradient id="trunk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2a1f17"/><stop offset=".6" stop-color="#4a3626"/><stop offset="1" stop-color="#6b4c32"/></linearGradient>
+  <linearGradient id="trunkFar" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2c5246"/><stop offset="1" stop-color="#3f6b58"/></linearGradient>
+  <radialGradient id="path" cx="50%" cy="30%" r="70%"><stop offset="0" stop-color="#c79a62"/><stop offset=".7" stop-color="#8a6440"/><stop offset="1" stop-color="#4c3a22" stop-opacity="0"/></radialGradient>
+  <radialGradient id="flowerGlow"><stop offset="0" stop-color="#ffd27a" stop-opacity=".8"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient>
+  <radialGradient id="skin" cx="42%" cy="38%" r="70%"><stop offset="0" stop-color="#ffe1c6"/><stop offset=".6" stop-color="#f4b994"/><stop offset="1" stop-color="#d98b66"/></radialGradient>
+  <radialGradient id="skinHand" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#ffd9bb"/><stop offset="1" stop-color="#d98b66"/></radialGradient>
+  <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0703a"/><stop offset=".5" stop-color="#b84a22"/><stop offset="1" stop-color="#6e2611"/></linearGradient>
+  <radialGradient id="iris" cx="45%" cy="40%" r="60%"><stop offset="0" stop-color="#c47a3a"/><stop offset=".7" stop-color="#6b3517"/><stop offset="1" stop-color="#3a1a0a"/></radialGradient>
+  <radialGradient id="lens" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#b8f4ee"/><stop offset=".5" stop-color="#3fa9a4"/><stop offset="1" stop-color="#14514f"/></radialGradient>
+  <linearGradient id="brass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d48a"/><stop offset=".5" stop-color="#b8862f"/><stop offset="1" stop-color="#6e4a12"/></linearGradient>
+  <pattern id="stripes" patternUnits="userSpaceOnUse" width="20" height="22" patternTransform="rotate(-8)"><rect width="20" height="22" fill="#2a8f86"/><rect y="11" width="20" height="11" fill="#e0773a"/></pattern>
+  <linearGradient id="vest" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9a8b52"/><stop offset="1" stop-color="#5c5228"/></linearGradient>
+  <linearGradient id="pants" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8f7a50"/><stop offset=".5" stop-color="#c2a874"/><stop offset="1" stop-color="#8a7348"/></linearGradient>
+  <linearGradient id="leather" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a8703f"/><stop offset="1" stop-color="#5a3518"/></linearGradient>
+  <linearGradient id="boot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a5a34"/><stop offset="1" stop-color="#4a2c14"/></linearGradient>
+  <linearGradient id="parch" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e2ad"/><stop offset=".6" stop-color="#e3c27f"/><stop offset="1" stop-color="#b8904c"/></linearGradient>
+  <radialGradient id="spriteBody" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#8be3e6"/><stop offset=".55" stop-color="#3fa3b5"/><stop offset="1" stop-color="#1f5f78"/></radialGradient>
+  <radialGradient id="spriteEye" cx="40%" cy="35%" r="65%"><stop offset="0" stop-color="#d9fff8"/><stop offset=".45" stop-color="#3fd1c0"/><stop offset="1" stop-color="#0d3c3c"/></radialGradient>
+  <linearGradient id="moss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fbf4a"/><stop offset="1" stop-color="#3f7a2a"/></linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffd27a" stop-opacity="0"/><stop offset="1" stop-color="#ffd27a" stop-opacity=".9"/></linearGradient>
+</defs>
+
+<!-- the forest -->
+<rect width="1600" height="900" fill="url(#sky)"/>
+<rect width="1600" height="900" fill="url(#sun)"/>
+<g opacity=".55">
+  <path d="M300 900 Q320 500 280 0 L380 0 Q360 500 400 900Z" fill="url(#trunkFar)"/>
+  <path d="M1080 900 Q1110 520 1060 0 L1150 0 Q1150 520 1180 900Z" fill="url(#trunkFar)"/>
+  <ellipse cx="560" cy="120" rx="320" ry="140" fill="#2f6b4e"/><ellipse cx="1000" cy="80" rx="300" ry="120" fill="#356f4f"/>
+</g>
+<g>
+  <polygon class="ray" points="1290,0 1400,0 980,900 760,900" fill="url(#rayg)" opacity=".7"/>
+  <polygon class="ray" points="1430,0 1500,0 1200,900 1060,900" fill="url(#rayg)" opacity=".6"/>
+  <polygon class="ray" points="1180,0 1240,0 700,900 580,900" fill="url(#rayg)" opacity=".4"/>
+</g>
+<!-- big trees -->
+<path d="M0 0 L260 0 Q200 180 230 380 Q260 600 330 900 L0 900Z" fill="url(#trunk)"/>
+<path d="M230 300 Q330 330 420 280 Q360 340 250 360Z" fill="#3a2a1d"/>
+<g fill="url(#moss)" opacity=".55"><path d="M180 120 Q210 160 196 230 Q170 200 180 120Z"/><path d="M160 420 Q200 470 214 560 Q176 520 160 420Z"/><path d="M200 640 Q240 700 262 800 Q220 760 200 640Z"/></g>
+<path d="M1600 0 L1340 0 Q1420 220 1380 420 Q1340 650 1290 900 L1600 900Z" fill="url(#trunk)"/>
+<path d="M1390 380 Q1300 420 1230 380 Q1290 440 1380 450Z" fill="#3a2a1d"/>
+<g fill="url(#moss)" opacity=".55"><path d="M1400 160 Q1370 220 1384 300 Q1410 240 1400 160Z"/><path d="M1376 470 Q1340 540 1336 620 Q1372 560 1376 470Z"/></g>
+<!-- hanging vines -->
+<g fill="none" stroke="#3f7a2a" stroke-width="5" stroke-linecap="round" opacity=".85">
+  <path d="M420 0 Q440 120 410 220 Q395 270 420 320"/><path d="M1210 0 Q1180 140 1220 260"/><path d="M1290 0 Q1310 90 1280 170"/>
+</g>
+<!-- ground and path -->
+<path d="M0 760 Q400 700 800 720 Q1200 700 1600 760 L1600 900 L0 900Z" fill="#244a2c"/>
+<g fill="#2f6b45"><ellipse cx="430" cy="740" rx="150" ry="60"/><ellipse cx="560" cy="752" rx="110" ry="44" fill="#3a7d4f"/><ellipse cx="1180" cy="736" rx="160" ry="62"/><ellipse cx="1060" cy="752" rx="100" ry="40" fill="#3a7d4f"/></g>
+<g fill="#4c9a5c" opacity=".7"><ellipse cx="400" cy="716" rx="40" ry="16"/><ellipse cx="1210" cy="712" rx="46" ry="16"/></g>
+<ellipse cx="820" cy="840" rx="520" ry="90" fill="url(#path)"/>
+<ellipse cx="840" cy="820" rx="150" ry="22" fill="#2a1a0c" opacity=".45"/>
+
+<!-- glowing flowers -->
+<g class="glowfl"><circle cx="230" cy="560" r="70" fill="url(#flowerGlow)"/><circle cx="1330" cy="690" r="60" fill="url(#flowerGlow)"/><circle cx="560" cy="740" r="50" fill="url(#flowerGlow)" opacity=".7"/></g>
+<g>
+  <path d="M230 600 Q228 640 240 700" stroke="#3f7a2a" stroke-width="6" fill="none"/>
+  <g transform="translate(230 560)"><ellipse rx="34" ry="24" fill="#ff9a8a"/><ellipse rx="22" ry="16" fill="#ffd0a0"/><ellipse ry="-6" rx="10" cy="-4" fill="#fff1c9"/></g>
+  <g transform="translate(1330 690)"><circle r="22" fill="#e04fa8"/><circle r="10" fill="#ffd27a"/></g>
+  <g transform="translate(560 745)"><circle r="16" fill="#ff9a3c"/><circle r="7" fill="#fff1c9"/></g>
+  <g transform="translate(1180 760)"><circle r="14" fill="#4fd1c5"/><circle r="6" fill="#e8fffb"/></g>
+  <g transform="translate(140 760)"><circle r="18" fill="#9b6bff"/><circle r="8" fill="#ffe6ff"/></g>
+</g>
+<!-- foreground leaves -->
+<g>
+  <path d="M0 900 Q60 700 210 640 Q130 760 120 900Z" fill="#1d5a3c"/><path d="M60 900 Q160 720 330 700 Q230 800 220 900Z" fill="#2b7a4c"/>
+  <path d="M0 780 Q90 680 170 700 Q90 740 40 830Z" fill="#c2386e" opacity=".9"/>
+  <path d="M1600 900 Q1540 700 1400 650 Q1480 770 1480 900Z" fill="#1d5a3c"/><path d="M1550 900 Q1460 740 1300 720 Q1390 810 1400 900Z" fill="#2b7a4c"/>
+  <path d="M1600 760 Q1520 680 1450 700 Q1520 740 1560 820Z" fill="#ff8a3c" opacity=".9"/>
+</g>
+
+<!-- the explorer: local units, feet near y 620, placed and scaled into the scene -->
+<g transform="translate(556 52) scale(1.22)">
+ <g class="a breathe">
+  <!-- ponytail, behind the head -->
+  <g class="a pony"><path d="M232 82 Q262 -10 318 18 Q352 40 330 92 Q312 60 290 72 Q300 40 276 46 Q258 60 262 96Z" fill="url(#hair)"/>
+   <path d="M270 40 Q300 20 326 40" stroke="#f08a4c" stroke-width="4" fill="none" stroke-linecap="round" opacity=".7"/></g>
+  <!-- backpack and telescope -->
+  <rect x="80" y="236" width="96" height="150" rx="28" fill="url(#leather)"/>
+  <path d="M84 270 Q128 250 172 270 L172 310 Q128 296 84 310Z" fill="#7a4a24"/>
+  <circle cx="128" cy="300" r="6" fill="url(#brass)"/>
+  <rect x="88" y="330" width="40" height="36" rx="10" fill="#6a3f1e"/>
+  <g transform="rotate(-28 118 228)"><rect x="70" y="214" width="96" height="26" rx="12" fill="url(#brass)"/><rect x="60" y="210" width="24" height="34" rx="8" fill="#5a3518"/><rect x="156" y="216" width="14" height="22" rx="5" fill="#d8b060"/></g>
+  <!-- the moss sprite -->
+  <g class="a sprite">
+   <g class="a earL"><path d="M86 200 Q40 150 52 120 Q86 140 108 190Z" fill="url(#spriteBody)"/><path d="M84 190 Q58 156 62 136 Q84 154 98 186Z" fill="#f2a3c4" opacity=".8"/></g>
+   <g class="a earR"><path d="M134 196 Q172 140 196 132 Q190 170 150 206Z" fill="url(#spriteBody)"/><path d="M140 194 Q170 154 186 146 Q180 172 152 200Z" fill="#f2a3c4" opacity=".8"/></g>
+   <ellipse cx="118" cy="222" rx="40" ry="36" fill="url(#spriteBody)"/>
+   <path d="M86 206 Q90 190 106 188" stroke="#3f7a2a" stroke-width="7" stroke-linecap="round" fill="none"/>
+   <path d="M100 186 q6 -10 14 -4 q-4 8 -14 4Z" fill="#7fbf4a"/>
+   <ellipse cx="118" cy="236" rx="22" ry="16" fill="#bdf2ef" opacity=".55"/>
+   <g class="a blink"><circle cx="104" cy="218" r="11" fill="url(#spriteEye)"/><circle cx="132" cy="218" r="11" fill="url(#spriteEye)"/>
+    <circle cx="105" cy="219" r="5" fill="#081e1e"/><circle cx="131" cy="219" r="5" fill="#081e1e"/>
+    <circle cx="101" cy="214" r="3" fill="#fff"/><circle cx="128" cy="214" r="3" fill="#fff"/></g>
+   <path d="M112 234 Q118 239 124 234" stroke="#0d3c3c" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+   <ellipse cx="96" cy="252" rx="9" ry="6" fill="#3fa3b5"/><ellipse cx="140" cy="252" rx="9" ry="6" fill="#3fa3b5"/>
+  </g>
+  <!-- far arm holding the map -->
+  <path d="M248 262 Q292 288 306 312" stroke="url(#stripes)" stroke-width="30" stroke-linecap="round" fill="none"/>
+  <g class="a map">
+   <path d="M300 236 Q350 226 400 238 L410 344 Q358 334 306 344Z" fill="url(#parch)"/>
+   <path d="M296 234 Q290 290 302 346" stroke="#b8904c" stroke-width="10" stroke-linecap="round" fill="none"/>
+   <path d="M404 236 Q414 290 408 344" stroke="#a8803e" stroke-width="10" stroke-linecap="round" fill="none"/>
+   <path d="M322 320 Q340 290 358 300 T392 262" stroke="#8a5a2a" stroke-width="3" stroke-dasharray="7 6" fill="none"/>
+   <path d="M384 256 l10 10 m0 -10 l-10 10" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/>
+   <path d="M322 256 q12 -12 24 0 q12 12 24 0" stroke="#7a9a4a" stroke-width="3" fill="none"/>
+   <ellipse cx="308" cy="318" rx="16" ry="18" fill="url(#skinHand)"/>
+  </g>
+  <!-- legs: the near leg steps forward -->
+  <path d="M168 380 Q150 470 146 556" stroke="url(#pants)" stroke-width="54" stroke-linecap="round" fill="none"/>
+  <path d="M232 380 Q258 470 270 548" stroke="url(#pants)" stroke-width="54" stroke-linecap="round" fill="none"/>
+  <path d="M130 470 l30 -6 l4 30 l-30 6Z" fill="#c95a6a"/>
+  <path d="M250 500 l30 -4 l3 28 l-30 4Z" fill="#3f8fa8"/>
+  <path d="M120 540 Q148 556 176 540" stroke="#a88e5e" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <path d="M244 532 Q272 548 300 530" stroke="#a88e5e" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <rect x="132" y="552" width="30" height="20" fill="url(#stripes)"/><rect x="256" y="544" width="30" height="20" fill="url(#stripes)"/>
+  <!-- boots -->
+  <path d="M126 566 L168 566 L172 604 Q190 606 196 620 L110 622 Q106 600 126 566Z" fill="url(#boot)"/>
+  <path d="M250 558 L292 558 L298 598 Q320 600 326 616 L238 618 Q232 594 250 558Z" fill="url(#boot)"/>
+  <path d="M136 578 l24 6 m-24 6 l24 6 M260 570 l24 6 m-24 6 l24 6" stroke="#e8d2a8" stroke-width="2.5"/>
+  <!-- torso -->
+  <path d="M150 248 Q200 232 250 248 Q262 310 256 384 L144 384 Q138 310 150 248Z" fill="url(#stripes)"/>
+  <path d="M150 248 Q168 244 182 242 L176 384 L144 384 Q138 310 150 248Z" fill="url(#vest)"/>
+  <path d="M250 248 Q232 244 218 242 L224 384 L256 384 Q262 310 250 248Z" fill="url(#vest)"/>
+  <rect x="152" y="300" width="20" height="18" rx="4" fill="#7a4a8a" opacity=".85"/>
+  <!-- belt, pouch, canteen and compass -->
+  <rect x="140" y="370" width="120" height="22" rx="6" fill="url(#leather)"/>
+  <rect x="190" y="368" width="22" height="26" rx="4" fill="none" stroke="url(#brass)" stroke-width="5"/>
+  <rect x="236" y="380" width="30" height="34" rx="8" fill="#6a3f1e"/>
+  <path d="M146 388 Q130 396 124 412" stroke="#5a3518" stroke-width="4" fill="none"/>
+  <ellipse cx="120" cy="424" rx="15" ry="19" fill="#3f7a6a"/><ellipse cx="115" cy="418" rx="5" ry="8" fill="#7fb8a6" opacity=".6"/><rect x="114" y="400" width="12" height="8" rx="3" fill="#2a4f45"/>
+  <path d="M206 392 Q204 420 212 436" stroke="#b8862f" stroke-width="2.5" fill="none"/>
+  <circle cx="214" cy="452" r="18" fill="url(#brass)"/><circle cx="214" cy="452" r="12" fill="#2fb3a8"/><path d="M214 444 L218 456 L214 452 L210 456Z" fill="#fff4dc"/>
+  <!-- near arm, pointing at the map -->
+  <g class="a point">
+   <path d="M150 260 Q118 312 150 336 Q190 330 236 318" stroke="url(#stripes)" stroke-width="30" stroke-linecap="round" fill="none"/>
+   <rect x="128" y="318" width="22" height="14" rx="4" fill="#5a3518" transform="rotate(20 139 325)"/>
+   <ellipse cx="248" cy="316" rx="16" ry="14" fill="url(#skinHand)"/>
+   <path d="M258 312 L292 300" stroke="#f0b48e" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <!-- neck and head -->
+  <rect x="186" y="214" width="28" height="36" rx="10" fill="#e8a37e"/>
+  <g class="a head">
+   <ellipse cx="129" cy="160" rx="12" ry="16" fill="#f0ad88"/><ellipse cx="271" cy="160" rx="12" ry="16" fill="#f0ad88"/>
+   <ellipse cx="200" cy="152" rx="72" ry="78" fill="url(#skin)"/>
+   <path d="M262 110 Q284 160 256 214" stroke="url(#rim)" stroke-width="5" fill="none" stroke-linecap="round"/>
+   <!-- hair -->
+   <path d="M126 160 Q112 64 200 56 Q292 60 276 160 Q266 110 238 100 Q222 122 196 104 Q170 124 152 110 Q138 128 126 160Z" fill="url(#hair)"/>
+   <path d="M128 140 Q112 196 136 232 Q132 194 146 162Z" fill="url(#hair)"/>
+   <path d="M272 140 Q290 196 266 230 Q270 194 256 162Z" fill="url(#hair)"/>
+   <path d="M160 70 Q190 54 230 66" stroke="#f59a5e" stroke-width="5" fill="none" stroke-linecap="round" opacity=".8"/>
+   <path d="M236 64 Q270 74 280 120" stroke="#ffd27a" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+   <!-- goggles -->
+   <path d="M126 104 Q200 70 276 100" stroke="#5a3518" stroke-width="12" fill="none"/>
+   <circle cx="174" cy="92" r="24" fill="url(#lens)" stroke="url(#brass)" stroke-width="8"/>
+   <circle cx="228" cy="88" r="24" fill="url(#lens)" stroke="url(#brass)" stroke-width="8"/>
+   <path d="M164 84 q6 -8 14 -6" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none" opacity=".85"/>
+   <path d="M218 80 q6 -8 14 -6" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none" opacity=".85"/>
+   <rect x="196" y="86" width="10" height="8" rx="2" fill="url(#brass)"/>
+   <!-- brows, eyes -->
+   <path d="M152 128 Q170 118 186 126" stroke="#7a2e14" stroke-width="5" stroke-linecap="round" fill="none"/>
+   <path d="M214 124 Q232 114 250 124" stroke="#7a2e14" stroke-width="5" stroke-linecap="round" fill="none"/>
+   <g class="a blink">
+    <ellipse cx="172" cy="158" rx="17" ry="21" fill="#fffaf3"/><ellipse cx="230" cy="156" rx="17" ry="21" fill="#fffaf3"/>
+    <circle cx="176" cy="160" r="13" fill="url(#iris)"/><circle cx="234" cy="158" r="13" fill="url(#iris)"/>
+    <circle cx="177" cy="161" r="6" fill="#1a0a04"/><circle cx="235" cy="159" r="6" fill="#1a0a04"/>
+    <circle cx="171" cy="154" r="4.5" fill="#fff"/><circle cx="229" cy="152" r="4.5" fill="#fff"/>
+    <circle cx="182" cy="166" r="2" fill="#fff" opacity=".8"/><circle cx="240" cy="164" r="2" fill="#fff" opacity=".8"/>
+    <path d="M154 144 Q172 134 190 146" stroke="#3a1a0a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M212 142 Q230 132 248 144" stroke="#3a1a0a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+   </g>
+   <!-- freckles, nose, cheeks, smile -->
+   <g fill="#c8704a" opacity=".55"><circle cx="160" cy="184" r="2"/><circle cx="168" cy="190" r="2"/><circle cx="152" cy="190" r="1.8"/><circle cx="242" cy="182" r="2"/><circle cx="250" cy="188" r="2"/><circle cx="236" cy="190" r="1.8"/></g>
+   <path d="M200 172 Q206 184 198 188" stroke="#c87856" stroke-width="3" fill="none" stroke-linecap="round"/>
+   <ellipse cx="156" cy="194" rx="15" ry="9" fill="#ff8f8f" opacity=".35"/><ellipse cx="246" cy="192" rx="15" ry="9" fill="#ff8f8f" opacity=".35"/>
+   <path d="M176 200 Q204 230 230 198 Q204 208 176 200Z" fill="#7a2a24"/>
+   <path d="M180 201 Q204 208 226 199 L224 205 Q204 212 182 206Z" fill="#fff"/>
+   <path d="M192 216 Q204 222 216 214" stroke="#e86a6a" stroke-width="5" stroke-linecap="round" fill="none"/>
+  </g>
+ </g>
+</g>
+
+<!-- fireflies -->
+<g id="flies"></g>
+</svg>
+<p>morphO · Enchanted · character sample: an original explorer and her moss sprite, drawn in SVG with soft shading and idle motion.</p>
+</main>
+<script>
+  // Fireflies: a fixed scatter (seeded, so every load looks the same), each drifting and glowing on its own clock.
+  const g = document.getElementById('flies'); let s = 7;
+  const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+  for (let i = 0; i < 38; i++) {
+    const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    const x = 40 + rnd() * 1520, y = 60 + rnd() * 760, r = 2 + rnd() * 3.5;
+    c.setAttribute('cx', x.toFixed(0)); c.setAttribute('cy', y.toFixed(0)); c.setAttribute('r', r.toFixed(1));
+    c.setAttribute('fill', rnd() < .8 ? '#ffd77a' : '#c9fff4'); c.setAttribute('class', 'fly');
+    c.style.cssText = `--d:${(4 + rnd() * 5).toFixed(1)}s;--del:${(-rnd() * 6).toFixed(1)}s;--dx:${(rnd() * 24 - 12).toFixed(0)}px;--dy:${(-6 - rnd() * 16).toFixed(0)}px;filter:drop-shadow(0 0 ${(r * 2).toFixed(0)}px #ffcf6a)`;
+    g.appendChild(c);
+  }
+</script>
+</body>
+</html>

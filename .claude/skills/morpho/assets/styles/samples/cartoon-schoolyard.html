@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flat Cartoon: character sample</title>
+<!-- A character sample for the Flat Cartoon style (../cartoon.css): an original boy waving in a sunny schoolyard, drawn
+     in bold flat colours with a navy outline, in front of an orange and blue school with a clock, a flagpole and a
+     playground. Idle motion: a wave, a blink, a bounce, a flapping flag, drifting clouds. Open it directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #b9e6f6; color: #1f2a44; font: 14px/1.4 "Segoe UI", sans-serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 0 0 4px #1f2a44, 0 10px 0 4px #1f2a44; }
+  p { margin: 22px 4px 0; color: #5a6a85; }
+  .a { transform-box: fill-box; }
+  .bounce { animation: bounce 1.8s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes bounce { 50% { transform: translateY(-7px) scaleY(1.01); } }
+  .wave { animation: wave .8s ease-in-out infinite alternate; transform-origin: 8% 92%; }
+  @keyframes wave { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
+  .blink { animation: blink 3.6s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+  .flag { animation: flag 1.2s ease-in-out infinite alternate; transform-origin: 0% 50%; }
+  @keyframes flag { from { transform: skewY(-4deg) scaleX(1); } to { transform: skewY(5deg) scaleX(.92); } }
+  .cloud { animation: cloud 16s ease-in-out infinite alternate; }
+  .cloud.b { animation-duration: 22s; animation-delay: -8s; }
+  @keyframes cloud { to { transform: translateX(60px); } }
+  .tick { animation: tick 60s steps(60) infinite; transform-origin: 50% 100%; }
+  @keyframes tick { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="A cartoon boy with black hair, an orange shirt, red shorts and a blue backpack waves in a sunny schoolyard in front of an orange and blue school with a clock, a flagpole with a red flag and a playground slide">
+<rect width="1600" height="900" fill="#9fe0f4"/>
+<g fill="#fff">
+  <g class="cloud"><ellipse cx="270" cy="160" rx="150" ry="34"/><ellipse cx="230" cy="130" rx="60" ry="44"/><ellipse cx="320" cy="124" rx="70" ry="50"/></g>
+  <g class="cloud b"><ellipse cx="560" cy="100" rx="120" ry="28"/><ellipse cx="590" cy="74" rx="60" ry="40"/></g>
+  <g class="cloud"><ellipse cx="1500" cy="220" rx="120" ry="28"/><ellipse cx="1480" cy="196" rx="50" ry="36"/></g>
+</g>
+<!-- distant hedge and trees -->
+<path d="M0 640 Q100 600 200 630 Q320 590 420 630 Q560 600 700 630 L1600 630 L1600 700 L0 700Z" fill="#3fa58a"/>
+<g stroke="#1f2a44" stroke-width="5" stroke-linejoin="round">
+  <path d="M80 680 L80 470 Q60 420 90 380" stroke-width="16" fill="none" stroke="#1f2a44"/><path d="M80 680 L80 470 Q60 420 90 380" stroke-width="8" fill="none" stroke="#8a5a34"/>
+  <path d="M-20 360 Q-30 260 60 240 Q120 170 200 230 Q270 230 260 320 Q290 400 200 420 Q120 460 40 420 Q-30 420 -20 360Z" fill="#5fbf5a"/>
+  <path d="M110 300 q20 -20 40 0" fill="none" stroke-width="4"/><path d="M40 360 q20 -20 40 0" fill="none" stroke-width="4"/>
+  <path d="M370 640 L370 520" stroke-width="14" stroke="#1f2a44"/><path d="M370 640 L370 520" stroke-width="7" stroke="#8a5a34"/>
+  <path d="M300 520 Q290 450 340 430 Q370 390 410 430 Q450 440 440 510 Q430 560 370 560 Q300 560 300 520Z" fill="#7ccf5e"/>
+  <path d="M1540 680 L1540 520" stroke-width="16" stroke="#1f2a44"/><path d="M1540 680 L1540 520" stroke-width="8" stroke="#8a5a34"/>
+  <path d="M1480 520 Q1470 420 1530 380 Q1600 380 1610 460 L1610 560 Q1530 580 1480 520Z" fill="#7ccf5e"/>
+  <path d="M1360 -10 Q1400 80 1500 60 Q1560 120 1650 80 L1650 -10Z" fill="#2f9a6a"/><path d="M1450 40 q24 -10 40 10" fill="none" stroke-width="4"/>
+  <path d="M1500 40 Q1460 120 1380 160" stroke-width="18" stroke="#1f2a44" fill="none"/><path d="M1500 40 Q1460 120 1380 160" stroke-width="10" stroke="#8a5a34" fill="none"/>
+</g>
+<!-- playground -->
+<g stroke="#1f2a44" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <ellipse cx="260" cy="700" rx="170" ry="34" fill="#f2c98a"/>
+  <path d="M180 690 L200 560 M240 690 L220 560 M200 560 L220 560" fill="none" stroke="#e8553a" stroke-width="7"/>
+  <path d="M184 640 L236 640 M190 610 L230 610 M194 585 L226 585" fill="none" stroke-width="5"/>
+  <path d="M190 560 L210 520 L230 560Z" fill="#f2b93b"/>
+  <path d="M232 580 Q300 600 340 690 L320 694 Q290 616 228 600Z" fill="#e8553a"/>
+</g>
+<!-- the school -->
+<g stroke="#1f2a44" stroke-width="5" stroke-linejoin="round">
+  <rect x="890" y="300" width="290" height="380" fill="#f7c989"/>
+  <rect x="1170" y="300" width="290" height="380" fill="#f7c989"/>
+  <path d="M870 340 L880 300 L1150 300 L1150 340Z" fill="#2f80ed"/><path d="M1190 340 L1190 300 L1460 300 L1470 340Z" fill="#2f80ed"/>
+  <rect x="1060" y="200" width="200" height="480" fill="#f7d39c"/>
+  <path d="M1040 220 L1160 120 L1280 220Z" fill="#2f80ed"/>
+  <circle cx="1160" cy="248" r="44" fill="#fff"/><circle cx="1160" cy="248" r="34" fill="#fff" stroke-width="3"/>
+  <path d="M1160 248 L1160 222" stroke-width="5" stroke-linecap="round"/><path class="a tick" d="M1160 248 L1180 248" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="1160" cy="248" r="44" fill="none" stroke="#e8553a" stroke-width="8"/>
+  <g fill="#5fd0e6"><rect x="920" y="380" width="120" height="90"/><rect x="920" y="520" width="120" height="90"/><rect x="1090" y="320" width="140" height="90"/><rect x="1290" y="380" width="120" height="90"/><rect x="1290" y="520" width="120" height="90"/></g>
+  <g stroke="#fff" stroke-width="5"><path d="M980 380 V470 M980 520 V610 M1160 320 V410 M1350 380 V470 M1350 520 V610"/></g>
+  <g fill="none" stroke="#ffffff" stroke-width="6" opacity=".7"><path d="M935 455 L965 395 M935 595 L965 535 M1305 455 L1335 395"/></g>
+  <rect x="900" y="476" width="150" height="14" fill="#f2b93b"/><rect x="1280" y="476" width="150" height="14" fill="#f2b93b"/>
+  <rect x="880" y="490" width="580" height="24" fill="#e8553a"/>
+  <path d="M1080 514 L1240 514 L1240 680 L1080 680Z" fill="#e8553a"/>
+  <rect x="1110" y="560" width="100" height="120" fill="#2fa5b0"/><path d="M1160 560 V680" stroke-width="4"/>
+  <circle cx="1150" cy="620" r="4" fill="#f2b93b"/><circle cx="1170" cy="620" r="4" fill="#f2b93b"/>
+  <path d="M1070 680 L1250 680 L1260 700 L1060 700Z" fill="#d9d4c8"/>
+</g>
+<!-- flagpole -->
+<g stroke="#1f2a44" stroke-width="5" stroke-linejoin="round">
+  <rect x="916" y="210" width="12" height="560" fill="#b8c4d8"/><circle cx="922" cy="206" r="12" fill="#b8c4d8"/>
+  <path class="a flag" d="M928 232 L1010 240 L992 270 L1012 302 L928 296Z" fill="#ff6a3d"/>
+  <ellipse cx="922" cy="772" rx="40" ry="10" fill="#b8c4d8"/>
+</g>
+<!-- grass and walkway -->
+<g stroke="#1f2a44" stroke-width="5" stroke-linejoin="round">
+  <path d="M0 700 L1600 700 L1600 900 L0 900Z" fill="#7fd05e"/>
+  <path d="M1100 700 L1240 700 L1600 860 L1600 900 L380 900 Q700 820 1100 700Z" fill="#f4e4c4"/>
+  <path d="M0 870 L700 800" stroke="#e2cfa6" stroke-width="4" fill="none"/>
+  <path d="M1200 760 L1520 760 L1600 790" fill="none" stroke="#e2cfa6" stroke-width="4"/>
+</g>
+<g stroke="#2f8a3a" stroke-width="4" stroke-linecap="round" fill="none"><path d="M120 760 l6 -16 l6 16"/><path d="M300 800 l6 -16 l6 16"/><path d="M820 740 l6 -16 l6 16"/><path d="M1300 840 l6 -16 l6 16"/><path d="M1500 740 l6 -16 l6 16"/></g>
+<!-- foreground plants -->
+<g stroke="#1f2a44" stroke-width="5" stroke-linejoin="round">
+  <path d="M0 900 L0 760 Q60 760 90 820 Q120 760 170 780 Q150 840 180 900Z" fill="#ff9a3c"/>
+  <path d="M40 900 Q60 820 130 800 Q110 860 140 900Z" fill="#f2b93b"/>
+  <path d="M150 860 L150 790" stroke="#2f8a3a"/><path d="M150 780 l-14 -30 l14 8 l14 -8Z" fill="#ff6a3d"/>
+  <g transform="translate(270 840)"><circle r="10" fill="#f2b93b"/><circle cx="0" cy="-20" r="12" fill="#5fb8f0"/><circle cx="19" cy="-6" r="12" fill="#5fb8f0"/><circle cx="12" cy="16" r="12" fill="#5fb8f0"/><circle cx="-12" cy="16" r="12" fill="#5fb8f0"/><circle cx="-19" cy="-6" r="12" fill="#5fb8f0"/><circle r="9" fill="#f2b93b"/></g>
+  <path d="M1600 900 L1460 900 Q1450 800 1520 760 Q1560 740 1600 760Z" fill="#1f8a6a"/>
+  <path d="M1380 900 Q1400 820 1480 820 Q1470 870 1500 900Z" fill="#2fa57a"/>
+  <path d="M1460 800 L1460 740" stroke="#2f8a3a"/><path d="M1460 730 l-16 -26 l16 6 l16 -6Z" fill="#ff8a3d"/>
+  <g transform="translate(1440 880)"><circle cx="0" cy="-18" r="12" fill="#f2b93b"/><circle cx="17" cy="-6" r="12" fill="#f2b93b"/><circle cx="11" cy="14" r="12" fill="#f2b93b"/><circle cx="-11" cy="14" r="12" fill="#f2b93b"/><circle cx="-17" cy="-6" r="12" fill="#f2b93b"/><circle r="8" fill="#ff6a3d"/></g>
+</g>
+
+<!-- the boy -->
+<ellipse cx="620" cy="868" rx="150" ry="26" fill="#1f2a44" opacity=".18"/>
+<g class="a bounce" stroke="#1f2a44" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+  <!-- backpack -->
+  <path d="M470 590 Q470 520 540 520 L560 524 L566 770 L500 770 Q466 770 466 730Z" fill="#2f6fb8"/>
+  <path d="M478 640 L540 640 L542 720 L482 720Z" fill="#2f80ed"/>
+  <!-- legs, socks, shoes -->
+  <rect x="566" y="760" width="34" height="80" fill="#f2c49a"/><rect x="630" y="760" width="34" height="80" fill="#f2c49a"/>
+  <rect x="564" y="806" width="38" height="30" fill="#fff"/><rect x="628" y="806" width="38" height="30" fill="#fff"/>
+  <path d="M556 836 L604 836 L606 862 L536 864 Q534 840 556 836Z" fill="#253a6a"/><path d="M626 836 L674 836 Q696 840 694 864 L624 862Z" fill="#253a6a"/>
+  <!-- shorts -->
+  <path d="M556 690 L676 690 L686 776 L622 776 L616 730 L610 776 L546 776Z" fill="#ff6a3d"/>
+  <!-- shirt: orange vest over white -->
+  <path d="M552 560 Q616 540 680 560 L690 700 L542 700Z" fill="#ffa63d"/>
+  <path d="M586 552 Q616 590 646 552" fill="#fff"/>
+  <path d="M552 560 L520 620 L556 636Z" fill="#fff"/><path d="M680 560 L716 610 L690 632Z" fill="#fff"/>
+  <!-- near arm on the strap -->
+  <path d="M556 574 Q520 630 556 670" fill="none" stroke-width="38"/><path d="M556 574 Q520 630 556 670" fill="none" stroke-width="26" stroke="#f2c49a"/>
+  <path d="M560 560 Q544 620 564 700" fill="none" stroke-width="22"/><path d="M560 560 Q544 620 564 700" fill="none" stroke-width="12" stroke="#2f6fb8"/>
+  <path d="M548 656 Q556 638 580 644 Q594 656 586 676 Q570 690 552 680Z" fill="#f2c49a"/>
+  <!-- waving arm -->
+  <g class="a wave">
+   <path d="M690 590 Q740 560 770 490" fill="none" stroke-width="38"/><path d="M690 590 Q740 560 770 490" fill="none" stroke-width="26" stroke="#f2c49a"/>
+   <path d="M760 500 Q740 470 752 440 L764 440 L768 470 L772 424 L786 424 L784 468 L796 430 L810 434 L800 474 L816 450 L828 458 L810 498 Q796 526 760 500Z" fill="#f2c49a"/>
+  </g>
+  <!-- head -->
+  <ellipse cx="536" cy="470" rx="22" ry="28" fill="#f2c49a"/><ellipse cx="704" cy="466" rx="22" ry="28" fill="#f2c49a"/>
+  <path d="M532 466 q10 -6 12 10" fill="none" stroke-width="4"/>
+  <ellipse cx="620" cy="460" rx="88" ry="96" fill="#f2c49a"/>
+  <path d="M534 450 Q520 340 610 330 Q600 304 630 300 Q624 320 650 316 Q716 330 712 420 Q706 396 686 386 Q690 404 670 396 Q640 380 620 392 Q610 374 590 384 Q570 380 560 404 Q546 420 534 450Z" fill="#1f1a2e"/>
+  <path d="M600 340 Q630 326 660 336" fill="none" stroke="#3a3450" stroke-width="5"/>
+  <g class="a blink"><ellipse cx="588" cy="462" rx="10" ry="14" fill="#1f2a44" stroke="none"/><ellipse cx="656" cy="460" rx="10" ry="14" fill="#1f2a44" stroke="none"/>
+    <circle cx="585" cy="456" r="3.6" fill="#fff" stroke="none"/><circle cx="653" cy="454" r="3.6" fill="#fff" stroke="none"/></g>
+  <path d="M574 436 Q588 428 602 436 M644 434 Q658 426 672 434" fill="none" stroke-width="5"/>
+  <path d="M622 474 Q632 486 620 490" fill="none" stroke-width="4"/>
+  <ellipse cx="566" cy="500" rx="18" ry="11" fill="#ff8f8f" stroke="none" opacity=".7"/><ellipse cx="682" cy="498" rx="18" ry="11" fill="#ff8f8f" stroke="none" opacity=".7"/>
+  <path d="M590 504 Q620 548 652 502 Q620 512 590 504Z" fill="#c43a3a"/><path d="M606 524 Q620 514 636 524 Q622 540 606 524Z" fill="#ff8a8a" stroke="none"/>
+</g>
+</svg>
+<p>morphO · Flat Cartoon · character sample: an original boy waving in a sunny schoolyard, in bold flat colour with a navy outline.</p>
+</main>
+</body>
+</html>

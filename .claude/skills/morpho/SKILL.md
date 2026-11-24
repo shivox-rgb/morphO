@@ -32,7 +32,7 @@ Every tier shares the core:
 
 | File | What it holds |
 |---|---|
-| [core/style.md](references/core/style.md) | how to ask the user, the models step, the paid steps (keys, prices, ledger, balance), `style.json` |
+| [core/style.md](references/core/style.md) | how to ask the user, the models step, the paid steps (keys, prices, ledger, balance), the style presets (a shelf of looks with a character style each), `style.json` |
 | [core/publish.md](references/core/publish.md) | `new_book.py`, language, minutes, preview and delivery, video export |
 | [core/sound.md](references/core/sound.md) | the narration file, voices, levels, effects, music, captions |
 | [core/review.md](references/core/review.md) | seeing your own work in motion, frames, smoothness, director rounds |
@@ -77,7 +77,7 @@ All in `SKILL/scripts/`; each prints its usage with `--help` when run with the `
 
 | For | Scripts |
 |---|---|
-| Every book | `new_book.py` start a book folder · `serve.py` preview without caching · `engine.py` sync the engine into books · `tts.py` narration and word times · `eleven.py` the same from ElevenLabs (paid) · `level.py` even loudness · `lint.py` static checks · `check.py` page errors, console warnings and beat lengths in Chromium and Firefox · `shot.py` beat screenshots · `strip.py` storyboard sheets and motion strips · `still.py` stretches where nothing moves · `playlog.py` sounds and captions against the picture · `perf.py` Firefox frame times · `export.py` MP4 and `.srt` · `sfx.py` synthesized effects |
+| Every book | `new_book.py` start a book folder · `style.py` list the style presets and apply one to a book · `serve.py` preview without caching · `engine.py` sync the engine into books · `tts.py` narration and word times · `eleven.py` the same from ElevenLabs (paid) · `level.py` even loudness · `lint.py` static checks · `check.py` page errors, console warnings and beat lengths in Chromium and Firefox · `shot.py` beat screenshots · `strip.py` storyboard sheets and motion strips · `still.py` stretches where nothing moves · `playlog.py` sounds and captions against the picture · `perf.py` Firefox frame times · `export.py` MP4 and `.srt` · `sfx.py` synthesized effects |
 | Lessons | `outline.py` and `split_pages.py` page map and chapter text · `check_blank.py` empty openings · `overlap.py` arrows through text · `sprites.py` image processing steps · `refs.py` verified citations · `items.py` question bank · `scorm.py` LMS package |
 | Picture books | `mouths.py` mouth shapes · `join.py` one clip per scene · `bake_sets.py` set layers · `bake_puppets.py` puppet bitmaps · `paint.py` / `paint_openai.py` image-model pictures · `painted.py` place them in the book · `lift.py` figures, sets and lettering cut from a scanned book's own pictures · `cutout.py` image-model pictures on a key colour cut into puppet pieces and props |
 | Pages you explore | `topo.py` the map's TopoJSON from Natural Earth · `explore.py` checks, shots, Firefox timing and the narration file for an explorable map |

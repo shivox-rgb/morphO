@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glass Night: character sample</title>
+<!-- A character sample for the Glass Night style (../glass-night.css): an original kid drawn in glowing neon lines,
+     waving on a neon grid floor under a deep indigo sky, with frosted glass tiles outlined in light. Idle motion: a
+     wave, a blink, a flicker, twinkling stars, a moving grid. Open it directly in a browser. -->
+<style>
+  html, body { margin: 0; height: 100%; background: #10154a; color: #f5f6ff; font: 14px/1.4 "Avenir Next", "Segoe UI", sans-serif; display: grid; place-items: center; }
+  main { width: min(96vw, 160vh); }
+  svg { display: block; width: 100%; height: auto; border-radius: 32px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .22), 0 40px 100px rgba(5, 8, 40, .5); }
+  p { margin: 12px 4px 0; color: #aab2e6; }
+  .a { transform-box: fill-box; }
+  .float { animation: float 5s ease-in-out infinite; } .float.b { animation-duration: 6.5s; animation-delay: -2s; } .float.c { animation-duration: 7s; animation-delay: -3.5s; }
+  @keyframes float { 50% { transform: translateY(-14px); } }
+  .bob { animation: bob 3s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes bob { 50% { transform: translateY(-8px); } }
+  .wave { animation: wave 1s ease-in-out infinite alternate; transform-origin: 6% 94%; }
+  @keyframes wave { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
+  .blink { animation: blink 4s infinite; transform-origin: 50% 50%; }
+  @keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+  .flicker { animation: flicker 6s infinite; }
+  @keyframes flicker { 0%, 40%, 44%, 100% { opacity: 1; } 42% { opacity: .55; } 43% { opacity: .9; } }
+  .twinkle { animation: twinkle 3s ease-in-out infinite; } .twinkle:nth-child(2n) { animation-delay: -1.5s; } .twinkle:nth-child(3n) { animation-duration: 4s; }
+  @keyframes twinkle { 50% { opacity: .2; } }
+  .grid { animation: grid 2.4s linear infinite; }
+  @keyframes grid { to { transform: translateY(60px); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<svg viewBox="0 0 1600 900" role="img" aria-label="A kid drawn in glowing neon lines waves on a glowing grid floor under a deep indigo sky with stars, beside frosted glass tiles outlined in neon">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0f38"/><stop offset=".6" stop-color="#1b2468"/><stop offset="1" stop-color="#2c2a7a"/></linearGradient>
+  <radialGradient id="pink"><stop offset="0" stop-color="#ff8cc8" stop-opacity=".55"/><stop offset="1" stop-color="#ff8cc8" stop-opacity="0"/></radialGradient>
+  <radialGradient id="violet"><stop offset="0" stop-color="#9a6bff" stop-opacity=".6"/><stop offset="1" stop-color="#9a6bff" stop-opacity="0"/></radialGradient>
+  <radialGradient id="blue"><stop offset="0" stop-color="#5b72ff" stop-opacity=".55"/><stop offset="1" stop-color="#5b72ff" stop-opacity="0"/></radialGradient>
+  <linearGradient id="floorFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2468" stop-opacity="1"/><stop offset=".35" stop-color="#1b2468" stop-opacity="0"/></linearGradient>
+  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b1"/><feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b2"/>
+    <feMerge><feMergeNode in="b1"/><feMergeNode in="b1"/><feMergeNode in="b2"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <linearGradient id="glassN" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset="1" stop-color="#8fb0ff" stop-opacity=".05"/></linearGradient>
+  <clipPath id="floor"><rect x="0" y="600" width="1600" height="300"/></clipPath>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<circle cx="1360" cy="160" r="360" fill="url(#violet)"/><circle cx="220" cy="760" r="360" fill="url(#pink)"/><circle cx="900" cy="620" r="420" fill="url(#blue)"/>
+<!-- stars -->
+<g fill="#fff"><circle class="twinkle" cx="140" cy="90" r="2.5"/><circle class="twinkle" cx="320" cy="180" r="1.8"/><circle class="twinkle" cx="520" cy="70" r="2.2"/><circle class="twinkle" cx="760" cy="140" r="1.6"/><circle class="twinkle" cx="900" cy="60" r="2.4"/><circle class="twinkle" cx="1120" cy="110" r="1.8"/><circle class="twinkle" cx="1500" cy="80" r="2.2"/><circle class="twinkle" cx="1420" cy="300" r="1.6"/><circle class="twinkle" cx="60" cy="300" r="2"/><circle class="twinkle" cx="700" cy="260" r="1.4"/><circle class="twinkle" cx="1250" cy="40" r="1.6"/></g>
+<!-- neon moon -->
+<g filter="url(#glow)" class="flicker"><circle cx="860" cy="170" r="70" fill="none" stroke="#ffd1f0" stroke-width="4"/><path d="M826 150 q24 -24 52 -6" stroke="#ffd1f0" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+<!-- horizon and grid floor -->
+<rect x="0" y="600" width="1600" height="300" fill="#141a55"/>
+<g clip-path="url(#floor)" filter="url(#glow)" stroke="#b07aff" stroke-width="2.4" opacity=".75">
+  <g class="grid"><path d="M0 600 H1600 M0 630 H1600 M0 670 H1600 M0 720 H1600 M0 780 H1600 M0 850 H1600 M0 540 H1600 M0 570 H1600" fill="none"/></g>
+  <path d="M800 600 L-800 900 M800 600 L-300 900 M800 600 L100 900 M800 600 L420 900 M800 600 L680 900 M800 600 L920 900 M800 600 L1180 900 M800 600 L1500 900 M800 600 L1900 900 M800 600 L2400 900" fill="none"/>
+</g>
+<rect x="0" y="600" width="1600" height="300" fill="url(#floorFade)"/>
+<path d="M0 600 H1600" stroke="#ff8cc8" stroke-width="3" filter="url(#glow)"/>
+
+<!-- glass tiles outlined in light -->
+<g filter="url(#glow)" fill="url(#glassN)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+  <g class="a float"><g transform="rotate(-10 1060 330)"><rect x="970" y="240" width="180" height="180" rx="44" stroke="#8fb0ff"/>
+    <path d="M1020 370 v-30 M1054 370 v-60 M1088 370 v-90" stroke="#e08cff" stroke-width="16" fill="none"/></g></g>
+  <g class="a float b"><g transform="rotate(12 1290 300)"><rect x="1200" y="210" width="170" height="170" rx="42" stroke="#e08cff"/>
+    <path d="M1300 240 L1252 308 L1286 308 L1272 356 L1332 284 L1296 284Z" stroke="#8fb0ff" fill="none"/></g></g>
+  <g class="a float c"><g transform="rotate(-4 1170 500)"><rect x="1060" y="440" width="230" height="140" rx="40" stroke="#6fe3b0"/>
+    <rect x="1104" y="474" width="140" height="72" rx="12" stroke="#ffffff" fill="none"/><path d="M1104 494 H1244" stroke="#ffffff" fill="none"/></g></g>
+</g>
+
+<!-- the kid in neon lines -->
+<ellipse cx="560" cy="806" rx="150" ry="18" fill="#e08cff" opacity=".18" filter="url(#glow)"/>
+<g class="a bob flicker" filter="url(#glow)" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+  <!-- legs -->
+  <path d="M528 640 L522 776 M592 640 L598 776" stroke="#6fe3b0"/>
+  <path d="M492 784 Q500 768 530 772 L534 788Z M592 788 L596 772 Q626 768 632 784Z" stroke="#6fe3b0"/>
+  <!-- body -->
+  <rect x="470" y="430" width="180" height="214" rx="64" stroke="#8fb0ff"/>
+  <path d="M520 470 Q560 456 600 470" stroke="#8fb0ff" stroke-width="4" opacity=".7"/>
+  <!-- near arm -->
+  <path d="M474 474 Q430 540 452 612" stroke="#8fb0ff"/><circle cx="454" cy="626" r="16" stroke="#ffd1f0"/>
+  <!-- waving arm -->
+  <g class="a wave"><path d="M646 474 Q700 420 724 340" stroke="#8fb0ff"/>
+    <path d="M714 344 Q700 318 708 290 L716 290 L720 316 L724 278 L736 278 L734 316 L744 284 L756 288 L748 320 L762 300 L772 306 L756 342 Q744 366 714 344Z" stroke="#ffd1f0" stroke-width="5"/></g>
+  <!-- head and hair -->
+  <circle cx="560" cy="320" r="112" stroke="#e08cff"/>
+  <path d="M452 300 Q456 200 560 196 Q668 200 668 300 Q640 240 560 246 Q484 242 452 300" stroke="#e08cff" stroke-width="6"/>
+  <path d="M516 222 Q540 210 566 214" stroke="#ffd1f0" stroke-width="4"/>
+  <g class="a blink"><circle cx="520" cy="330" r="9" fill="#ffffff" stroke="none"/><circle cx="600" cy="330" r="9" fill="#ffffff" stroke="none"/></g>
+  <path d="M528 372 Q560 398 592 372" stroke="#ffffff" stroke-width="6"/>
+  <path d="M480 372 l14 -2 M626 370 l14 2" stroke="#ff8cc8" stroke-width="5"/>
+</g>
+</svg>
+<p>morphO · Glass Night · character sample: an original kid in glowing neon lines on a neon grid under a night sky.</p>
+</main>
+</body>
+</html>

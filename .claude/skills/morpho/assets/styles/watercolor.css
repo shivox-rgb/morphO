@@ -1,0 +1,58 @@
+/* morphO style: Watercolor Storybook (light). A classic picture book: warm cold-press paper, soft washes of meadow
+   green, sky blue and morning gold, sepia ink, ochre and wash-blue accents, an italic book serif. Gentle and timeless:
+   suits picture books and fairy tales, history and nature told as a story, and readers of every age.
+
+   Apply it with style.py apply site/<book> <id>, which puts it at the top of the book's lib/book.css; the
+   book's own settings go below it (references/core/style.md, Style presets). The palette is
+   the engine's, redefined (engine.css explains each name; #rrggbb, since COL in engine.js reads them); the --wash
+   names are this style's own. The rules after it restyle the frame, cards, buttons, bar and captions; they come
+   before the engine's rules, so each starts with ':root' to win. */
+:root {
+  --page: #ece2cc; --board: #faf4e6; --panel: #fffaf0; --edge: #ddd0b4;
+  --chalk: #3e3226; --dim: #7d6f5c; --faint: #d4c6a8;
+  --task: #d9822b; --quiz: #4f86b5; --good: #6f9a4a; --bad: #c4553a;
+  --on-fill: #ffffff; --vignette: rgba(150, 110, 50, .14); color-scheme: light;
+  --rule: #ece2cc; --track: #e8dcc2; --track-ask: #d5e1ec;
+  --bar-edge: #e2d6bb; --hover: #f2ead8; --veil: #ece2cc;
+  --ui: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --story: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+
+  --wash-sky: rgba(140, 185, 220, .32);        /* soft washes behind the stage */
+  --wash-sun: rgba(255, 215, 130, .40);
+  --wash-meadow: rgba(140, 180, 90, .30);
+  --soft-shadow: 0 2px 4px rgba(110, 80, 40, .10), 0 14px 34px rgba(110, 80, 40, .14);
+}
+
+:root #frame { border-radius: 10px; box-shadow: 0 0 0 1px var(--edge), 0 24px 60px rgba(110, 80, 40, .22); }
+:root #stage { background:
+  radial-gradient(50% 40% at 70% 0%, var(--wash-sky), transparent 75%),
+  radial-gradient(35% 40% at 18% 12%, var(--wash-sun), transparent 75%),
+  radial-gradient(70% 35% at 40% 105%, var(--wash-meadow), transparent 75%),
+  radial-gradient(80% 80% at 50% 50%, transparent 55%, var(--vignette)), var(--grain, none), var(--board);
+  box-shadow: inset 0 0 0 14px rgba(250, 244, 230, .65), inset 0 0 40px 18px rgba(236, 226, 204, .9); }
+
+:root .cover { background: color-mix(in srgb, var(--page) 25%, transparent); }
+:root .cover-k { color: var(--task); letter-spacing: .2em; }
+:root .cover-t { font: italic 500 76px/1.1 var(--story); color: var(--chalk); }
+:root .cover .go { background: var(--quiz); color: #fff; box-shadow: var(--soft-shadow); }
+:root .paused-mark div { background: var(--panel); color: var(--chalk); box-shadow: var(--soft-shadow); }
+
+:root .card { border-radius: 16px; background: color-mix(in srgb, var(--panel) 96%, transparent); border: 1px solid var(--edge);
+  border-inline-start: 1px solid var(--edge); box-shadow: var(--soft-shadow); }
+:root .kicker { color: var(--task); font-family: var(--story); font-style: italic; font-size: 22px; }
+:root .prompt { font-family: var(--story); }
+:root .opt { border: 1.5px solid var(--faint); background: var(--panel); color: var(--chalk); }
+:root .opt:hover:not(:disabled) { border-color: var(--task); }
+:root .opt[aria-pressed="true"] { background: var(--task); border-color: var(--task); color: #fff; }
+:root .btn { background: var(--chalk); color: var(--panel); }
+:root .btn.go { background: var(--quiz); color: #fff; }
+:root .btn.quiet { background: transparent; color: var(--dim); border: 1.5px solid var(--faint); }
+:root .btn:disabled { background: var(--edge); color: var(--dim); }
+
+:root #bar { background: #f3ead6; border-top: 1px solid var(--bar-edge); }
+:root .icon { background: var(--panel); border: 1px solid var(--edge); }
+:root .seg i { background: var(--task); }
+:root .seg.ask i { background: var(--quiz); }
+
+:root .help-box { border-radius: 16px; background: var(--panel); box-shadow: var(--soft-shadow); }
+:root .caption { background: color-mix(in srgb, var(--panel) 92%, transparent); color: var(--chalk); font-family: var(--story); border-radius: 12px; box-shadow: var(--soft-shadow); }
