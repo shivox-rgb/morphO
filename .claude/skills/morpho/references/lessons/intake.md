@@ -24,6 +24,8 @@ Offer the animation tiers as reference points, linking the books that show each 
 
 Recommend one from the chapter's content: abstract and procedural ideas fit tier 1 ([diagrams.md](diagrams.md)), physical and narrative ones tier 2 ([scenes.md](scenes.md)). Any tier may mix per beat.
 
+Characters keep young readers watching, so a tier-2 or custom book settles its recurring cast at the start (round 1 below) and keeps it for every chapter. A chapter that is mostly questions (a review, a model exam) still uses it: a host opens each section, a character reacts to right and wrong answers, and the cast is on the score card. Diagrams and cards carry the content; the cast carries the attention. When no one is there to choose the cast, choose it yourself ([core/style.md](../core/style.md#asking)).
+
 Then start the book folder (`new_book.py lesson <book>`, [core/publish.md](../core/publish.md#start-a-book-folder)): the look is settled on real frames, so the engine, the chapter page and the voice must be in place first.
 
 ## 4. The look, by tier
