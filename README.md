@@ -76,7 +76,7 @@ Then type `/morpho`. It finds the PDF in your project (or asks for your story), 
 
 You need [uv](https://docs.astral.sh/uv/), ffmpeg and Playwright's browsers (`uv run --with playwright playwright install chromium firefox`). Narration is free (Edge TTS online, or Kokoro on your own machine). A few extras are optional and paid, each with its own API key: acted voices from ElevenLabs, and pictures painted by an image model through OpenRouter or OpenAI.
 
-To use the player engine from this repository rather than the default release: `python3 .claude/skills/morpho/scripts/engine.py site --from shivox-rgb/morphO@main`.
+Books take the player engine from this repository's latest release (`engine-v2.13`); `python3 .claude/skills/morpho/scripts/engine.py site` updates a book's copy, and `--from shivox-rgb/morphO@main` takes the newest, unreleased one.
 
 ## Styles from the command line
 
