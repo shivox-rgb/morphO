@@ -9,6 +9,7 @@ Left to guess what the user wants, an agent's guesses diverge from run to run. S
 - After each round, say the answers back as decisions in a line or two, then move on.
 - Keep what the user says about the look **verbatim** in `words`: later chapters need their taste, not a summary of it. When they only pick options, record the chosen options' wording.
 - Keep it light: the user tries one chapter (or episode) first and decides about the rest after seeing it.
+- When no one can answer (the whole request came in one message, or the run has no person in the loop), settle every point yourself, taking the recommended option, write it into `style.json` and say the choices in your reply; never skip a point because nobody was there to choose. The cast is the point most often lost this way: a lesson book with any scenes, a review or a model exam still gets a recurring cast of two or three characters, recorded in `scenes.cast` (name, look, role) and used in every chapter ([lessons/intake.md](../lessons/intake.md#3-tier)).
 
 ## Models
 
