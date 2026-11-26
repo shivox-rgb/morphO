@@ -1337,7 +1337,16 @@ function findWords(things, asks, done, { end = 'q-done', there = 'q-there', hint
 // Rows of toggles. items: { parts, ans: [keys], why }. parts are math parts (strings, F, R) unless text: true,
 // where they are rich text (strings and $m(...)). cols: [[key, label, colour?, shortcut?]]. multi: several per row.
 const grid = (items, cols, { multi = true, text = false } = {}) => (body, api) => {
+  // Long choices (a word bank) beside a sentence squeeze it to one word a line, so they go on their own line under it.
+  // Decided on the laid-out card: stack when the sentence column gets under 40% of the row. Before layout (a card
+  // built hidden), guess from the labels' length.
   const wrap = h('div', 'grid' + (text ? ' text' : ''));
+  if (text) requestAnimationFrame(() => {
+    const row = wrap.querySelector('.row'), num = row && row.querySelector('.num');
+    const W = row ? row.getBoundingClientRect().width : 0;
+    const squeezed = W > 0 ? num.getBoundingClientRect().width < .4 * W : cols.reduce((n, c) => n + String(c[1]).length + 4, 0) > 34;
+    wrap.classList.toggle('stack', squeezed);
+  });
   const hot = cols.map((c, j) => c[3] || String(j + 1));
   let cur = 0, locked = false;
   const rows = items.map((it, ri) => {
